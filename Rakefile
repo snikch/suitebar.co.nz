@@ -2,9 +2,7 @@ desc "Generate the story views"
 
 task :build do
   require './src/engine/template.rb'
-  { about: :index }.each do |file, page|
-    renderer.output file, page
-  end
+  renderer.build
 end
 
 def renderer
