@@ -1,9 +1,12 @@
 require 'haml'
 class Template
   def build
+    puts "Beginning build"
     pages.each do |page|
+      puts "- Rendering #{page.at 0}"
       output page.at(1), page.at(2)
     end
+    puts "Finished"
   end
 
   def output(file, page)
@@ -24,6 +27,13 @@ class Template
 
   def visuals
     import_section :visuals
+  end
+
+  def script
+    begin
+      import_section :script
+    rescue
+    end
   end
 
   def header

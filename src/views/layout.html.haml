@@ -46,11 +46,7 @@
     %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js" }
     :javascript
       window.jQuery || document.write("<script src='js/jquery.min.js'>\x3C/script>")
-    :javascript
-        var suite_setup = suite_setup || {};
-        suite_setup.blocks = {
-            init: false,
-        }
+    = script 
 
     %script{ :src => "js/plugins.js?v=1" }
     %script{ :src => "js/jquery.simplemodal.js?v=1" }
