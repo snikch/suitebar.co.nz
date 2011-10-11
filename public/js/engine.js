@@ -15,8 +15,8 @@ function engine(setup){
 	this.init = function(){
 		var m = $('#main'), v = $('<section class="visuals" />'), t = $('<section class="stories" />');
 		console.log(setup);
-		
-		s.visuals = $('.visual .frame');
+
+		s.visuals = $('.visual');
 		s.stories = $('.stories .story');
 		this.resize();
 		$(window).scroll(this.scroll_handler)
@@ -47,7 +47,7 @@ function engine(setup){
 		s.story_positions = [0];
 		s.story_heights = [];
 
-		s.visuals.css(visuals_css).find('img').css(visuals_css).end().each(function(i){
+		s.visuals.css(visuals_css).find('img, iframe').css(visuals_css).end().each(function(i){
 			var story_h = s.stories.eq(i).height()
 			var this_h =  s.cur_h + story_h +  s.margin+ s.cur_gap;
 			$(this).css({height: this_h })
@@ -104,7 +104,8 @@ function engine(setup){
 				s.body.addClass('snapped');
 				s.snapped = true;
 			}
-			if(pos == 2){
+			console.log(setup)
+			if(setup.page == 'abou' && pos == 2){
 				if(scroll_y - s.story_positions[pos-1] < s.story_heights[pos-1] / 3){
 					s.visuals.eq(pos-1).find('img').attr('src',"img/b/bar_3_1.jpg");
 				}else if(scroll_y - s.story_positions[pos-1] < (s.story_heights[pos-1]/3)*2){

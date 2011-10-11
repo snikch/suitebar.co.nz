@@ -1,24 +1,19 @@
 .visuals{
 	.visual{
 		position:relative;
-		img{
+		img, iframe{
 			width:100%;
 			height:100%;
 			position:absolute;
 			bottom:40px;
 		}
-		.frame{
-			height:100%;
-			position: relative;
-		}
 	}
-
 }
-body.snapped .visual .current img{
+body.snapped .current img, body.snapped .current iframe{
 	position:fixed;
 	top: 0;
 }
-body .visual .next img{
+body .next img, body .next iframe{
 	top: 0;
 	bottom: auto;
 }
