@@ -118,7 +118,7 @@ header {
           -ms-transition: 0.1s ease-out all;
           -o-transition: 0.1s ease-out all;
           transition: 0.1s ease-out all;
-          padding: 10px 20px 0;
+          padding: 10px 14px 0;
           background-color: transparent; }
           header nav ul li a:hover, header nav ul li a:visited:hover, header nav ul li a:active:hover, header nav ul li a:link:hover {
             padding-bottom: 60px;
@@ -149,6 +149,10 @@ body .next img, body .next iframe {
   right: 0; }
   .stories .story {
     background-color: #fefefe;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    padding: 13px;
     margin: 20px 12px 0 0;
     position: relative;
     font-size: 1.2em; }

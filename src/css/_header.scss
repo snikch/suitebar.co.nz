@@ -13,7 +13,6 @@ header{
 		margin:0;
 		z-index: 79;
 		color: #fff;
-		
 	}
 	nav{
 		background-color:RGBA(0,0,0,0.7);
@@ -36,7 +35,7 @@ header{
 					color:#fff;
 					text-decoration:none;
 					@include transition(0.1s ease-out all);
-					padding:10px 20px 0;
+					padding:10px 14px 0;
 					background-color:transparent;
 					&:hover{
 						padding-bottom:60px;

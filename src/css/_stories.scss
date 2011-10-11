@@ -5,6 +5,8 @@
 	right:0;
 	.story{
 		background-color:#fefefe;
+		@include border-radius(12px);
+		padding:13px;
 		margin:20px 12px 0 0;
 		position:relative;
 		font-size:1.2em;
