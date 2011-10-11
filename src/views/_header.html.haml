@@ -3,4 +3,4 @@
   %nav
     %ul
       - pages.each do |page|
-        %li= link_to page.at(0), "/#{page.at(2)}.html"
+        %li= link_to page.at(0), page.at(2) == :index ? "/" : "/#{page.at(2)}"

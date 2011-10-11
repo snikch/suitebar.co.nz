@@ -14,6 +14,8 @@
     %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }/
 
     %title
+      = "#{@page_info.at 0} | " unless @page_info.at(2) == :index
+      Suite Bar, Hobson St, Auckland
     %meta{ :name => "description", :content => "" }/
     %meta{ :name => "author", :content => "" }/
 

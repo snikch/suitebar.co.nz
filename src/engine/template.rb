@@ -3,15 +3,16 @@ class Template
   def build
     puts "Beginning build"
     pages.each do |page|
+      @page_info = page
       puts "- Rendering #{page.at 0}"
       output page.at(1), page.at(2)
     end
     puts "Finished"
   end
 
-  def output(file, page)
-    @file, @page = file, page
-    File.open("public/#{page}.html", 'w') do |file|
+  def output(page, file_name)
+    @file, @page = file_name, page
+    File.open("public/#{file_name}.html", 'w') do |file|
       Haml::Engine.new(layout).def_method(self, :render)
       file.write self.render
     end
@@ -41,7 +42,7 @@ class Template
   end
 
   def import_section(file)
-    import "pages/#{@file}/#{file}.html.haml"
+    import "pages/#{@page}/#{file}.html.haml"
   end
 
   def import(location)
