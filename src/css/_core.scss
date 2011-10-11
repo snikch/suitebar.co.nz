@@ -1,0 +1,19 @@
+body{
+	background-color:#000;
+}
+a, a:link, a:hover, a:visited{
+	color:#333;
+}
+#container{
+	margin:auto;
+	width:960px;
+	position:relative;
+}
+#main{
+	position:relative;
+}
+.options{
+	.btn{
+		margin-right:5px;
+	}
+}

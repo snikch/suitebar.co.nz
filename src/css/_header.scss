@@ -1,0 +1,43 @@
+header{
+	position:fixed;
+	top: 20px;
+	width: 100%;
+	height: 130px;
+	z-index: 70; // All header indexes in the 7x space please
+	h1{
+		background-color:#000;
+		width: 100px;
+		height: 100px;
+		text-index: -9999px;
+		position:absolute;
+		margin:0;
+		z-index: 79;
+		color: #fff;
+		
+	}
+	nav{
+		background-color:RGBA(0,0,0,0.7);
+		height:80px;
+		width: 100%;
+		opacity: 0;
+		@include transition(0.1s ease-out all);
+		ul{
+			padding:0 0 0 100px;
+			li{
+				display:block;
+				float: left;
+				width: 80px;
+				padding:10px;
+				color:#fff;
+				font-size:16px;
+			}
+		}
+	}
+	&:hover{
+		nav{
+			opacity:1;
+		}
+	}
+
+}
+

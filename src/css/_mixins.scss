@@ -1,0 +1,69 @@
+@mixin background-gradient($from, $to, $start: top, $end: bottom, $fallback:$from, $ie:false) {
+  @include gradient($from, $to, $start, $end, $fallback);
+}
+@mixin gradient($from, $to, $start: top, $end: bottom, $fallback:$from){
+  background-color: $fallback;
+
+  @if $end == bottom and $start == top {
+    @if $start == 0 {
+      background-image: -webkit-gradient(linear, left $start, left bottom, from($from), to($to));
+    } @else {
+      background-image: -webkit-gradient(linear, $start, left bottom, from($from), to($to));
+    }
+    background-image: -webkit-linear-gradient($start, $from, $to);
+    background-image: -moz-linear-gradient($start, $from, $to);
+    background-image: -ms-linear-gradient($start, $from, $to);
+    background-image: -o-linear-gradient($start, $from, $to);
+    @if in-compatibility-mode()  {
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$from}', EndColorStr='#{$to}');
+    }
+  } @else if $end == bottom {
+    background-image: -webkit-gradient(linear, left $start,  0 $end, from($from), to($to));
+    background-image: -webkit-linear-gradient(top, $from $start+px, $to);
+    background-image: -moz-linear-gradient(top, $from $start+px, $to);
+    background-image: -ms-linear-gradient(top, $from $start+px, $to);
+    background-image: -o-linear-gradient(top, $from $start+px, $to);
+
+  } @else {
+    background-image: -webkit-gradient(linear, left $start,  0 $end, from($from), to($to));
+    background-image: -webkit-linear-gradient(top, $from $start+px, $to $end+px);
+    background-image: -moz-linear-gradient(top, $from $start+px, $to $end+px);
+    background-image: -ms-linear-gradient(top, $from $start+px, $to $end+px);
+    background-image: -o-linear-gradient(top, $from $start+px, $to $end+px);
+    // No IE support for positioned gradients
+  }
+}
+@mixin linear-gradient($one, $two, $three)
+{
+	background-image: -webkit-linear-gradient($one, $two, $three);
+    background-image: -moz-linear-gradient($one, $two, $three);
+    background-image: -ms-linear-gradient($one, $two, $three);
+    background-image: -o-linear-gradient($one, $two, $three);
+    background-image: linear-gradient($one, $two, $three);
+}
+
+@mixin border-radius($values) {
+	-webkit-border-radius: $values;
+	-moz-border-radius: $values;
+	border-radius: $values;
+}
+
+@mixin box-shadow($values, $alt: ''){
+	@if $alt == '' {
+	-webkit-box-shadow: $values;
+	-moz-box-shadow: $values;
+	box-shadow: $values;
+	} @else {
+	-webkit-box-shadow: $values, $alt;
+	-moz-box-shadow: $values, $alt;
+	box-shadow: $values, $alt;
+	}
+}
+
+@mixin transition($values){
+	-webkit-transition: $values;
+	-moz-transition: $values;
+	-ms-transition: $values;
+	-o-transition: $values;
+	transition: $values;
+}

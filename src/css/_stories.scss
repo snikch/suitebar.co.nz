@@ -1,0 +1,14 @@
+.stories{
+	position:absolute;
+	z-index:80;
+	width:370px;
+	right:0;
+	.story{
+		background-color:#fefefe;
+		margin:20px 12px 0 0;
+		position:relative;
+		font-size:1.2em;
+		h2{ margin: 0; }
+	}
+}
+

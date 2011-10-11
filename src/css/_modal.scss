@@ -1,0 +1,29 @@
+#simplemodal-overlay {
+	background-color:#000;
+}
+#simplemodal-container {
+	background-color:#fff;
+	border:8px solid #444;
+	color:#ddd;
+	width:400px;
+	height:435px;
+	background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat;
+	img{
+		display:block;
+		margin:10px auto 0;
+	}
+	h1{
+		text-align:center;
+		font-size:22px;
+		color:#333;
+		text-shadow: 0 1px 0 #fff;
+	}
+	.options{
+		text-align:center;
+		.btn{
+			margin-right:20px;
+		}
+	}
+}
+
+
