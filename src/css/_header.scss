@@ -10,7 +10,7 @@ header{
 		height: 100px;
 		text-index: -9999px;
 		position:absolute;
-		margin:0;
+		margin:0 0 0 30px;
 		z-index: 79;
 		color: #fff;
 	}
@@ -22,7 +22,7 @@ header{
 		opacity: 0;
 		@include transition(0.1s ease-out all);
 		ul{
-			padding:0 0 0 100px;
+			padding:0 0 0 130px;
 			li{
 				display:block;
 				float: left;

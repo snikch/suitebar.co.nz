@@ -1,16 +1,77 @@
 .stories{
-	position:absolute;
-	z-index:80;
-	width:370px;
-	right:0;
-	.story{
-		background-color:#fefefe;
-		@include border-radius(12px);
-		padding:13px;
-		margin:20px 12px 0 0;
-		position:relative;
-		font-size:1.2em;
-		h2{ margin: 0; }
+	width:100%;
+	z-index:60;
+	text-shadow: 2px 2px 2px RGBA(0,0,0,1);
+	color:#ccc;
+}
+.story{
+	background-size: cover ;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment:fixed;
+	min-height:100%;
+	margin:0 0 40px;
+	padding:40px 0 40px 100%;
+	font-size:1.2em;
+	h2, h3, p, table{
+		margin:0 0 0 -599px;
+		background: #efefef url(/img/soft_wallpaper.png);
+		text-shadow: 0 1px 1px #fff;
+		color:#333;
+		width:489px;
+		padding:10px 20px;
 	}
+	h2{
+		text-align:center;
+		font-size: 24px;
+		font-weight:bold;
+		padding:10px 20px;
+	}
+	h3{
+		padding: 20px 20px 0;
+		color:#black;
+	}
+	p{
+		text-align:jstify;
+	}
+	table{
+		padding-top:30px;
+		width:529px;
+	}
+	&.current h2{
+		position:fixed;
+		top: 53px;
+	}
+
 }
 
+th{
+	text-align:left;
+}
+
+.wine, .beer{
+	td, th{
+		padding:4px;
+	}
+	th{
+		padding-top:30px;
+	}
+}
+.wine{
+	td{
+		&:first-child{
+			width:30px;
+			text-align:center;
+		}
+	}
+}
+.beer{
+	td, th{
+		font-size:13px;
+		&:first-child{
+			width:270px;
+			font-size:16px;
+			padding-left:10px;
+		}
+	}
+}

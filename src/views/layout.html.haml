@@ -10,7 +10,6 @@
     %meta{ :charset => "utf-8" }/
 
     %title
-      = "#{@page_info.at 0} | " unless @page_info.at(2) == :index
       Suite Bar, Hobson St, Auckland
     %meta{ :name => "description", :content => "" }/
     %meta{ :name => "author", :content => "" }/
@@ -29,14 +28,11 @@
     %script{ :src => "js/libs/modernizr-2.0.6.min.js" }
 
   %body
-    #container
-      = header
-      #main{ :role => 'main' }
-        .stories
-          = stories
-        .visuals
-          = visuals
-      %footer
+    = header
+    = stories
+    .visuals
+      =# visuals
+    %footer
 
     -#
       Javascript at the bottom for fast page loading

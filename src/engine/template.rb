@@ -2,20 +2,11 @@ require 'haml'
 class Template
   def build
     puts "Beginning build"
-    pages.each do |page|
-      @page_info = page
-      puts "- Rendering #{page.at 0}"
-      output page.at(1), page.at(2)
-    end
-    puts "Finished"
-  end
-
-  def output(page, file_name)
-    @file, @page = file_name, page
-    File.open("public/#{file_name}.html", 'w') do |file|
+    File.open("public/index.html", 'w') do |file|
       Haml::Engine.new(layout).def_method(self, :render)
       file.write self.render
     end
+    puts "Finished"
   end
 
   def layout
@@ -23,11 +14,19 @@ class Template
   end
 
   def stories
-    import_section :stories
+    pages.map do |page|
+      puts "- Rendering story #{page.at 0}"
+      @page = page
+      import_section :stories
+    end.join
   end
 
   def visuals
-    import_section :visuals
+    pages.map do |page|
+      puts "- Rendering story #{page.at 0}"
+      @page = page
+      import_section :visuals
+    end.join
   end
 
   def script
@@ -42,7 +41,7 @@ class Template
   end
 
   def import_section(file)
-    import "pages/#{@page}/#{file}.html.haml"
+    import "pages/#{@page.at(1)}/#{file}.html.haml"
   end
 
   def import(location)
@@ -54,8 +53,9 @@ class Template
     [
       [ "About", :about, :index],
       [ "Cocktails", :drinks_cocktails, "drinks-cocktails" ],
+      [ "Wine", :drinks_wine, "drinks-wine" ],
+      [ "Beer", :drinks_beer, "drinks-beer"],
       [ "Spirits", :drinks_spirits, "drinks-spirits" ],
-      [ "Wine &amp; Beer", :drinks_beer_wine, "drinks-wine-beer" ],
       [ "Food", :food, :food ],
       [ "People", :bartenders, :bartenders ],
       [ "Contact", :contact, "contact-us" ],
@@ -63,6 +63,6 @@ class Template
   end
 
   def link_to(title, link)
-    "<a href=\"#{link}\">#{title}</a>"
+    "<a href=\"##{title.downcase}\">#{title}</a>"
   end
 end

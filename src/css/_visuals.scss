@@ -1,5 +1,6 @@
 .visuals{
 	.visual{
+		height:900px;
 		position:relative;
 		img, iframe{
 			width:100%;
@@ -18,3 +19,10 @@ body .next img, body .next iframe{
 	bottom: auto;
 }
 
+.about-1{ background-image:url(/img/b/index.jpg); }
+.about-2{ background-image:url(/img/b/about-1.jpg); }
+.cocktail-1{ background-image:url(/img/b/cocktails-2.jpg); }
+.cocktail-2{ background-image:url(/img/b/wine-1.jpg); }
+.wine-1{ background-image:url(/img/b/wine-1.jpg); }
+.wine-2{ background-image:url(/img/b/bar_3_1.jpg); }
+.beer-1{ background-image:url(/img/b/beer-1.jpg); }
