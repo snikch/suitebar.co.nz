@@ -7,6 +7,8 @@ function engine(setup){
 		max_h: 900,
 		max_w: 1350,
 		margin: 40,
+		current_story: false,
+		current_story_index: false,
 		current_visual: false,
 		current_visual_index: false,
 		snapped: false,
@@ -49,7 +51,7 @@ function engine(setup){
 
 		s.visuals.css(visuals_css).find('img, iframe').css(visuals_css).end().each(function(i){
 			var story_h = s.stories.eq(i).height()
-			var this_h =  s.cur_h + story_h +  s.margin+ s.cur_gap;
+			var this_h =  s.cur_h + story_h +  s.margin+ s.cur_gap + 30;
 			$(this).css({height: this_h })
 			var prev_h = s.story_positions.length > 0 ? s.story_positions[s.story_positions.length-1] : 0
 
@@ -61,7 +63,9 @@ function engine(setup){
 
 		console.log(s.story_positions)
 		s.current_visual = s.visuals.eq(0).addClass('current');
+		s.current_story = s.stories.eq(0).addClass('current');
 		s.visuals.eq(1).addClass('next');
+		s.stories.eq(1).addClass('next');
 		// set an array of 'break points' to check against on scroll
 	}
 	this.size_stories = function(){
@@ -88,9 +92,15 @@ function engine(setup){
 		if(s.current_visual_index != pos-1){
 			// New visual
 			if(s.current_visual){
+			   s.current_story.removeClass('current');
+			   s.stories.eq(s.current_story_index+1).removeClass('next');
 			   s.current_visual.removeClass('current');
 			   s.visuals.eq(s.current_visual_index+1).removeClass('next');
 			}
+			s.current_story = s.stories.eq(pos-1);
+			s.current_story_index = pos-1;
+			s.current_story.addClass('current');
+			s.stories.eq(pos).addClass('next');
 			s.current_visual = s.visuals.eq(pos-1);
 			s.current_visual_index = pos-1;
 			s.current_visual.addClass('current');
