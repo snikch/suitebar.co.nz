@@ -206,7 +206,7 @@ body .next img, body .next iframe {
   background-position: top center;
   background-attachment: fixed;
   min-height: 100%;
-  margin: 0 0 40px;
+  margin: 0;
   padding: 40px 0 40px 100%;
   font-size: 1.2em; }
   .story h2, .story h3, .story p, .story table {
@@ -251,6 +251,8 @@ th {
   width: 30px;
   padding-left: 20px;
   text-align: center; }
+.wine span {
+  font-size: 13px; }
 
 .beer td, .beer th, .spirit td, .spirit th {
   font-size: 13px; }

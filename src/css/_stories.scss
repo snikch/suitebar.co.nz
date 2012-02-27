@@ -10,7 +10,7 @@
 	background-position: top center;
 	background-attachment:fixed;
 	min-height:100%;
-	margin:0 0 40px;
+	margin:0;
 	padding:40px 0 40px 100%;
 	font-size:1.2em;
 	h2, h3, p, table{
@@ -73,6 +73,9 @@ th{
 			padding-left:20px;
 			text-align:center;
 		}
+	}
+	span{
+		font-size:13px;
 	}
 }
 .beer, .spirit{
