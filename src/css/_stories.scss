@@ -29,10 +29,10 @@
 	}
 	h3{
 		padding: 20px 20px 0;
-		color:#black;
+		text-align:center;
 	}
 	p{
-		text-align:jstify;
+		text-align:center;
 	}
 	table{
 		padding-top:30px;
@@ -43,13 +43,22 @@
 		top: 53px;
 	}
 
+	p.tasting-price{
+		padding-top:0;
+	}
+	.first{
+		padding-top:40px;
+	}
+	.last{
+		padding-bottom:60px;
+	}
 }
 
 th{
 	text-align:left;
 }
 
-.wine, .beer{
+.wine, .beer, .spirit{
 	td, th{
 		padding:4px;
 	}
@@ -61,17 +70,24 @@ th{
 	td{
 		&:first-child{
 			width:30px;
+			padding-left:20px;
 			text-align:center;
 		}
 	}
 }
-.beer{
+.beer, .spirit{
 	td, th{
 		font-size:13px;
 		&:first-child{
-			width:270px;
+			width:250px;
 			font-size:16px;
-			padding-left:10px;
+			padding-left:20px;
 		}
+	}
+}
+.spirit td{
+	line-height: 18px;
+	&:nth-child(2){
+		width:190px;
 	}
 }

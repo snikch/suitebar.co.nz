@@ -223,31 +223,43 @@ body .next img, body .next iframe {
     padding: 10px 20px; }
   .story h3 {
     padding: 20px 20px 0;
-    color: #black; }
+    text-align: center; }
   .story p {
-    text-align: jstify; }
+    text-align: center; }
   .story table {
     padding-top: 30px;
     width: 529px; }
   .story.current h2 {
     position: fixed;
     top: 53px; }
+  .story p.tasting-price {
+    padding-top: 0; }
+  .story .first {
+    padding-top: 40px; }
+  .story .last {
+    padding-bottom: 60px; }
 
 th {
   text-align: left; }
 
-.wine td, .wine th, .beer td, .beer th {
+.wine td, .wine th, .beer td, .beer th, .spirit td, .spirit th {
   padding: 4px; }
-.wine th, .beer th {
+.wine th, .beer th, .spirit th {
   padding-top: 30px; }
 
 .wine td:first-child {
   width: 30px;
+  padding-left: 20px;
   text-align: center; }
 
-.beer td, .beer th {
+.beer td, .beer th, .spirit td, .spirit th {
   font-size: 13px; }
-  .beer td:first-child, .beer th:first-child {
-    width: 270px;
+  .beer td:first-child, .beer th:first-child, .spirit td:first-child, .spirit th:first-child {
+    width: 250px;
     font-size: 16px;
-    padding-left: 10px; }
+    padding-left: 20px; }
+
+.spirit td {
+  line-height: 18px; }
+  .spirit td:nth-child(2) {
+    width: 190px; }
