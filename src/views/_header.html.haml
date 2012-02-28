@@ -1,6 +1,7 @@
-%header
-  %h1 Suite
+%header#top
+  %h1
+    %a{ href: "#main-menu" } Suite
   %nav
     %ul
       - pages.each do |page|
-        %li= link_to page.at(0), page.at(2) == :index ? "/" : "/#{page.at(2)}"
+        %li= link_to page.at(0), page.at(2)

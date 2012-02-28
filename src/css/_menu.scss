@@ -1,0 +1,178 @@
+@mixin mask-image($url) {
+	-webkit-mask-image: url($url);
+	-o-mask-image: url($url);
+	-moz-mask-image: url($url);
+	mask-image: url($url);
+}
+@mixin transition($val) {
+	-webkit-transition: $val;
+	-moz-transition: $val;
+	-o-transition: $val;
+	-ms-transition: $val;
+	transition: $val;
+}
+@mixin transform($val) {
+	-webkit-transform: $val;
+	-moz-transform: $val;
+	-o-transform: $val;
+	-ms-transform: $val;
+	transform: $val;
+
+}
+#main-menu{
+	margin:0 0 100% 0;
+	max-height:800px;
+	min-height:700px;
+	background-size: initial;
+	background-position: bottom center;
+	background-attachment: initial;
+	background-image:url(/img/b/index.jpg);
+	position:relative;
+	.menu-item{
+		@include transition(all 0.4s ease-in-out);
+		cursor: pointer;
+		display:block;
+		position:absolute;
+		overflow:hidden;
+		text-decoration:none;
+		h2{
+			@include transform(scale(0));
+			@include transition(all 0.2s ease-in-out);
+			border-bottom:1px solid #fff;
+			padding:0 0 1px;
+			margin:50% 0 0 50px;
+			width: auto;
+			background: none;
+			position:absolute;
+			color:#fff;
+			font-weight:normal;
+		}
+		img{
+			@include transition(all 0.3s ease-in-out);
+			@include transform(scaleY(1));
+			opacity: 1;
+		}
+		&:hover{
+			h2{
+				@include transform(scale(1));
+			}
+			img{
+				@include transform(scale(7));
+				opacity: 0;
+			}
+		}
+	}
+	.menu-spirits{
+		width:300px;
+		height: 335px;
+		background: url(/img/m/spirits-mask.png) top center no-repeat;
+		top: 329px;
+		left: 50%;
+		margin-left:-608px;
+		h2{
+		}
+		img{
+			@include mask-image('/img/m/spirits-mask.png');
+		}
+	}
+	.menu-cocktails{
+		width: 203px;
+		height:330px;
+		background: url(/img/m/cocktails-mask.png) top center no-repeat;
+		top: 325px;
+		left: 50%;
+		margin-left:-354px;
+		z-index:74;
+		h2{
+		}
+		img{
+			@include mask-image('/img/m/cocktails-mask.png');
+		}
+	}
+	.menu-food{
+		width: 378px;
+		height:118px;
+		background: url(/img/m/food-mask.png) top center no-repeat;
+		top: 562px;
+		left: 50%;
+		margin-left:-228px;
+		h2{
+			margin: 10% 0 0 180px;
+		}
+		img{
+			@include mask-image('/img/m/food-mask.png');
+		}
+	}
+	.menu-beer{
+		width: 324px;
+		height:355px;
+		background: url(/img/m/beer-mask.png) top center no-repeat;
+		top: 293px;
+		left: 50%;
+		margin-left:133px;
+		h2{
+			margin: 50% 0 0 120px;
+		}
+		img{
+			@include mask-image('/img/m/beer-mask.png');
+		}
+	}
+	.menu-wine{
+		width: 181px;
+		height:315px;
+		background: url(/img/m/wine-mask.png) top center no-repeat;
+		top: 332px;
+		left: 50%;
+		margin-left:416px;
+		h2{
+			margin: 40% 0 0 80px;
+		}
+		img{
+			@include mask-image('/img/m/wine-mask.png');
+		}
+	}
+	.menu-music{
+		width: 209px;
+		height:157px;
+		background: url(/img/m/music-mask.png) top center no-repeat;
+		top: 261px;
+		left: 50%;
+		margin-left:-335px;
+		z-index:75;
+		h2{
+			margin: 20px 0 0 55px;
+		}
+		img{
+			@include mask-image('/img/m/music-mask.png');
+		}
+	}
+	.menu-awards{
+		width: 154px;
+		height:133px;
+		background: url(/img/m/awards-mask.png) top center no-repeat;
+		top: 283px;
+		left: 50%;
+		margin-left:-81px;
+		h2{
+			margin: 94px 0 0 35px;
+		}
+		img{
+			@include mask-image('/img/m/awards-mask.png');
+		}
+	}
+	.menu-people{
+		width: 111px;
+		height:140px;
+		background: url(/img/m/people-mask.png) top center no-repeat;
+		top: 275px;
+		left: 50%;
+		margin-left:129px;
+		h2{
+			margin: 35% 0 0 25px;
+		}
+		img{
+			@include mask-image('/img/m/people-mask.png');
+		}
+	}
+}
+

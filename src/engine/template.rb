@@ -2,20 +2,11 @@ require 'haml'
 class Template
   def build
     puts "Beginning build"
-    pages.each do |page|
-      @page_info = page
-      puts "- Rendering #{page.at 0}"
-      output page.at(1), page.at(2)
-    end
-    puts "Finished"
-  end
-
-  def output(page, file_name)
-    @file, @page = file_name, page
-    File.open("public/#{file_name}.html", 'w') do |file|
+    File.open("public/index.html", 'w') do |file|
       Haml::Engine.new(layout).def_method(self, :render)
       file.write self.render
     end
+    puts "Finished"
   end
 
   def layout
@@ -23,11 +14,19 @@ class Template
   end
 
   def stories
-    import_section :stories
+    pages.map do |page|
+      puts "- Rendering story #{page.at 0}"
+      @page = page
+      import_section :stories
+    end.join
   end
 
   def visuals
-    import_section :visuals
+    pages.map do |page|
+      puts "- Rendering story #{page.at 0}"
+      @page = page
+      import_section :visuals
+    end.join
   end
 
   def script
@@ -42,7 +41,7 @@ class Template
   end
 
   def import_section(file)
-    import "pages/#{@page}/#{file}.html.haml"
+    import "pages/#{@page.at(1)}/#{file}.html.haml"
   end
 
   def import(location)
@@ -52,17 +51,18 @@ class Template
 
   def pages
     [
-      [ "About", :about, :index],
-      [ "Cocktails", :drinks_cocktails, "drinks-cocktails" ],
-      [ "Spirits", :drinks_spirits, "drinks-spirits" ],
-      [ "Wine &amp; Beer", :drinks_beer_wine, "drinks-wine-beer" ],
+      [ "About", :about, :about],
+      [ "Cocktails", :drinks_cocktails, "cocktails" ],
+      [ "Wine", :drinks_wine, "wine" ],
+      [ "Beer", :drinks_beer, "beer"],
+      [ "Spirits", :drinks_spirits, "spirits" ],
       [ "Food", :food, :food ],
-      [ "People", :bartenders, :bartenders ],
-      [ "Contact", :contact, "contact-us" ],
+      [ "People", :bartenders, :people ],
+      [ "Contact", :contact, "contact" ],
     ]
   end
 
   def link_to(title, link)
-    "<a href=\"#{link}\">#{title}</a>"
+    "<a href=\"##{link}\">#{title}</a>"
   end
 end

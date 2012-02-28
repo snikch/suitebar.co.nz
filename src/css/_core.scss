@@ -1,19 +1,29 @@
+/**
+ * Suite Bar loves American Typewriter
+ */
+
+@font-face {
+    font-family: 'AmericanTypewriterRegular';
+    src: url('/f/at-webfont.eot');
+    src: url('/f/at-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/f/at-webfont.woff') format('woff'),
+         url('/f/at-webfont.ttf') format('truetype'),
+         url('/f/at-webfont.svg#AmericanTypewriterRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+html, body {height: 100%;}
 body{
+<<<<<<< HEAD
 	background-color:#090909;
+=======
+	background:#090909 url(/img/background-skulls.png) top left fixed repeat;
+	font-family: 'AmericanTypewriterRegular';
+>>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 }
 a, a:link, a:hover, a:visited{
 	color:#333;
-}
-#container{
-	margin:auto;
-	width:960px;
-	position:relative;
-}
-#main{
-	position:relative;
-}
-.options{
-	.btn{
-		margin-right:5px;
-	}
 }

@@ -9,10 +9,19 @@ header{
 		width: 100px;
 		height: 100px;
 		text-index: -9999px;
+		text-align: center;
 		position:absolute;
+<<<<<<< HEAD
 		margin:0 0 0 -30px;
+=======
+		margin:0 0 0 30px;
+>>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 		z-index: 79;
-		color: #fff;
+		padding:4px 0 0;
+		a, a:link{
+			color: #fff;
+			text-decoration: none;
+		}
 	}
 	nav{
 		background-color:RGBA(0,0,0,0.7);
@@ -22,7 +31,7 @@ header{
 		opacity: 0;
 		@include transition(0.1s ease-out all);
 		ul{
-			padding:0 0 0 100px;
+			padding:0 0 0 130px;
 			li{
 				display:block;
 				float: left;

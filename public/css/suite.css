@@ -1,19 +1,26 @@
+/**
+ * Suite Bar loves American Typewriter
+ */
+@font-face {
+  font-family: 'AmericanTypewriterRegular';
+  src: url("/f/at-webfont.eot");
+  src: url("/f/at-webfont.eot?#iefix") format("embedded-opentype"), url("/f/at-webfont.woff") format("woff"), url("/f/at-webfont.ttf") format("truetype"), url("/f/at-webfont.svg#AmericanTypewriterRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html, body {
+  height: 100%; }
+
 body {
+<<<<<<< HEAD
   background-color: #090909; }
+=======
+  background: #090909 url(/img/background-skulls.png) top left fixed repeat;
+  font-family: 'AmericanTypewriterRegular'; }
+>>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 
 a, a:link, a:hover, a:visited {
   color: #333; }
-
-#container {
-  margin: auto;
-  width: 960px;
-  position: relative; }
-
-#main {
-  position: relative; }
-
-.options .btn {
-  margin-right: 5px; }
 
 .btn {
   text-decoration: none;
@@ -51,28 +58,74 @@ a, a:link, a:hover, a:visited {
   .btn:focus {
     outline: 1px dotted #666; }
 
-#simplemodal-overlay {
-  background-color: #000; }
+.modal-overlay {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .modal-overlay.disappear {
+    margin-top: -100%; }
+    .modal-overlay.disappear #bouncer {
+      opacity: 0; }
 
-#simplemodal-container {
+.modal {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  margin: -225px 0 0 -208px;
+  top: 50%;
+  left: 50%;
   background-color: #fff;
   border: 8px solid #444;
   color: #ddd;
   width: 400px;
   height: 435px;
+  opacity: 1;
   background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat; }
-  #simplemodal-container img {
+  .modal img {
     display: block;
-    margin: 10px auto 0; }
-  #simplemodal-container h1 {
+    margin: 40px auto 40px; }
+  .modal h1 {
     text-align: center;
     font-size: 22px;
     color: #333;
     text-shadow: 0 1px 0 #fff; }
-  #simplemodal-container .options {
+  .modal .options {
     text-align: center; }
-    #simplemodal-container .options .btn {
+    .modal .options .btn:first-child {
       margin-right: 20px; }
+
+#loading {
+  height: 240px;
+  margin-top: -124px; }
+  #loading:before {
+    display: block;
+    content: "";
+    background: url(/img/skull-loading.png) center center no-repeat;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -100px; }
+  #loading .spin {
+    margin-top: 180px; }
+  #loading .message {
+    margin-top: 140px;
+    text-align: center;
+    color: #777;
+    text-shadow: 1px 1px 0 white;
+    font-size: 14px; }
 
 header {
   position: fixed;
@@ -85,10 +138,18 @@ header {
     width: 100px;
     height: 100px;
     text-index: -9999px;
+    text-align: center;
     position: absolute;
+<<<<<<< HEAD
     margin: 0 0 0 -30px;
+=======
+    margin: 0 0 0 30px;
+>>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
     z-index: 79;
-    color: #fff; }
+    padding: 4px 0 0; }
+    header h1 a, header h1 a:link {
+      color: #fff;
+      text-decoration: none; }
   header nav {
     background-color: RGBA(0, 0, 0, 0.7);
     height: 80px;
@@ -101,7 +162,7 @@ header {
     -o-transition: 0.1s ease-out all;
     transition: 0.1s ease-out all; }
     header nav ul {
-      padding: 0 0 0 100px; }
+      padding: 0 0 0 130px; }
       header nav ul li {
         display: block;
         float: left; }
@@ -126,23 +187,228 @@ header {
   header:hover nav {
     opacity: 1; }
 
-.visuals .visual {
+#main-menu {
+  margin: 0 0 100% 0;
+  max-height: 800px;
+  min-height: 700px;
+  background-size: initial;
+  background-position: bottom center;
+  background-attachment: initial;
+  background-image: url(/img/b/index.jpg);
   position: relative; }
-  .visuals .visual img, .visuals .visual iframe {
-    width: 100%;
-    height: 100%;
+  #main-menu .menu-item {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    display: block;
     position: absolute;
-    bottom: 40px; }
+    overflow: hidden;
+    text-decoration: none; }
+    #main-menu .menu-item h2 {
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      border-bottom: 1px solid #fff;
+      padding: 0 0 1px;
+      margin: 50% 0 0 50px;
+      width: auto;
+      background: none;
+      position: absolute;
+      color: #fff;
+      font-weight: normal; }
+    #main-menu .menu-item img {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      -webkit-transform: scaleY(1);
+      -moz-transform: scaleY(1);
+      -o-transform: scaleY(1);
+      -ms-transform: scaleY(1);
+      transform: scaleY(1);
+      opacity: 1; }
+    #main-menu .menu-item:hover h2 {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1); }
+    #main-menu .menu-item:hover img {
+      -webkit-transform: scale(7);
+      -moz-transform: scale(7);
+      -o-transform: scale(7);
+      -ms-transform: scale(7);
+      transform: scale(7);
+      opacity: 0; }
+  #main-menu .menu-spirits {
+    width: 300px;
+    height: 335px;
+    background: url(/img/m/spirits-mask.png) top center no-repeat;
+    top: 329px;
+    left: 50%;
+    margin-left: -608px; }
+    #main-menu .menu-spirits img {
+      -webkit-mask-image: url("/img/m/spirits-mask.png");
+      -o-mask-image: url("/img/m/spirits-mask.png");
+      -moz-mask-image: url("/img/m/spirits-mask.png");
+      mask-image: url("/img/m/spirits-mask.png"); }
+  #main-menu .menu-cocktails {
+    width: 203px;
+    height: 330px;
+    background: url(/img/m/cocktails-mask.png) top center no-repeat;
+    top: 325px;
+    left: 50%;
+    margin-left: -354px;
+    z-index: 74; }
+    #main-menu .menu-cocktails img {
+      -webkit-mask-image: url("/img/m/cocktails-mask.png");
+      -o-mask-image: url("/img/m/cocktails-mask.png");
+      -moz-mask-image: url("/img/m/cocktails-mask.png");
+      mask-image: url("/img/m/cocktails-mask.png"); }
+  #main-menu .menu-food {
+    width: 378px;
+    height: 118px;
+    background: url(/img/m/food-mask.png) top center no-repeat;
+    top: 562px;
+    left: 50%;
+    margin-left: -228px; }
+    #main-menu .menu-food h2 {
+      margin: 10% 0 0 180px; }
+    #main-menu .menu-food img {
+      -webkit-mask-image: url("/img/m/food-mask.png");
+      -o-mask-image: url("/img/m/food-mask.png");
+      -moz-mask-image: url("/img/m/food-mask.png");
+      mask-image: url("/img/m/food-mask.png"); }
+  #main-menu .menu-beer {
+    width: 324px;
+    height: 355px;
+    background: url(/img/m/beer-mask.png) top center no-repeat;
+    top: 293px;
+    left: 50%;
+    margin-left: 133px; }
+    #main-menu .menu-beer h2 {
+      margin: 50% 0 0 120px; }
+    #main-menu .menu-beer img {
+      -webkit-mask-image: url("/img/m/beer-mask.png");
+      -o-mask-image: url("/img/m/beer-mask.png");
+      -moz-mask-image: url("/img/m/beer-mask.png");
+      mask-image: url("/img/m/beer-mask.png"); }
+  #main-menu .menu-wine {
+    width: 181px;
+    height: 315px;
+    background: url(/img/m/wine-mask.png) top center no-repeat;
+    top: 332px;
+    left: 50%;
+    margin-left: 416px; }
+    #main-menu .menu-wine h2 {
+      margin: 40% 0 0 80px; }
+    #main-menu .menu-wine img {
+      -webkit-mask-image: url("/img/m/wine-mask.png");
+      -o-mask-image: url("/img/m/wine-mask.png");
+      -moz-mask-image: url("/img/m/wine-mask.png");
+      mask-image: url("/img/m/wine-mask.png"); }
+  #main-menu .menu-music {
+    width: 209px;
+    height: 157px;
+    background: url(/img/m/music-mask.png) top center no-repeat;
+    top: 261px;
+    left: 50%;
+    margin-left: -335px;
+    z-index: 75; }
+    #main-menu .menu-music h2 {
+      margin: 20px 0 0 55px; }
+    #main-menu .menu-music img {
+      -webkit-mask-image: url("/img/m/music-mask.png");
+      -o-mask-image: url("/img/m/music-mask.png");
+      -moz-mask-image: url("/img/m/music-mask.png");
+      mask-image: url("/img/m/music-mask.png"); }
+  #main-menu .menu-awards {
+    width: 154px;
+    height: 133px;
+    background: url(/img/m/awards-mask.png) top center no-repeat;
+    top: 283px;
+    left: 50%;
+    margin-left: -81px; }
+    #main-menu .menu-awards h2 {
+      margin: 94px 0 0 35px; }
+    #main-menu .menu-awards img {
+      -webkit-mask-image: url("/img/m/awards-mask.png");
+      -o-mask-image: url("/img/m/awards-mask.png");
+      -moz-mask-image: url("/img/m/awards-mask.png");
+      mask-image: url("/img/m/awards-mask.png"); }
+  #main-menu .menu-people {
+    width: 111px;
+    height: 140px;
+    background: url(/img/m/people-mask.png) top center no-repeat;
+    top: 275px;
+    left: 50%;
+    margin-left: 129px; }
+    #main-menu .menu-people h2 {
+      margin: 35% 0 0 25px; }
+    #main-menu .menu-people img {
+      -webkit-mask-image: url("/img/m/people-mask.png");
+      -o-mask-image: url("/img/m/people-mask.png");
+      -moz-mask-image: url("/img/m/people-mask.png");
+      mask-image: url("/img/m/people-mask.png"); }
 
-body.snapped .current img, body.snapped .current iframe {
-  position: fixed;
-  top: 0; }
+.about-1 .visual {
+  background-image: url(/img/b/index.jpg); }
 
-body .next img, body .next iframe {
-  top: 0;
-  bottom: auto; }
+.about-2 .visual {
+  background-image: url(/img/b/about-1.jpg); }
+
+.cocktail-1 .visual {
+  background-image: url(/img/b/cocktails-2.jpg); }
+
+.cocktail-2 .visual {
+  background-image: url(/img/b/wine-1.jpg); }
+
+.white-wine .visual {
+  background-image: url(/img/b/white-wine.jpg); }
+
+.red-wine .visual {
+  background-image: url(/img/b/red-wine.jpg); }
+
+.beer-1 .visual {
+  background-image: url(/img/b/beer-1.jpg); }
+
+.whiskey .visual {
+  background-image: url(/img/b/whiskey.jpg); }
+
+.gin .visual {
+  background-image: url(/img/b/gin.jpg); }
+
+.vodka .visual {
+  background-image: url(/img/b/gin.jpg); }
+
+.bitter .visual {
+  background-image: url(/img/b/bitter.jpg); }
+
+.tequila .visual {
+  background-image: url(/img/b/tequila.jpg); }
+
+.bourbon .visual {
+  background-image: url(/img/b/bourbon.jpg); }
+
+.cognac .visual {
+  background-image: url(/img/b/cognac.jpg); }
+
+.rum .visual {
+  background-image: url(/img/b/rum.jpg); }
 
 .stories {
+<<<<<<< HEAD
   position: absolute;
   z-index: 60;
   width: 370px;
@@ -167,3 +433,88 @@ body .next img, body .next iframe {
     .stories .story.current h2 {
       position: fixed;
       top: 53px; }
+=======
+  width: 100%;
+  z-index: 60;
+  text-shadow: 2px 2px 2px RGBA(0, 0, 0, 1);
+  color: #ccc; }
+
+.story {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 40px 0 40px 100%;
+  font-size: 1.2em; }
+  .story * {
+    z-index: 10;
+    position: relative; }
+  .story .visual {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll; }
+  .story.fixed .visual {
+    position: fixed; }
+  .story.bottom .visual {
+    bottom: 0;
+    top: auto; }
+  .story h2, .story h3, .story p, .story table {
+    margin: 0 0 0 -599px;
+    background: #efefef url(/img/soft_wallpaper.png);
+    text-shadow: 0 1px 1px #fff;
+    color: #333;
+    width: 489px;
+    padding: 10px 20px; }
+  .story h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px; }
+  .story h3 {
+    padding: 20px 20px 0;
+    text-align: center; }
+  .story p {
+    text-align: center; }
+  .story table {
+    padding-top: 30px;
+    width: 529px; }
+  .story p.tasting-price {
+    padding-top: 0; }
+  .story .first {
+    padding-top: 40px; }
+  .story .last {
+    padding-bottom: 60px; }
+
+th {
+  text-align: left; }
+
+.wine td, .wine th, .beer td, .beer th, .spirit td, .spirit th {
+  padding: 4px; }
+.wine th, .beer th, .spirit th {
+  padding-top: 30px; }
+
+.wine td:first-child {
+  width: 30px;
+  padding-left: 20px;
+  text-align: center; }
+.wine span {
+  font-size: 13px; }
+
+.beer td, .beer th, .spirit td, .spirit th {
+  font-size: 13px; }
+  .beer td:first-child, .beer th:first-child, .spirit td:first-child, .spirit th:first-child {
+    width: 250px;
+    font-size: 16px;
+    padding-left: 20px; }
+
+.spirit td {
+  line-height: 18px; }
+  .spirit td:nth-child(2) {
+    width: 190px; }
+>>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
