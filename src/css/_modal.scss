@@ -1,12 +1,30 @@
-#simplemodal-overlay {
+#bouncer-overlay {
 	background-color:#000;
+	position:fixed;
+	top:0;
+	z-index:99;
+	width:100%;
+	height:100%;
+	@include transition(all 0.3s ease-in-out);
+	&.disappear{
+		margin-top:-100%;
+		#bouncer{
+			opacity: 0;
+		}
+	}
 }
-#simplemodal-container {
+#bouncer {
+	@include transition(all 0.3s ease-in-out);
+	position:fixed;
+	margin:-210px 0 0 -200px;
+	top: 50%;
+	left: 50%;
 	background-color:#fff;
 	border:8px solid #444;
 	color:#ddd;
 	width:400px;
 	height:435px;
+	opacity: 1;
 	background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat;
 	img{
 		display:block;

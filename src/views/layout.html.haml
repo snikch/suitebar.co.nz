@@ -34,6 +34,13 @@
       =# visuals
     %footer
 
+    #bouncer-overlay
+      #bouncer
+        %img{ src: "/img/bouncer.png" }
+        %h1 Have You Come Of Age Yet?
+        .options
+          %a.btn.y{ href: "#" } Yes
+          %a.btn.n{ href: "#" } No
     -#
       Javascript at the bottom for fast page loading
       Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary
@@ -44,7 +51,8 @@
     = script
 
     %script{ :src => "js/plugins.js?v=1" }
-    %script{ :src => "js/jquery.cookie.js?v=1" }
+    %script{ :src => "js/modal.js" }
+    %script{ :src => "js/cookie.js?v=1" }
     %script{ :src => "js/doorman.js?v=1" }
     %script{ :src => "js/engine.js?v=1" }
     %script{ :src => "js/script.js?v=1" }

@@ -57,27 +57,51 @@ a, a:link, a:hover, a:visited {
   .btn:focus {
     outline: 1px dotted #666; }
 
-#simplemodal-overlay {
-  background-color: #000; }
+#bouncer-overlay {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  #bouncer-overlay.disappear {
+    margin-top: -100%; }
+    #bouncer-overlay.disappear #bouncer {
+      opacity: 0; }
 
-#simplemodal-container {
+#bouncer {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  margin: -210px 0 0 -200px;
+  top: 50%;
+  left: 50%;
   background-color: #fff;
   border: 8px solid #444;
   color: #ddd;
   width: 400px;
   height: 435px;
+  opacity: 1;
   background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat; }
-  #simplemodal-container img {
+  #bouncer img {
     display: block;
     margin: 10px auto 0; }
-  #simplemodal-container h1 {
+  #bouncer h1 {
     text-align: center;
     font-size: 22px;
     color: #333;
     text-shadow: 0 1px 0 #fff; }
-  #simplemodal-container .options {
+  #bouncer .options {
     text-align: center; }
-    #simplemodal-container .options .btn {
+    #bouncer .options .btn {
       margin-right: 20px; }
 
 header {

@@ -10,25 +10,20 @@ function doorman(){
 		return navigator.userAgent.match(new RegExp('(' + identifiers.join(')|(') + ')', 'i')) !== null;
 	};
 	this.verify_age = function(){
-		if(is_verified() || is_vip()) return;
+		if(is_verified() || is_vip()) return $('#bouncer-overlay').remove();
 		this.ask_for_id();
 	};
 	this.ask_for_id = function(){
-		var i_dont_think_so = this.i_dont_think_so, remember = this.remember_for_later;
-		$.modal('<img src="/img/bouncer.png" /><h1>Have You Come Of Age Yet?</h1><div class="options"><a href="#" class="simplemodal-close btn">Yes</a><a href="#" class="no btn">No</a></div>', {
-			opacity: 100,
-			onClose: function (dialog) {
-				dialog.container.fadeOut('slow', function () {
-					dialog.overlay.slideUp('slow', function () {
-						$.modal.close();
-						remember();
-					});
-				});
-			},
-			onShow: function(dialog){
-				$('#simplemodal-container .no').click(i_dont_think_so);
-			}
+		var dialog = $('#bouncer-overlay'), _this = this;
+		dialog.removeClass('disappear');
+		$('#bouncer .y').click(function(){
+			dialog.addClass('disappear');
+			_this.remember_for_later();
+			setTimeout(function(){
+				dialog.remove();
+			}, 300);
 		});
+		$('#bouncer .n').click(this.i_dont_think_so);
 	};
 	this.remember_for_later = function(){
 		$.cookie('age_verified', true);
