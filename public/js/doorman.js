@@ -9,16 +9,21 @@ function Doorman(){
 		var identifiers = ['google','googlebot','livebot','msnbot','facebookscraper','facebookexternalhit','ask jeeves'];
 		return navigator.userAgent.match(new RegExp('(' + identifiers.join(')|(') + ')', 'i')) !== null;
 	};
-	this.verify_age = function(){
-		if(is_verified() || is_vip()) return $('#bouncer-overlay').remove();
-		return this.ask_for_id();
+	this.verify_age = function(callback){
+		if(is_verified() || is_vip()){
+			$('#bouncer-overlay').remove();
+			if(callback) callback();
+			return;
+		}
+		return this.ask_for_id(callback);
 	};
-	this.ask_for_id = function(){
+	this.ask_for_id = function(callback){
 		var dialog = $('#bouncer-overlay'), _this = this;
 		dialog.removeClass('disappear');
 		$('#bouncer .y').click(function(){
 			dialog.addClass('disappear');
 			_this.remember_for_later();
+			if(callback) callback();
 			setTimeout(function(){
 				dialog.remove();
 			}, 300);

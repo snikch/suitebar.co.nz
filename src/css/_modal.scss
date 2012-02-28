@@ -14,7 +14,7 @@
 	}
 }
 .modal {
-	@include transition(all 0.3s ease-in-out);
+	@include transition(opacity 0.3s ease-in-out);
 	position:fixed;
 	margin:-225px 0 0 -208px;
 	top: 50%;

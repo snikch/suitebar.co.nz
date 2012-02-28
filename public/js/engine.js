@@ -1,64 +1,6 @@
 /* Author:
 
 */
-<<<<<<< HEAD
-function engine(setup){
-	var s = {
-		ratio: 2/3,
-		max_h: 900,
-		max_w: 1350,
-		margin: 40,
-		current_story: false,
-		current_story_index: false,
-		current_visual: false,
-		current_visual_index: false,
-		snapped: false,
-		body: $('body')
-	}
-	this.init = function(){
-		var m = $('#main'), v = $('<section class="visuals" />'), t = $('<section class="stories" />');
-		console.log(setup);
-
-		s.visuals = $('.visual');
-		s.stories = $('.stories .story');
-		this.resize();
-		$(window).scroll(this.scroll_handler)
-		this.scroll_handler();
-	}
-	this.resize = function(){
-		this.size_visuals();
-		this.size_stories();
-	}
-	this.size_visuals = function(){
-		var win_h = $(window).height(), h = win_h;
-		var win_w = $(window).width(), w = win_w;
-		if(win_w > s.max_w) w = s.max_w;
-		if(win_h > s.max_h) h = s.max_h;
-		if(w * s.ratio > win_h)
-			w = h / s.ratio
-		else
-			h = w * s.ratio
-
-		s.cur_w = w;
-		s.cur_h = h;
-		s.cur_gap = win_h - h;
-		var visuals_css = {
-			width: w,
-			height: h
-		}
-
-		s.story_positions = [0];
-		s.story_heights = [];
-
-		s.visuals.css(visuals_css).find('img, iframe').css(visuals_css).end().each(function(i){
-			var story_h = s.stories.eq(i).height()
-			var this_h =  s.cur_h + story_h +  s.margin+ s.cur_gap + 30;
-			$(this).css({height: this_h })
-			var prev_h = s.story_positions.length > 0 ? s.story_positions[s.story_positions.length-1] : 0
-
-			s.story_positions.push( prev_h + this_h );
-			s.story_heights.push(story_h);
-=======
 function Suite(){
 	var _this = this, scroller = new Scroll(), bouncer = new Doorman();
 	var spin_opts = {
@@ -77,10 +19,12 @@ function Suite(){
 	  left: 'auto' // Left position relative to parent in px
 	};
 	this.load = function(){
-		var target = $('#loading .spin');
-		var spinner = new Spinner(spin_opts).spin(target.get(0));
-		bouncer.verify_age();
-
+		bouncer.verify_age(function(){
+			var target = $('#loading .spin');
+			var spinner = new Spinner(spin_opts).spin(target.get(0));
+			$('#loading-overlay').remove();
+			scroller.init();
+		});
 	};
 }
 function Scroll(){
@@ -106,7 +50,6 @@ function Scroll(){
 		_this.s.num_stories = _this.stories.length;
 		$(window).scroll(_this.scrollHandler);
 		$(window).resize(_this.resizeHandler);
->>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 
 	};
 	this.resizeHandler = function(){
@@ -119,56 +62,12 @@ function Scroll(){
 		_this.story_positions = [];
 		$('.story').each(function(){
 			_this.story_positions.push(_this.offsetTop(this));
-			_this.stories.push($(this));
+			if(method === 'style')
+				_this.stories.push($(this).find('.visual'));
+			else
+				_this.stories.push($(this));
 		});
-<<<<<<< HEAD
-		$('#container').css({ width: w});
-
-		console.log(s.story_positions)
-		s.current_visual = s.visuals.eq(0).addClass('current');
-		s.current_story = s.stories.eq(0).addClass('current');
-		s.visuals.eq(1).addClass('next');
-		s.stories.eq(1).addClass('next');
-		// set an array of 'break points' to check against on scroll
-	}
-	this.size_stories = function(){
-		s.stories.each(function(i){
-			$this = $(this);
-			$this.css({marginBottom: s.cur_h +s.cur_gap + s.margin })
-		});
-	}
-	this.scroll_handler = function(e){
-		var scroll_y = $(window).scrollTop();
-		//console.log(scroll_y)
-
-		var pos = 1;
-
-		$.each(s.story_positions, function(k,v){
-			if(s.story_positions[pos] > scroll_y ){
-				return false;
-			}
-			pos++;
-		})
-		//console.log("In visual " + (pos-1));
-
-		// Determine which visual block we're in, and update
-		if(s.current_visual_index != pos-1){
-			// New visual
-			if(s.current_visual){
-			   s.current_story.removeClass('current');
-			   s.stories.eq(s.current_story_index+1).removeClass('next');
-			   s.current_visual.removeClass('current');
-			   s.visuals.eq(s.current_visual_index+1).removeClass('next');
-			}
-			s.current_story = s.stories.eq(pos-1);
-			s.current_story_index = pos-1;
-			s.current_story.addClass('current');
-			s.stories.eq(pos).addClass('next');
-			s.current_visual = s.visuals.eq(pos-1);
-			s.current_visual_index = pos-1;
-			s.current_visual.addClass('current');
-			s.visuals.eq(pos).addClass('next');
-=======
+		console.log(_this.story_positions);
 	};
 	this.init_stories = function(){
 		$('.story').each(function(){
@@ -186,7 +85,6 @@ function Scroll(){
 			do {
 				cur_top += el.offsetTop;
 			} while ((el = el.offsetParent));
->>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 		}
 		return cur_top;
 	};
@@ -209,35 +107,65 @@ function Scroll(){
 		}
 		return winH;
 	};
+	method = 'class';
 	this.scrollHandler = function(){
 		story_index = 0;
 		y = _this.scrollY();
+		console.log(y);
+		log('window height' + _this.s.window_height);
 
 		for(var i=0,j=_this.s.num_stories;i<j;i++){
 			pos = _this.story_positions[i];
 			if(y > pos) continue;
 			i--;
 			follow = y < pos - _this.s.window_height;
+			console.log('i ' + i)
+			console.log('follow ' + follow)
 			break;
 		}
-		if((i === _this.s.last_story_index && follow === _this.s.follow)) return;
-		_this.removeClasses();
-		if(i === -1) return;
-		_this.setClassesAt(i, follow);
+		console.log("last story match? " + (i === _this.s.last_story_index));
+		console.log("follow match?" + (follow === _this.s.follow));
+		match = i === _this.s.last_story_index && follow === _this.s.follow;
+		if(!match){
+			console.log("removing");
+			method === 'style' ? _this.removeStyles() : _this.removeClasses();
+			console.log("setting");
+			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
+		}
+		_this.s.last_story_index = i;
+		_this.s.follow = follow;
+	};
+	this.removeStyles = function(){
+		i = _this.s.last_story_index;
+		if(i === false) return;
+		_this.stories[i].css({
+			position: null,
+			top: null,
+			bottom: null
+		});
 	};
 	this.removeClasses = function(){
 		i = _this.s.last_story_index;
-		if(i === false) return;
+		if(i === false || i === -1) return;
 		_this.stories[i].removeClass(_this.classes.fixed);
 		_this.stories[i].removeClass(_this.classes.bottom);
 	};
+	this.setStylesAt = function(i, follow){
+		if(follow)
+			_this.stories[i].css({
+				position: 'fixed',
+				top: 0,
+				bottom: 'auto'
+			});
+		else
+			_this.stories[i].css({
+				position: 'absolute',
+				top: 'auto',
+				bottom: 0
+			});
+	};
 	this.setClassesAt = function(i, follow){
-		_this.s.last_story_index = i;
-		_this.s.follow = follow;
-		_this.stories[i].addClass(_this.s.follow ? _this.classes.fixed : _this.classes.bottom);
+		if(i === -1) return;
+		_this.stories[i].addClass(follow ? _this.classes.fixed : _this.classes.bottom);
 	};
 }
-
-var follow = new Scroll();
-follow.init();
-

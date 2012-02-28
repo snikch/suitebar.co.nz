@@ -1,34 +1,4 @@
 .stories{
-<<<<<<< HEAD
-	position:absolute;
-	z-index:60;
-	width:370px;
-	right:0;
-	text-shadow: 2px 2px 2px RGBA(0,0,0,1);
-	color:#ccc;
-	.story{
-		padding:13px;
-		margin:40px 12px 0 0;
-		font-size:1.2em;
-		h2{
-			position:absolute;
-			z-index:40px;
-			width:370px;
-			margin: 70px 760px -2px -840px;
-			font-size: 32px;
-			background: black;
-		}
-		p{
-			margin:10px -60px 10px 60px;
-			background: #000;
-			padding:20px 10px 20px 20px;
-		}
-		&.current h2{
-			position:fixed;
-			top: 53px;
-		}
-
-=======
 	width:100%;
 	z-index:60;
 	text-shadow: 2px 2px 2px RGBA(0,0,0,1);
@@ -94,7 +64,6 @@
 	}
 	.last{
 		padding-bottom:60px;
->>>>>>> d64492515ab9b11e4b5cae4767261bee1d4dfce2
 	}
 }
 
