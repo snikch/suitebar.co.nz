@@ -7,7 +7,8 @@ function Scroll(){
 		last_story_index: false,
 		follow: false,
 		num_stories: 0,
-		window_height: false
+		window_height: false,
+		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum"]
 	};
 	this.classes = {
 		prev: 'prev',
@@ -17,18 +18,39 @@ function Scroll(){
 		next: 'next'
 	};
 	this.init = function(){
+		_this.init_stories();
 		_this.stories = [];
+		_this.set_positions();
+		_this.s.num_stories = _this.stories.length;
+		console.log(_this.s.window_height);
+		$(window).scroll(_this.scrollHandler);
+		$(window).resize(_this.resizeHandler);
+
+	};
+	this.resizeHandler = function(){
+		_this.set_positions();
+		_this.scrollHandler();
+		console.log("resizing");
+	};
+	this.set_positions = function(){
+		_this.s.window_height = _this.windowY();
+		$('.story .visual').css({ height: _this.s.window_height});
 		_this.story_positions = [];
 		$('.story').each(function(){
 			_this.story_positions.push(_this.offsetTop(this));
 			_this.stories.push($(this));
 		});
-		console.log(this.stories);
-		_this.s.num_stories = _this.stories.length;
-		_this.s.window_height = _this.windowY();
-		console.log(_this.s.window_height);
-		$(window).scroll(_this.scrollHandler);
-
+	};
+	this.init_stories = function(){
+		$('.story').each(function(){
+			story = $(this);
+			console.log(_this.s.stories);
+			$.each(_this.s.stories, function(k,v){
+				if(!story.hasClass(v)) return true;
+				story.prepend($('<div class="visual" />'));
+				return true;
+			});
+		});
 	};
 	this.offsetTop = function(el){
 		var cur_top = 0;
@@ -89,27 +111,5 @@ function Scroll(){
 }
 
 var follow = new Scroll();
-function Load(){
-	var _this = this;
-	this.s = {
-		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum"]
-	};
-	this.init = function(){
-		$('.story').each(function(){
-			_this.init_node($(this));
-		});
-		$('.story .visual').css({ height: follow.windowY()});
-	};
-	this.init_node = function(story){
-		console.log(_this.s.stories);
-		$.each(_this.s.stories, function(k,v){
-			if(!story.hasClass(v)) return true;
-			story.prepend($('<div class="visual" />'));
-			return true;
-		});
-	};
-}
-load = new Load();
-load.init();
 follow.init();
 
