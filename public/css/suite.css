@@ -61,12 +61,18 @@ a, a:link, a:hover, a:visited {
   z-index: 99;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-transform: translateZ(0); }
   .modal-overlay.disappear {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin-top: -100%; }
     .modal-overlay.disappear #bouncer {
       opacity: 0; }
@@ -77,6 +83,7 @@ a, a:link, a:hover, a:visited {
   -ms-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+  -webkit-transform: translateZ(0);
   position: fixed;
   margin: -225px 0 0 -208px;
   top: 50%;

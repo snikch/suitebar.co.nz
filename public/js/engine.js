@@ -19,12 +19,14 @@ function Suite(){
 	  left: 'auto' // Left position relative to parent in px
 	};
 	this.load = function(){
-		bouncer.verify_age(function(){
-			var target = $('#loading .spin');
-			var spinner = new Spinner(spin_opts).spin(target.get(0));
-			$('#loading-overlay').remove();
-			scroller.init();
-		});
+		var target = $('#loading .spin');
+		var spinner = new Spinner(spin_opts).spin(target.get(0));
+		setTimeout(function(){
+			bouncer.verify_age(function(){
+				$('#loading-overlay').remove();
+				scroller.init();
+			});
+		}, 700);
 	};
 }
 function Scroll(){
