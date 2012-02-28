@@ -8,7 +8,14 @@ $(function(){
 			scrollTop: $($(this).attr('href')).offset().top
 		}, 300, 'easeInOutSine');
 	});
+	/* Handle cocktails / music z-index */
+	$('.menu-cocktails').hover(function(){
+		$(this).css('z-index', 76);
+	}, function(){
+		$(this).css('z-index', 74);
+	})
 });
+
 /*var suite_setup = suite_setup || {}
 suite = new engine(suite_setup);
 suite.init();

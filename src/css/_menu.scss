@@ -74,12 +74,13 @@
 		}
 	}
 	.menu-cocktails{
-		width: 300px;
+		width: 203px;
 		height:330px;
 		background: url(/img/m/cocktails-mask.png) top center no-repeat;
 		top: 405px;
 		left: 50%;
 		margin-left:-354px;
+		z-index:74;
 		h2{
 		}
 		img{
@@ -115,7 +116,7 @@
 		}
 	}
 	.menu-wine{
-		width: 235px;
+		width: 181px;
 		height:315px;
 		background: url(/img/m/wine-mask.png) top center no-repeat;
 		top: 412px;
@@ -126,6 +127,35 @@
 		}
 		img{
 			@include mask-image('/img/m/wine-mask.png');
+		}
+	}
+	.menu-music{
+		width: 209px;
+		height:157px;
+		background: url(/img/m/music-mask.png) top center no-repeat;
+		top: 341px;
+		left: 50%;
+		margin-left:-335px;
+		z-index:75;
+		h2{
+			margin: 20px 0 0 55px;
+		}
+		img{
+			@include mask-image('/img/m/music-mask.png');
+		}
+	}
+	.menu-awards{
+		width: 154px;
+		height:133px;
+		background: url(/img/m/awards-mask.png) top center no-repeat;
+		top: 363px;
+		left: 50%;
+		margin-left:-81px;
+		h2{
+			margin: 94px 0 0 25px;
+		}
+		img{
+			@include mask-image('/img/m/awards-mask.png');
 		}
 	}
 	.menu-people{
