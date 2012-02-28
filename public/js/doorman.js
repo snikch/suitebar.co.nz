@@ -1,9 +1,9 @@
 /* Author:
 
 */
-function doorman(){
+function Doorman(){
 	var is_verified = function(){
-		return !!$.cookie('age_verified');
+		return false; !!$.cookie('age_verified');
 	};
 	var is_vip = function(){
 		var identifiers = ['google','googlebot','livebot','msnbot','facebookscraper','facebookexternalhit','ask jeeves'];
@@ -11,7 +11,7 @@ function doorman(){
 	};
 	this.verify_age = function(){
 		if(is_verified() || is_vip()) return $('#bouncer-overlay').remove();
-		this.ask_for_id();
+		return this.ask_for_id();
 	};
 	this.ask_for_id = function(){
 		var dialog = $('#bouncer-overlay'), _this = this;
@@ -33,6 +33,4 @@ function doorman(){
 		window.location.href = "http://www.google.co.nz/search?q=virgin+cocktails";
 	};
 }
-bouncer = new doorman();
-bouncer.verify_age();
 

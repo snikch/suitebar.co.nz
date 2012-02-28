@@ -1,4 +1,4 @@
-#bouncer-overlay {
+.modal-overlay {
 	background-color:#000;
 	position:fixed;
 	top:0;
@@ -13,10 +13,10 @@
 		}
 	}
 }
-#bouncer {
+.modal {
 	@include transition(all 0.3s ease-in-out);
 	position:fixed;
-	margin:-210px 0 0 -200px;
+	margin:-225px 0 0 -208px;
 	top: 50%;
 	left: 50%;
 	background-color:#fff;
@@ -28,7 +28,7 @@
 	background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat;
 	img{
 		display:block;
-		margin:10px auto 0;
+		margin:40px auto 40px;
 	}
 	h1{
 		text-align:center;
@@ -38,10 +38,35 @@
 	}
 	.options{
 		text-align:center;
-		.btn{
+		.btn:first-child{
 			margin-right:20px;
 		}
 	}
 }
 
+#loading{
+	&:before{
+		display:block;
+		content: "";
+		background: url(/img/skull-loading.png) center center no-repeat;
+		width: 200px;
+		height: 150px;
+		position:absolute;
+		top: 0px;
+		left: 50%;
+		margin-left:-100px;
+	}
+	height: 240px;
+	margin-top:-124px;
+	.spin{
+		margin-top: 180px;
+	}
+	.message{
+		margin-top: 140px;
+		text-align: center;
+		color: #777;
+		text-shadow: 1px 1px 0 white;
+		font-size: 14px;
+	}
+}
 

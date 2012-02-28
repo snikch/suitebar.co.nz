@@ -18,9 +18,6 @@ body {
 a, a:link, a:hover, a:visited {
   color: #333; }
 
-.options .btn {
-  margin-right: 5px; }
-
 .btn {
   text-decoration: none;
   cursor: pointer;
@@ -57,7 +54,7 @@ a, a:link, a:hover, a:visited {
   .btn:focus {
     outline: 1px dotted #666; }
 
-#bouncer-overlay {
+.modal-overlay {
   background-color: #000;
   position: fixed;
   top: 0;
@@ -69,19 +66,19 @@ a, a:link, a:hover, a:visited {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
-  #bouncer-overlay.disappear {
+  .modal-overlay.disappear {
     margin-top: -100%; }
-    #bouncer-overlay.disappear #bouncer {
+    .modal-overlay.disappear #bouncer {
       opacity: 0; }
 
-#bouncer {
+.modal {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   position: fixed;
-  margin: -210px 0 0 -200px;
+  margin: -225px 0 0 -208px;
   top: 50%;
   left: 50%;
   background-color: #fff;
@@ -91,18 +88,40 @@ a, a:link, a:hover, a:visited {
   height: 435px;
   opacity: 1;
   background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat; }
-  #bouncer img {
+  .modal img {
     display: block;
-    margin: 10px auto 0; }
-  #bouncer h1 {
+    margin: 40px auto 40px; }
+  .modal h1 {
     text-align: center;
     font-size: 22px;
     color: #333;
     text-shadow: 0 1px 0 #fff; }
-  #bouncer .options {
+  .modal .options {
     text-align: center; }
-    #bouncer .options .btn {
+    .modal .options .btn:first-child {
       margin-right: 20px; }
+
+#loading {
+  height: 240px;
+  margin-top: -124px; }
+  #loading:before {
+    display: block;
+    content: "";
+    background: url(/img/skull-loading.png) center center no-repeat;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -100px; }
+  #loading .spin {
+    margin-top: 180px; }
+  #loading .message {
+    margin-top: 140px;
+    text-align: center;
+    color: #777;
+    text-shadow: 1px 1px 0 white;
+    font-size: 14px; }
 
 header {
   position: fixed;

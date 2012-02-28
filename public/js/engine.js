@@ -1,6 +1,30 @@
 /* Author:
 
 */
+function Suite(){
+	var _this = this, scroller = new Scroll(), bouncer = new Doorman();
+	var spin_opts = {
+	  lines: 16, // The number of lines to draw
+	  length: 0, // The length of each line
+	  width: 5, // The line thickness
+	  radius: 18, // The radius of the inner circle
+	  color: '#000', // #rgb or #rrggbb
+	  speed: 1.2, // Rounds per second
+	  trail: 60, // Afterglow percentage
+	  shadow: false, // Whether to render a shadow
+	  hwaccel: true, // Whether to use hardware acceleration
+	  className: 'spinner', // The CSS class to assign to the spinner
+	  zIndex: 2e9, // The z-index (defaults to 2000000000)
+	  top: 'auto', // Top position relative to parent in px
+	  left: 'auto' // Left position relative to parent in px
+	};
+	this.load = function(){
+		var target = $('#loading .spin');
+		var spinner = new Spinner(spin_opts).spin(target.get(0));
+		bouncer.verify_age();
+
+	};
+}
 function Scroll(){
 	var _this = this;
 	this.s = {
@@ -22,7 +46,6 @@ function Scroll(){
 		_this.stories = [];
 		_this.set_positions();
 		_this.s.num_stories = _this.stories.length;
-		console.log(_this.s.window_height);
 		$(window).scroll(_this.scrollHandler);
 		$(window).resize(_this.resizeHandler);
 
@@ -30,7 +53,6 @@ function Scroll(){
 	this.resizeHandler = function(){
 		_this.set_positions();
 		_this.scrollHandler();
-		console.log("resizing");
 	};
 	this.set_positions = function(){
 		_this.s.window_height = _this.windowY();
@@ -44,7 +66,6 @@ function Scroll(){
 	this.init_stories = function(){
 		$('.story').each(function(){
 			story = $(this);
-			console.log(_this.s.stories);
 			$.each(_this.s.stories, function(k,v){
 				if(!story.hasClass(v)) return true;
 				story.prepend($('<div class="visual" />'));
@@ -89,7 +110,6 @@ function Scroll(){
 			if(y > pos) continue;
 			i--;
 			follow = y < pos - _this.s.window_height;
-			console.log(i);
 			break;
 		}
 		if((i === _this.s.last_story_index && follow === _this.s.follow)) return;
