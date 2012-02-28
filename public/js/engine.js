@@ -61,15 +61,18 @@ function Scroll(){
 	this.scrollHandler = function(){
 		story_index = 0;
 		y = _this.scrollY();
+
 		for(var i=0,j=_this.s.num_stories;i<j;i++){
 			pos = _this.story_positions[i];
 			if(y > pos) continue;
 			i--;
 			follow = y < pos - _this.s.window_height;
+			console.log(i);
 			break;
 		}
-		if((i === _this.s.last_story_index && follow === _this.s.follow) || i === -1) return;
+		if((i === _this.s.last_story_index && follow === _this.s.follow)) return;
 		_this.removeClasses();
+		if(i === -1) return;
 		_this.setClassesAt(i, follow);
 	};
 	this.removeClasses = function(){
@@ -95,7 +98,7 @@ function Load(){
 		$('.story').each(function(){
 			_this.init_node($(this));
 		});
-		$('.story .visual').css({ height: follow.windowY()})
+		$('.story .visual').css({ height: follow.windowY()});
 	};
 	this.init_node = function(story){
 		console.log(_this.s.stories);
@@ -104,7 +107,7 @@ function Load(){
 			story.prepend($('<div class="visual" />'));
 			return true;
 		});
-	}
+	};
 }
 load = new Load();
 load.init();

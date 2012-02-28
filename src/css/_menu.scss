@@ -45,6 +45,7 @@
 			background: none;
 			position:absolute;
 			color:#fff;
+			font-weight:normal;
 		}
 		img{
 			@include transition(all 0.3s ease-in-out);
@@ -153,7 +154,7 @@
 		left: 50%;
 		margin-left:-81px;
 		h2{
-			margin: 94px 0 0 25px;
+			margin: 94px 0 0 35px;
 		}
 		img{
 			@include mask-image('/img/m/awards-mask.png');
@@ -167,7 +168,7 @@
 		left: 50%;
 		margin-left:129px;
 		h2{
-			margin: 35% 0 0 15px;
+			margin: 35% 0 0 25px;
 		}
 		img{
 			@include mask-image('/img/m/people-mask.png');
