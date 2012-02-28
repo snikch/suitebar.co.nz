@@ -10,14 +10,6 @@
 		}
 	}
 }
-body.snapped .current img, body.snapped .current iframe{
-	position:fixed;
-	top: 0;
-}
-body .next img, body .next iframe{
-	top: 0;
-	bottom: auto;
-}
 
 .about-1{ background-image:url(/img/b/index.jpg); }
 .about-2{ background-image:url(/img/b/about-1.jpg); }

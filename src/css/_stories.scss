@@ -5,10 +5,15 @@
 	color:#ccc;
 }
 .story{
-	background-size: cover ;
 	background-repeat: no-repeat;
-	background-position: top center;
-	background-attachment:fixed;
+	background-position: bottom center;
+	background-attachment:scroll;
+	&.current{
+		background-attachment: fixed;
+	}
+	&.prev{
+		background-position: bottom center;
+	}
 	min-height:100%;
 	margin:0;
 	padding:40px 0 40px 100%;
@@ -37,10 +42,6 @@
 	table{
 		padding-top:30px;
 		width:529px;
-	}
-	&.current h2{
-		position:fixed;
-		top: 53px;
 	}
 
 	p.tasting-price{

@@ -1,6 +1,88 @@
 /* Author:
 
 */
+function suite(){
+	var _this = this;
+	this.s = {
+		last_story_index: false,
+		num_stories: 0,
+		window_height: false
+	};
+	this.classes = {
+		prev: 'prev',
+		current: 'current',
+		next: 'next'
+	};
+	this.init = function(){
+		_this.stories = [];
+		_this.story_positions = [];
+		$('.story').each(function(){
+			_this.story_positions.push(_this.offsetTop(this));
+			_this.stories.push($(this));
+		});
+		console.log(this.stories);
+		_this.s.num_stories = _this.stories.length;
+		_this.s.window_height = _this.windowY();
+		console.log(_this.s.window_height);
+		$(window).scroll(_this.scrollHandler);
+
+	};
+	this.offsetTop = function(el){
+		var cur_top = 0;
+		if (el.offsetParent) {
+			do {
+				cur_top += el.offsetTop;
+			} while ((el = el.offsetParent));
+		}
+		return cur_top;
+	};
+	this.scrollY = function() {
+    	if( window.pageYOffset ) { return window.pageYOffset; }
+    	return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+	};
+	this.windowY = function() {
+		var winH = 0;
+		if (document.body && document.body.offsetWidth) {
+		 winH = document.body.offsetHeight;
+		}
+		if (document.compatMode=='CSS1Compat' &&
+			document.documentElement &&
+			document.documentElement.offsetWidth ) {
+		 winH = document.documentElement.offsetHeight;
+		}
+		if (window.innerWidth && window.innerHeight) {
+		 winH = window.innerHeight;
+		}
+		return winH;
+	};
+	this.scrollHandler = function(){
+		story_index = 0;
+		y = _this.scrollY()+_this.s.window_height;
+		for(var i=0,j=_this.s.num_stories;i<j;i++){
+			if(y > _this.story_positions[i]) continue;
+			i--;
+			break;
+		}
+		if(i === _this.s.last_story_index || i === -1) return;
+		_this.removeClasses();
+		_this.setClassesAt(i);
+	};
+	this.removeClasses = function(){
+		i = _this.s.last_story_index;
+		if(i === false) return;
+		if(i > 1) _this.stories[i-1].removeClass(_this.classes.prev);
+		if(i < _this.s.num_stories-1) _this.stories[i+1].removeClass(_this.classes.next);
+		_this.stories[i].removeClass(_this.classes.current);
+	}
+	this.setClassesAt = function(i){
+		_this.s.last_story_index = i
+		if(i > 1) _this.stories[i-1].addClass(_this.classes.prev);
+		if(i < _this.s.num_stories-1) _this.stories[i+1].addClass(_this.classes.next);
+		_this.stories[i].addClass(_this.classes.current);
+	};
+}
+site = new suite();
+site.init();
 function engine(setup){
 	var s = {
 		ratio: 2/3,

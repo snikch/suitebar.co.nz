@@ -342,14 +342,6 @@ header {
     position: absolute;
     bottom: 40px; }
 
-body.snapped .current img, body.snapped .current iframe {
-  position: fixed;
-  top: 0; }
-
-body .next img, body .next iframe {
-  top: 0;
-  bottom: auto; }
-
 .about-1 {
   background-image: url(/img/b/index.jpg); }
 
@@ -402,14 +394,17 @@ body .next img, body .next iframe {
   color: #ccc; }
 
 .story {
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
+  background-position: bottom center;
+  background-attachment: scroll;
   min-height: 100%;
   margin: 0;
   padding: 40px 0 40px 100%;
   font-size: 1.2em; }
+  .story.current {
+    background-attachment: fixed; }
+  .story.prev {
+    background-position: bottom center; }
   .story h2, .story h3, .story p, .story table {
     margin: 0 0 0 -599px;
     background: #efefef url(/img/soft_wallpaper.png);
@@ -430,9 +425,6 @@ body .next img, body .next iframe {
   .story table {
     padding-top: 30px;
     width: 529px; }
-  .story.current h2 {
-    position: fixed;
-    top: 53px; }
   .story p.tasting-price {
     padding-top: 0; }
   .story .first {
