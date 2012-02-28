@@ -9,11 +9,11 @@ $(function(){
 		}, 300, 'easeInOutSine');
 	});
 	/* Handle cocktails / music z-index */
-	$('.menu-cocktails').hover(function(){
+	$('.menu-cocktails').mousedown(function(){
 		$(this).css('z-index', 76);
-	}, function(){
+	}).mouseup(function(){
 		$(this).css('z-index', 74);
-	})
+	});
 });
 
 /*var suite_setup = suite_setup || {}
@@ -23,15 +23,15 @@ $(window).resize(function(){ suite.resize(); })
 
 */
 
+/*
+$.easing['jswing'] = $.easing['swing'];
 
-jQuery.easing['jswing'] = jQuery.easing['swing'];
-
-jQuery.extend(jQuery.easing,
+$.extend($.easing,
 {
     def: 'easeOutQuad',
     swing: function (x, t, b, c, d) {
-        //alert(jQuery.easing.default);
-        return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+        //alert($.easing.default);
+        return $.easing[$.easing.def](x, t, b, c, d);
     },
     easeInQuad: function (x, t, b, c, d) {
         return c * (t /= d) * t + b;
@@ -140,7 +140,7 @@ jQuery.extend(jQuery.easing,
         return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
     },
     easeInBounce: function (x, t, b, c, d) {
-        return c - jQuery.easing.easeOutBounce(x, d - t, 0, c, d) + b;
+        return c - $.easing.easeOutBounce(x, d - t, 0, c, d) + b;
     },
     easeOutBounce: function (x, t, b, c, d) {
         if ((t /= d) < (1 / 2.75)) {
@@ -154,8 +154,8 @@ jQuery.extend(jQuery.easing,
         }
     },
     easeInOutBounce: function (x, t, b, c, d) {
-        if (t < d / 2) return jQuery.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
-        return jQuery.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+        if (t < d / 2) return $.easing.easeInBounce(x, t * 2, 0, c, d) * .5 + b;
+        return $.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * .5 + c * .5 + b;
     }
 });
-
+*/
