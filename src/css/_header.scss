@@ -9,10 +9,15 @@ header{
 		width: 100px;
 		height: 100px;
 		text-index: -9999px;
+		text-align: center;
 		position:absolute;
 		margin:0 0 0 30px;
 		z-index: 79;
-		color: #fff;
+		padding:4px 0 0;
+		a, a:link{
+			color: #fff;
+			text-decoration: none;
+		}
 	}
 	nav{
 		background-color:RGBA(0,0,0,0.7);

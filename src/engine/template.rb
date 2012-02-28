@@ -51,18 +51,18 @@ class Template
 
   def pages
     [
-      [ "About", :about, :index],
-      [ "Cocktails", :drinks_cocktails, "drinks-cocktails" ],
-      [ "Wine", :drinks_wine, "drinks-wine" ],
-      [ "Beer", :drinks_beer, "drinks-beer"],
-      [ "Spirits", :drinks_spirits, "drinks-spirits" ],
+      [ "About", :about, :about],
+      [ "Cocktails", :drinks_cocktails, "cocktails" ],
+      [ "Wine", :drinks_wine, "wine" ],
+      [ "Beer", :drinks_beer, "beer"],
+      [ "Spirits", :drinks_spirits, "spirits" ],
       [ "Food", :food, :food ],
-      [ "People", :bartenders, :bartenders ],
-      [ "Contact", :contact, "contact-us" ],
+      [ "People", :bartenders, :people ],
+      [ "Contact", :contact, "contact" ],
     ]
   end
 
   def link_to(title, link)
-    "<a href=\"##{title.downcase}\">#{title}</a>"
+    "<a href=\"##{link}\">#{title}</a>"
   end
 end

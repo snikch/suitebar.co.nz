@@ -1,11 +1,8 @@
 /* Author:
 
 */
-bouncer = new doorman();
-bouncer.verify_age();
-
 $(function(){
-	$("nav a").click(function(e) {
+	$("nav a, .menu-item, header a").click(function(e) {
 		e.preventDefault();
 		$('html, body').animate({
 			scrollTop: $($(this).attr('href')).offset().top
