@@ -67,7 +67,6 @@ function Scroll(){
 			else
 				_this.stories.push($(this));
 		});
-		console.log(_this.story_positions);
 	};
 	this.init_stories = function(){
 		$('.story').each(function(){
@@ -107,29 +106,21 @@ function Scroll(){
 		}
 		return winH;
 	};
-	method = 'class';
+	method = 'style';
 	this.scrollHandler = function(){
 		story_index = 0;
 		y = _this.scrollY();
-		console.log(y);
-		log('window height' + _this.s.window_height);
 
 		for(var i=0,j=_this.s.num_stories;i<j;i++){
 			pos = _this.story_positions[i];
-			if(y > pos) continue;
+			if(y >= pos) continue;
 			i--;
-			follow = y < pos - _this.s.window_height;
-			console.log('i ' + i)
-			console.log('follow ' + follow)
+			follow = y <= pos - _this.s.window_height;
 			break;
 		}
-		console.log("last story match? " + (i === _this.s.last_story_index));
-		console.log("follow match?" + (follow === _this.s.follow));
 		match = i === _this.s.last_story_index && follow === _this.s.follow;
 		if(!match){
-			console.log("removing");
 			method === 'style' ? _this.removeStyles() : _this.removeClasses();
-			console.log("setting");
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
 		}
 		_this.s.last_story_index = i;
@@ -137,11 +128,11 @@ function Scroll(){
 	};
 	this.removeStyles = function(){
 		i = _this.s.last_story_index;
-		if(i === false) return;
+		if(i === false || i === -1) return;
 		_this.stories[i].css({
-			position: null,
-			top: null,
-			bottom: null
+			position: 'absolute',
+			top: '0',
+			bottom: 'auto'
 		});
 	};
 	this.removeClasses = function(){
@@ -151,6 +142,7 @@ function Scroll(){
 		_this.stories[i].removeClass(_this.classes.bottom);
 	};
 	this.setStylesAt = function(i, follow){
+		if(i === -1) return;
 		if(follow)
 			_this.stories[i].css({
 				position: 'fixed',
