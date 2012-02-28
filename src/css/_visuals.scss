@@ -1,28 +1,15 @@
-.visuals{
-	.visual{
-		height:900px;
-		position:relative;
-		img, iframe{
-			width:100%;
-			height:100%;
-			position:absolute;
-			bottom:40px;
-		}
-	}
-}
-
-.about-1{ background-image:url(/img/b/index.jpg); }
-.about-2{ background-image:url(/img/b/about-1.jpg); }
-.cocktail-1{ background-image:url(/img/b/cocktails-2.jpg); }
-.cocktail-2{ background-image:url(/img/b/wine-1.jpg); }
-.white-wine{ background-image:url(/img/b/white-wine.jpg); }
-.red-wine{ background-image:url(/img/b/red-wine.jpg); }
-.beer-1{ background-image:url(/img/b/beer-1.jpg); }
-.whiskey{ background-image:url(/img/b/whiskey.jpg); }
-.gin{ background-image:url(/img/b/gin.jpg); }
-.vodka{ background-image:url(/img/b/gin.jpg); }
-.bitter{ background-image:url(/img/b/bitter.jpg); }
-.tequila{ background-image:url(/img/b/tequila.jpg); }
-.bourbon{ background-image:url(/img/b/bourbon.jpg); }
-.cognac{ background-image:url(/img/b/cognac.jpg); }
-.rum{ background-image:url(/img/b/rum.jpg); }
+.about-1 .visual{ background-image:url(/img/b/index.jpg); }
+.about-2 .visual{ background-image:url(/img/b/about-1.jpg); }
+.cocktail-1 .visual{ background-image:url(/img/b/cocktails-2.jpg); }
+.cocktail-2 .visual{ background-image:url(/img/b/wine-1.jpg); }
+.white-wine .visual{ background-image:url(/img/b/white-wine.jpg); }
+.red-wine .visual{ background-image:url(/img/b/red-wine.jpg); }
+.beer-1 .visual{ background-image:url(/img/b/beer-1.jpg); }
+.whiskey .visual{ background-image:url(/img/b/whiskey.jpg); }
+.gin .visual{ background-image:url(/img/b/gin.jpg); }
+.vodka .visual{ background-image:url(/img/b/gin.jpg); }
+.bitter .visual{ background-image:url(/img/b/bitter.jpg); }
+.tequila .visual{ background-image:url(/img/b/tequila.jpg); }
+.bourbon .visual{ background-image:url(/img/b/bourbon.jpg); }
+.cognac .visual{ background-image:url(/img/b/cognac.jpg); }
+.rum .visual{ background-image:url(/img/b/rum.jpg); }

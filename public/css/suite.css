@@ -167,6 +167,7 @@ header {
   background-size: initial;
   background-position: bottom center;
   background-attachment: initial;
+  background-image: url(/img/b/index.jpg);
   position: relative; }
   #main-menu .menu-item {
     -webkit-transition: all 0.4s ease-in-out;
@@ -226,7 +227,7 @@ header {
     width: 300px;
     height: 335px;
     background: url(/img/m/spirits-mask.png) top center no-repeat;
-    top: 409px;
+    top: 329px;
     left: 50%;
     margin-left: -608px; }
     #main-menu .menu-spirits img {
@@ -238,7 +239,7 @@ header {
     width: 203px;
     height: 330px;
     background: url(/img/m/cocktails-mask.png) top center no-repeat;
-    top: 405px;
+    top: 325px;
     left: 50%;
     margin-left: -354px;
     z-index: 74; }
@@ -251,7 +252,7 @@ header {
     width: 378px;
     height: 118px;
     background: url(/img/m/food-mask.png) top center no-repeat;
-    top: 642px;
+    top: 562px;
     left: 50%;
     margin-left: -228px; }
     #main-menu .menu-food h2 {
@@ -265,7 +266,7 @@ header {
     width: 324px;
     height: 355px;
     background: url(/img/m/beer-mask.png) top center no-repeat;
-    top: 373px;
+    top: 293px;
     left: 50%;
     margin-left: 133px; }
     #main-menu .menu-beer h2 {
@@ -279,7 +280,7 @@ header {
     width: 181px;
     height: 315px;
     background: url(/img/m/wine-mask.png) top center no-repeat;
-    top: 412px;
+    top: 332px;
     left: 50%;
     margin-left: 416px; }
     #main-menu .menu-wine h2 {
@@ -293,7 +294,7 @@ header {
     width: 209px;
     height: 157px;
     background: url(/img/m/music-mask.png) top center no-repeat;
-    top: 341px;
+    top: 261px;
     left: 50%;
     margin-left: -335px;
     z-index: 75; }
@@ -308,7 +309,7 @@ header {
     width: 154px;
     height: 133px;
     background: url(/img/m/awards-mask.png) top center no-repeat;
-    top: 363px;
+    top: 283px;
     left: 50%;
     margin-left: -81px; }
     #main-menu .menu-awards h2 {
@@ -322,7 +323,7 @@ header {
     width: 111px;
     height: 140px;
     background: url(/img/m/people-mask.png) top center no-repeat;
-    top: 355px;
+    top: 275px;
     left: 50%;
     margin-left: 129px; }
     #main-menu .menu-people h2 {
@@ -333,58 +334,49 @@ header {
       -moz-mask-image: url("/img/m/people-mask.png");
       mask-image: url("/img/m/people-mask.png"); }
 
-.visuals .visual {
-  height: 900px;
-  position: relative; }
-  .visuals .visual img, .visuals .visual iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 40px; }
-
-.about-1 {
+.about-1 .visual {
   background-image: url(/img/b/index.jpg); }
 
-.about-2 {
+.about-2 .visual {
   background-image: url(/img/b/about-1.jpg); }
 
-.cocktail-1 {
+.cocktail-1 .visual {
   background-image: url(/img/b/cocktails-2.jpg); }
 
-.cocktail-2 {
+.cocktail-2 .visual {
   background-image: url(/img/b/wine-1.jpg); }
 
-.white-wine {
+.white-wine .visual {
   background-image: url(/img/b/white-wine.jpg); }
 
-.red-wine {
+.red-wine .visual {
   background-image: url(/img/b/red-wine.jpg); }
 
-.beer-1 {
+.beer-1 .visual {
   background-image: url(/img/b/beer-1.jpg); }
 
-.whiskey {
+.whiskey .visual {
   background-image: url(/img/b/whiskey.jpg); }
 
-.gin {
+.gin .visual {
   background-image: url(/img/b/gin.jpg); }
 
-.vodka {
+.vodka .visual {
   background-image: url(/img/b/gin.jpg); }
 
-.bitter {
+.bitter .visual {
   background-image: url(/img/b/bitter.jpg); }
 
-.tequila {
+.tequila .visual {
   background-image: url(/img/b/tequila.jpg); }
 
-.bourbon {
+.bourbon .visual {
   background-image: url(/img/b/bourbon.jpg); }
 
-.cognac {
+.cognac .visual {
   background-image: url(/img/b/cognac.jpg); }
 
-.rum {
+.rum .visual {
   background-image: url(/img/b/rum.jpg); }
 
 .stories {
@@ -394,17 +386,30 @@ header {
   color: #ccc; }
 
 .story {
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-attachment: scroll;
+  position: relative;
   min-height: 100%;
   margin: 0;
   padding: 40px 0 40px 100%;
   font-size: 1.2em; }
-  .story.current {
-    background-attachment: fixed; }
-  .story.prev {
-    background-position: bottom center; }
+  .story * {
+    z-index: 10;
+    position: relative; }
+  .story .visual {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 100%, auto;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: scroll; }
+  .story.fixed .visual {
+    position: fixed; }
+  .story.bottom .visual {
+    bottom: 0;
+    top: auto; }
   .story h2, .story h3, .story p, .story table {
     margin: 0 0 0 -599px;
     background: #efefef url(/img/soft_wallpaper.png);

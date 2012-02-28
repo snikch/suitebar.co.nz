@@ -26,6 +26,7 @@
 	background-size: initial;
 	background-position: bottom center;
 	background-attachment: initial;
+	background-image:url(/img/b/index.jpg);
 	position:relative;
 	.menu-item{
 		@include transition(all 0.4s ease-in-out);
@@ -64,7 +65,7 @@
 		width:300px;
 		height: 335px;
 		background: url(/img/m/spirits-mask.png) top center no-repeat;
-		top: 409px;
+		top: 329px;
 		left: 50%;
 		margin-left:-608px;
 		h2{
@@ -77,7 +78,7 @@
 		width: 203px;
 		height:330px;
 		background: url(/img/m/cocktails-mask.png) top center no-repeat;
-		top: 405px;
+		top: 325px;
 		left: 50%;
 		margin-left:-354px;
 		z-index:74;
@@ -91,7 +92,7 @@
 		width: 378px;
 		height:118px;
 		background: url(/img/m/food-mask.png) top center no-repeat;
-		top: 642px;
+		top: 562px;
 		left: 50%;
 		margin-left:-228px;
 		h2{
@@ -105,7 +106,7 @@
 		width: 324px;
 		height:355px;
 		background: url(/img/m/beer-mask.png) top center no-repeat;
-		top: 373px;
+		top: 293px;
 		left: 50%;
 		margin-left:133px;
 		h2{
@@ -119,7 +120,7 @@
 		width: 181px;
 		height:315px;
 		background: url(/img/m/wine-mask.png) top center no-repeat;
-		top: 412px;
+		top: 332px;
 		left: 50%;
 		margin-left:416px;
 		h2{
@@ -133,7 +134,7 @@
 		width: 209px;
 		height:157px;
 		background: url(/img/m/music-mask.png) top center no-repeat;
-		top: 341px;
+		top: 261px;
 		left: 50%;
 		margin-left:-335px;
 		z-index:75;
@@ -148,7 +149,7 @@
 		width: 154px;
 		height:133px;
 		background: url(/img/m/awards-mask.png) top center no-repeat;
-		top: 363px;
+		top: 283px;
 		left: 50%;
 		margin-left:-81px;
 		h2{
@@ -162,7 +163,7 @@
 		width: 111px;
 		height:140px;
 		background: url(/img/m/people-mask.png) top center no-repeat;
-		top: 355px;
+		top: 275px;
 		left: 50%;
 		margin-left:129px;
 		h2{
