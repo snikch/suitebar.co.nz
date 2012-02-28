@@ -2460,10 +2460,14 @@
         </div>
       </div>
     </div>
-    <script src='/js/zepto.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        window.jQuery || document.write("<script src='js/jquery.min.js'>\x3C/script>")
+      //]]>
+    </script>
     
     <script src='js/plugins.js?v=1'></script>
-    <script src='js/modal.js'></script>
     <script src='js/cookie.js?v=1'></script>
     <script src='js/doorman.js?v=1'></script>
     <script src='js/engine.js?v=1'></script>
