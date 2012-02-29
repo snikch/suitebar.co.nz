@@ -1,24 +1,3 @@
-@mixin mask-image($url) {
-	-webkit-mask-image: url($url);
-	-o-mask-image: url($url);
-	-moz-mask-image: url($url);
-	mask-image: url($url);
-}
-@mixin transition($val) {
-	-webkit-transition: $val;
-	-moz-transition: $val;
-	-o-transition: $val;
-	-ms-transition: $val;
-	transition: $val;
-}
-@mixin transform($val) {
-	-webkit-transform: $val;
-	-moz-transform: $val;
-	-o-transform: $val;
-	-ms-transform: $val;
-	transform: $val;
-
-}
 #main-menu{
 	margin:0 0 100% 0;
 	max-height:800px;

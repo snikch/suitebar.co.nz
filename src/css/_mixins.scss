@@ -59,11 +59,23 @@
 	box-shadow: $values, $alt;
 	}
 }
-
-@mixin transition($values){
-	-webkit-transition: $values;
-	-moz-transition: $values;
-	-ms-transition: $values;
-	-o-transition: $values;
-	transition: $values;
+@mixin mask-image($url) {
+	-webkit-mask-image: url($url);
+	-o-mask-image: url($url);
+	-moz-mask-image: url($url);
+	mask-image: url($url);
+}
+@mixin transition($val) {
+	-webkit-transition: $val;
+	-moz-transition: $val;
+	-o-transition: $val;
+	-ms-transition: $val;
+	transition: $val;
+}
+@mixin transform($val) {
+	-webkit-transform: $val;
+	-moz-transform: $val;
+	-o-transform: $val;
+	-ms-transform: $val;
+	transform: $val;
 }

@@ -44,8 +44,8 @@ a, a:link, a:hover, a:visited {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   -webkit-transition: 0.1s linear all;
   -moz-transition: 0.1s linear all;
-  -ms-transition: 0.1s linear all;
   -o-transition: 0.1s linear all;
+  -ms-transition: 0.1s linear all;
   transition: 0.1s linear all; }
   .btn:hover {
     background-position: 0 -15px;
@@ -63,15 +63,15 @@ a, a:link, a:hover, a:visited {
   height: 100%;
   -webkit-transition: none;
   -moz-transition: none;
-  -ms-transition: none;
   -o-transition: none;
+  -ms-transition: none;
   transition: none;
   -webkit-transform: translateZ(0); }
   .modal-overlay.disappear {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     margin-top: -100%; }
     .modal-overlay.disappear #bouncer {
@@ -80,8 +80,8 @@ a, a:link, a:hover, a:visited {
 .modal {
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
-  -ms-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   -webkit-transform: translateZ(0);
   position: fixed;
@@ -157,8 +157,8 @@ header {
     opacity: 0;
     -webkit-transition: 0.1s ease-out all;
     -moz-transition: 0.1s ease-out all;
-    -ms-transition: 0.1s ease-out all;
     -o-transition: 0.1s ease-out all;
+    -ms-transition: 0.1s ease-out all;
     transition: 0.1s ease-out all; }
     header nav ul {
       padding: 0 0 0 130px; }
@@ -175,8 +175,8 @@ header {
           text-decoration: none;
           -webkit-transition: 0.1s ease-out all;
           -moz-transition: 0.1s ease-out all;
-          -ms-transition: 0.1s ease-out all;
           -o-transition: 0.1s ease-out all;
+          -ms-transition: 0.1s ease-out all;
           transition: 0.1s ease-out all;
           padding: 10px 14px 0;
           background-color: transparent; }
