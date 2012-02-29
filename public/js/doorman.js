@@ -22,9 +22,9 @@ function Doorman(){
 		dialog.removeClass('disappear');
 		$('#bouncer .y').click(function(e){
 			e.preventDefault();
-			dialog.addClass('disappear');
 			_this.remember_for_later();
 			if(callback) callback();
+			dialog.addClass('disappear');
 			setTimeout(function(){
 				dialog.remove();
 			}, 300);

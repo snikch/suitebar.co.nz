@@ -146,7 +146,7 @@ header {
     margin: 0 0 0 30px;
     z-index: 79;
     padding: 4px 0 0; }
-    header h1 a, header h1 a:link {
+    header h1 a, header h1 a:link, header h1 a:visited {
       color: #fff;
       text-decoration: none; }
   header nav {

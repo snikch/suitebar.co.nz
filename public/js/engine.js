@@ -21,15 +21,17 @@ function Suite(){
 	this.load = function(){
 		var target = $('#loading .spin');
 		var spinner = new Spinner(spin_opts).spin(target.get(0));
-		loader.loadGroup('index', _this.menu_preloaded);
-		setTimeout(function(){
-			bouncer.verify_age(function(){
-				scroller.init();
-			});
-		}, 700);
+		$(function(){
+			scroller.prepare();
+			loader.loadGroup('index', _this.menu_preloaded);
+			setTimeout(function(){
+				bouncer.verify_age(function(){
+					scroller.init();
+				});
+			}, 700);
+		});
 	};
 	this.menu_preloaded = function(imgs){
-		console.log('loaded');
 		$.each(imgs, function(k,v){
 			_this.apply_image(k, v.src);
 			log("loaded " + k + ' with ' + v.src)
@@ -41,14 +43,15 @@ function Suite(){
 	}
 	this.low_visual_preloaded = function(el){
 		log('Loaded ' + el.rel);
-		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover '});
+		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover'});
 	};
 	this.high_visual_preloaded = function(el){
 		log('Loaded ' + el.rel);
-		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover '});
+		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover'});
 	};
 	this.apply_image = function(selector, value, additional){
 		var additional = additional || {}
+		log('Applying ' + selector);
 		$(selector).css($.extend(additional, {
 			backgroundImage: 'url(' + value + ')'
 		}));
@@ -70,8 +73,11 @@ function Scroll(){
 		fixed: 'fixed',
 		next: 'next'
 	};
-	this.init = function(){
+	this.prepare = function(){
 		_this.init_stories();
+		_this.scroll_to_hash();
+	};
+	this.init = function(){
 		_this.stories = [];
 		_this.set_positions();
 		_this.s.num_stories = _this.stories.length;
@@ -79,6 +85,12 @@ function Scroll(){
 		$(window).resize(_this.resizeHandler);
 
 	};
+	this.scroll_to_hash = function(){
+		if(location.hash && $(location.hash))
+			$('html, body').css({
+				scrollTop: $(location.hash).offset().top
+			})
+	}
 	this.resizeHandler = function(){
 		_this.set_positions();
 		_this.scrollHandler();
@@ -190,7 +202,6 @@ function Scroll(){
 }
 
 var ImageLoader = function(){
-	log("Created image loader")
 	var _this = this;
 	var image_groups = {
 		index: {
@@ -213,7 +224,6 @@ var ImageLoader = function(){
 			'.beer-1 .visual': '/img/b/beer-1.jpg',
 			'.whiskey .visual': '/img/b/whiskey.jpg',
 			'.gin .visual': '/img/b/gin.jpg',
-			'.vodka .visual': '/img/b/gin.jpg',
 			'.bitter .visual': '/img/b/bitter.jpg',
 			'.tequila .visual': '/img/b/tequila.jpg',
 			'.bourbon .visual': '/img/b/bourbon.jpg',
@@ -229,7 +239,6 @@ var ImageLoader = function(){
 			'.beer-1 .visual': '/img/b/low/beer-1.jpg',
 			'.whiskey .visual': '/img/b/low/whiskey.jpg',
 			'.gin .visual': '/img/b/low/gin.jpg',
-			'.vodka .visual': '/img/b/low/gin.jpg',
 			'.bitter .visual': '/img/b/low/bitter.jpg',
 			'.tequila .visual': '/img/b/low/tequila.jpg',
 			'.bourbon .visual': '/img/b/low/bourbon.jpg',
