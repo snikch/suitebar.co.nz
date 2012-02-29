@@ -195,7 +195,7 @@ function Scroll(){
 			if(i !== _this.s.last_story_index){
 				var id = i !== -1 && (method === 'style' ? _this.stories[i].parent() : _this.stories[i]).attr('id')
 				if(id)
-					_this.push_hash(id)	
+					_this.push_hash('#' + id)	
 			}
 		}
 		_this.s.last_story_index = i;
@@ -204,8 +204,24 @@ function Scroll(){
 	this.push_hash = function(hash){
 		clearTimeout(_this.hash_debounce)
 		_this.hash_debounce = setTimeout(function(){
-			location.hash = hash;
-			_gaq.push(['_trackPageview', hash.replace('#','')]);
+			hash = hash.replace( /^#/, '' );
+			var fx, node = $( '#' + hash );
+			if ( node.length ) {
+			  fx = $( '<div></div>' ).css({
+				  position:'absolute',
+				  visibility:'hidden',
+				  top: _this.scrollY() + 'px'
+			  })
+			  .attr( 'id', hash )
+			  .appendTo( document.body );
+			  node.attr( 'id', '' );
+			}
+			document.location.hash = hash;
+			if ( node.length ) {
+			  fx.remove();
+			  node.attr( 'id', hash );
+			}
+			_gaq.push(['_trackPageview', hash]);
 			_this.trigger_ui(hash);
 		}, 300);
 	}
