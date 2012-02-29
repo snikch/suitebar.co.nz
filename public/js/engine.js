@@ -76,6 +76,8 @@ function Scroll(){
 	this.prepare = function(){
 		_this.init_stories();
 		_this.scroll_to_hash();
+		_this.handle_hash_links();
+		_this.menu_preparations();
 	};
 	this.init = function(){
 		_this.stories = [];
@@ -85,11 +87,38 @@ function Scroll(){
 		$(window).resize(_this.resizeHandler);
 
 	};
+	this.menu_preparations = function(){
+		/* Handle cocktails / music z-index */
+		$('.menu-cocktails').hover(function(){
+			$(this).css('z-index', 76);
+		}, function(){
+			$(this).css('z-index', 74);
+		});
+	}
 	this.scroll_to_hash = function(){
 		if(location.hash && $(location.hash))
 			$('html, body').css({
 				scrollTop: $(location.hash).offset().top
 			})
+	}
+	this.handle_hash_links = function(){
+		$(function(){
+			$("nav a, .menu-item, header a").click(function(e) {
+				var hash = $(this).attr('href');
+				_this.push_hash(hash);
+				if(window.location.href.indexOf('scroll=true') == -1) return;
+				e.preventDefault();
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				},{
+					duration: 300,
+					easing: 'easeInOutSine',
+					complete: function(){
+						location.hash = hash
+					}
+				});
+			});
+		});
 	}
 	this.resizeHandler = function(){
 		_this.set_positions();
@@ -161,10 +190,22 @@ function Scroll(){
 		if(!match){
 			method === 'style' ? _this.removeStyles() : _this.removeClasses();
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
+			if(i !== _this.s.last_story_index){
+				var id = i !== -1 && (method === 'style' ? _this.stories[i].parent() : _this.stories[i]).attr('id')
+				if(id)
+					_this.push_hash(id)	
+			}
 		}
 		_this.s.last_story_index = i;
 		_this.s.follow = follow;
 	};
+	this.push_hash = function(hash){
+		clearTimeout(_this.hash_debounce)
+		_this.hash_debounce = setTimeout(function(){
+			location.hash = hash;
+			_gaq.push(['_trackPageview', hash.replace('#','')]);
+		}, 300);
+	}
 	this.removeStyles = function(){
 		i = _this.s.last_story_index;
 		if(i === false || i === -1) return;
@@ -269,3 +310,9 @@ var ImageLoader = function(){
 	}
 
 }
+$.extend($.easing,
+{
+    easeInOutSine: function (x, t, b, c, d) {
+        return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+    }
+});
