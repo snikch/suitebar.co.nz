@@ -45,7 +45,7 @@ function Suite(){
 	};
 	this.high_visual_preloaded = function(el){
 		log('Loaded ' + el.rel);
-		_this.apply_image(el.rel, el.src);
+		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover '});
 	};
 	this.apply_image = function(selector, value, additional){
 		var additional = additional || {}

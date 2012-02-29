@@ -186,8 +186,10 @@ header {
   header:hover nav {
     opacity: 1; }
 
+.menu-container {
+  min-height: 100%; }
+
 #main-menu {
-  margin: 0 0 100% 0;
   max-height: 800px;
   min-height: 700px;
   background-size: initial;
