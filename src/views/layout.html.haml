@@ -55,7 +55,44 @@
       site.load();
     = header
     = stories
-    %footer
+
+    %script{ src: "//maps.googleapis.com/maps/api/js?sensor=false" }
+    :javascript
+        var contact_map = {
+          zoom: 16,
+          scrollwheel: false,
+          center: new google.maps.LatLng(-36.845880,174.768276),
+          disableDefaultUI: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        log($('#contact .visual').get(0))
+        var map = new google.maps.Map($('#contact .visual').get(0), contact_map);
+        var shadow = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin-shadow.png',
+            new google.maps.Size(70, 42),
+            new google.maps.Point(0,0),
+            new google.maps.Point(10, 42)
+        );
+        var image = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin.png',
+            new google.maps.Size(41, 54),
+            new google.maps.Point(0,0),
+            new google.maps.Point(20, 54)
+        );
+
+        var shape = {
+            coord: [1, 1, 1, 20, 18, 20, 18 , 1],
+            type: 'poly'
+        };
+        var myLatLng = new google.maps.LatLng(-36.844739,174.763244);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon: image,
+            shadow: shadow,
+            shape: shape,
+            title: 'Suite',
+            zIndex: 120
+        });
+
 
     :javascript
       var _gaq=[["_setAccount","UA-26181122-1"],["_trackPageview"],["_trackPageLoadTime"]];
