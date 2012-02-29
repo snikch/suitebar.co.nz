@@ -176,7 +176,7 @@ function Scroll(){
 		}
 		return winH;
 	};
-	method = 'style';
+	method = 'class';
 	this.scrollHandler = function(){
 		story_index = 0;
 		y = _this.scrollY();
@@ -192,8 +192,13 @@ function Scroll(){
 		if(!match){
 			method === 'style' ? _this.removeStyles() : _this.removeClasses();
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
-			if(i !== _this.s.last_story_index){
-				var id = i !== -1 && (method === 'style' ? _this.stories[i].parent() : _this.stories[i]).attr('id')
+			if(i !== _this.s.last_story_index && i !== -1){
+				el = (method === 'style' ? _this.stories[i].parent() : _this.stories[i]).eq(0)
+				var attempts = 0;
+				while(attempts < 100 && el && !(id = el.attr('id'))){
+					el = el.prev();
+					attempts++;
+				}
 				if(id)
 					_this.push_hash('#' + id)	
 			}
