@@ -370,10 +370,10 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: scroll; }
+    background-attachment: scroll;
+    background-image: url("/img/b/loading.png"); }
   .story.fixed .visual {
     position: fixed; }
   .story.bottom .visual {

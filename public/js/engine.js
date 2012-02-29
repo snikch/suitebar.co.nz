@@ -31,20 +31,28 @@ function Suite(){
 	this.menu_preloaded = function(imgs){
 		console.log('loaded');
 		$.each(imgs, function(k,v){
-			$(k).eq(0).css({
-				backgroundImage: 'url(' + v.src + ')'
-			})
+			_this.apply_image(k, v.src);
 			log("loaded " + k + ' with ' + v.src)
 		});
-		loader.loadGroup('visuals_low_res',null,  _this.visual_preloaded)
+		loader.loadGroup('visuals_low_res',function(){
+			loader.loadGroup('visuals_high_res', null, _this.high_visual_preloaded);
+		},  _this.low_visual_preloaded);
 		$('#loading-overlay').remove();
 	}
-	this.visual_preloaded = function(el){
+	this.low_visual_preloaded = function(el){
 		log('Loaded ' + el.rel);
-		$(el.rel).css({
-			backgroundImage: 'url(' + el.src + ')'
-		});
+		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover '});
 	};
+	this.high_visual_preloaded = function(el){
+		log('Loaded ' + el.rel);
+		_this.apply_image(el.rel, el.src);
+	};
+	this.apply_image = function(selector, value, additional){
+		var additional = additional || {}
+		$(selector).css($.extend(additional, {
+			backgroundImage: 'url(' + value + ')'
+		}));
+	}
 }
 function Scroll(){
 	var _this = this;
@@ -196,8 +204,7 @@ var ImageLoader = function(){
 			'.menu-awards': '/img/m/awards-mask.png',
 			'.menu-people': '/img/m/people-mask.png'
 		},
-		visuals_low_res: {
-			'.about-1 .visual': '/img/b/index.jpg',
+		visuals_high_res: {
 			'.about-2 .visual': '/img/b/about-1.jpg',
 			'.cocktail-1 .visual': '/img/b/cocktails-2.jpg',
 			'.cocktail-2 .visual': '/img/b/wine-1.jpg',
@@ -212,6 +219,22 @@ var ImageLoader = function(){
 			'.bourbon .visual': '/img/b/bourbon.jpg',
 			'.cognac .visual': '/img/b/cognac.jpg',
 			'.rum .visual': '/img/b/rum.jpg'
+		},
+		visuals_low_res: {
+			'.about-2 .visual': '/img/b/low/about-1.jpg',
+			'.cocktail-1 .visual': '/img/b/low/cocktails-2.jpg',
+			'.cocktail-2 .visual': '/img/b/low/wine-1.jpg',
+			'.white-wine .visual': '/img/b/low/white-wine.jpg',
+			'.red-wine .visual': '/img/b/low/red-wine.jpg',
+			'.beer-1 .visual': '/img/b/low/beer-1.jpg',
+			'.whiskey .visual': '/img/b/low/whiskey.jpg',
+			'.gin .visual': '/img/b/low/gin.jpg',
+			'.vodka .visual': '/img/b/low/gin.jpg',
+			'.bitter .visual': '/img/b/low/bitter.jpg',
+			'.tequila .visual': '/img/b/low/tequila.jpg',
+			'.bourbon .visual': '/img/b/low/bourbon.jpg',
+			'.cognac .visual': '/img/b/low/cognac.jpg',
+			'.rum .visual': '/img/b/low/rum.jpg'
 		}
 	}
 	this.loadGroup = function(group, complete_callback, item_callback){
