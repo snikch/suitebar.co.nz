@@ -3,7 +3,7 @@
 */
 function Doorman(){
 	var is_verified = function(){
-		return false; !!$.cookie('age_verified');
+		return !!$.cookie('age_verified');
 	};
 	var is_vip = function(){
 		var identifiers = ['google','googlebot','livebot','msnbot','facebookscraper','facebookexternalhit','ask jeeves'];
@@ -20,7 +20,8 @@ function Doorman(){
 	this.ask_for_id = function(callback){
 		var dialog = $('#bouncer-overlay'), _this = this;
 		dialog.removeClass('disappear');
-		$('#bouncer .y').click(function(){
+		$('#bouncer .y').click(function(e){
+			e.preventDefault();
 			dialog.addClass('disappear');
 			_this.remember_for_later();
 			if(callback) callback();

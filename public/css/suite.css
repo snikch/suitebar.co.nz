@@ -94,7 +94,7 @@ a, a:link, a:hover, a:visited {
   width: 400px;
   height: 435px;
   opacity: 1;
-  background: whiteSmoke url(/img/bg/soft_wallpaper.png) top left repeat; }
+  background: #ececec url(/img/bg/soft_wallpaper.jpg) top left repeat; }
   .modal img {
     display: block;
     margin: 40px auto 40px; }
@@ -193,7 +193,6 @@ header {
   background-size: initial;
   background-position: bottom center;
   background-attachment: initial;
-  background-image: url(/img/b/index.jpg);
   position: relative; }
   #main-menu .menu-item {
     -webkit-transition: all 0.4s ease-in-out;
@@ -205,7 +204,9 @@ header {
     display: block;
     position: absolute;
     overflow: hidden;
-    text-decoration: none; }
+    text-decoration: none;
+    background-position: top center;
+    background-repeat: no-repeat; }
     #main-menu .menu-item h2 {
       -webkit-transform: scale(0);
       -moz-transform: scale(0);
@@ -253,7 +254,6 @@ header {
   #main-menu .menu-spirits {
     width: 300px;
     height: 335px;
-    background: url(/img/m/spirits-mask.png) top center no-repeat;
     top: 329px;
     left: 50%;
     margin-left: -608px; }
@@ -265,7 +265,6 @@ header {
   #main-menu .menu-cocktails {
     width: 203px;
     height: 330px;
-    background: url(/img/m/cocktails-mask.png) top center no-repeat;
     top: 325px;
     left: 50%;
     margin-left: -354px;
@@ -278,7 +277,6 @@ header {
   #main-menu .menu-food {
     width: 378px;
     height: 118px;
-    background: url(/img/m/food-mask.png) top center no-repeat;
     top: 562px;
     left: 50%;
     margin-left: -228px; }
@@ -292,7 +290,6 @@ header {
   #main-menu .menu-beer {
     width: 324px;
     height: 355px;
-    background: url(/img/m/beer-mask.png) top center no-repeat;
     top: 293px;
     left: 50%;
     margin-left: 133px; }
@@ -306,7 +303,6 @@ header {
   #main-menu .menu-wine {
     width: 181px;
     height: 315px;
-    background: url(/img/m/wine-mask.png) top center no-repeat;
     top: 332px;
     left: 50%;
     margin-left: 416px; }
@@ -320,7 +316,6 @@ header {
   #main-menu .menu-music {
     width: 209px;
     height: 157px;
-    background: url(/img/m/music-mask.png) top center no-repeat;
     top: 261px;
     left: 50%;
     margin-left: -335px;
@@ -335,7 +330,6 @@ header {
   #main-menu .menu-awards {
     width: 154px;
     height: 133px;
-    background: url(/img/m/awards-mask.png) top center no-repeat;
     top: 283px;
     left: 50%;
     margin-left: -81px; }
@@ -349,7 +343,6 @@ header {
   #main-menu .menu-people {
     width: 111px;
     height: 140px;
-    background: url(/img/m/people-mask.png) top center no-repeat;
     top: 275px;
     left: 50%;
     margin-left: 129px; }
@@ -360,57 +353,6 @@ header {
       -o-mask-image: url("/img/m/people-mask.png");
       -moz-mask-image: url("/img/m/people-mask.png");
       mask-image: url("/img/m/people-mask.png"); }
-
-.about-1 .visual {
-  background-image: url(/img/b/index.jpg); }
-
-.about-2 .visual {
-  background-image: url(/img/b/about-1.jpg); }
-
-.cocktail-1 .visual {
-  background-image: url(/img/b/cocktails-2.jpg); }
-
-.cocktail-2 .visual {
-  background-image: url(/img/b/wine-1.jpg); }
-
-.white-wine .visual {
-  background-image: url(/img/b/white-wine.jpg); }
-
-.red-wine .visual {
-  background-image: url(/img/b/red-wine.jpg); }
-
-.beer-1 .visual {
-  background-image: url(/img/b/beer-1.jpg); }
-
-.whiskey .visual {
-  background-image: url(/img/b/whiskey.jpg); }
-
-.gin .visual {
-  background-image: url(/img/b/gin.jpg); }
-
-.vodka .visual {
-  background-image: url(/img/b/gin.jpg); }
-
-.bitter .visual {
-  background-image: url(/img/b/bitter.jpg); }
-
-.tequila .visual {
-  background-image: url(/img/b/tequila.jpg); }
-
-.bourbon .visual {
-  background-image: url(/img/b/bourbon.jpg); }
-
-.cognac .visual {
-  background-image: url(/img/b/cognac.jpg); }
-
-.rum .visual {
-  background-image: url(/img/b/rum.jpg); }
-
-.stories {
-  width: 100%;
-  z-index: 60;
-  text-shadow: 2px 2px 2px RGBA(0, 0, 0, 1);
-  color: #ccc; }
 
 .story {
   position: relative;
@@ -439,7 +381,7 @@ header {
     top: auto; }
   .story h2, .story h3, .story p, .story table {
     margin: 0 0 0 -599px;
-    background: #efefef url(/img/soft_wallpaper.png);
+    background: #ececec url(/img/bg/soft_wallpaper.jpg);
     text-shadow: 0 1px 1px #fff;
     color: #333;
     width: 489px;

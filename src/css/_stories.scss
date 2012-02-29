@@ -1,9 +1,3 @@
-.stories{
-	width:100%;
-	z-index:60;
-	text-shadow: 2px 2px 2px RGBA(0,0,0,1);
-	color:#ccc;
-}
 .story{
 	*{ z-index: 10; position: relative; }
 	.visual{
@@ -32,7 +26,7 @@
 	font-size:1.2em;
 	h2, h3, p, table{
 		margin:0 0 0 -599px;
-		background: #efefef url(/img/soft_wallpaper.png);
+		background: #ececec url(/img/bg/soft_wallpaper.jpg);
 		text-shadow: 0 1px 1px #fff;
 		color:#333;
 		width:489px;

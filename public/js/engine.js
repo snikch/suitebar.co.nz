@@ -2,7 +2,7 @@
 
 */
 function Suite(){
-	var _this = this, scroller = new Scroll(), bouncer = new Doorman();
+	var _this = this, scroller = new Scroll(), bouncer = new Doorman(), loader = new ImageLoader();
 	var spin_opts = {
 	  lines: 16, // The number of lines to draw
 	  length: 0, // The length of each line
@@ -21,12 +21,29 @@ function Suite(){
 	this.load = function(){
 		var target = $('#loading .spin');
 		var spinner = new Spinner(spin_opts).spin(target.get(0));
+		loader.loadGroup('index', _this.menu_preloaded);
 		setTimeout(function(){
 			bouncer.verify_age(function(){
-				$('#loading-overlay').remove();
 				scroller.init();
 			});
 		}, 700);
+	};
+	this.menu_preloaded = function(imgs){
+		console.log('loaded');
+		$.each(imgs, function(k,v){
+			$(k).eq(0).css({
+				backgroundImage: 'url(' + v.src + ')'
+			})
+			log("loaded " + k + ' with ' + v.src)
+		});
+		loader.loadGroup('visuals_low_res',null,  _this.visual_preloaded)
+		$('#loading-overlay').remove();
+	}
+	this.visual_preloaded = function(el){
+		log('Loaded ' + el.rel);
+		$(el.rel).css({
+			backgroundImage: 'url(' + el.src + ')'
+		});
 	};
 }
 function Scroll(){
@@ -162,4 +179,61 @@ function Scroll(){
 		if(i === -1) return;
 		_this.stories[i].addClass(follow ? _this.classes.fixed : _this.classes.bottom);
 	};
+}
+
+var ImageLoader = function(){
+	log("Created image loader")
+	var _this = this;
+	var image_groups = {
+		index: {
+			'#main-menu': '/img/b/index.jpg',
+			'.menu-spirits': '/img/m/spirits-mask.png',
+			'.menu-cocktails': '/img/m/cocktails-mask.png',
+			'.menu-food': '/img/m/food-mask.png',
+			'.menu-beer': '/img/m/beer-mask.png',
+			'.menu-wine': '/img/m/wine-mask.png',
+			'.menu-music': '/img/m/music-mask.png',
+			'.menu-awards': '/img/m/awards-mask.png',
+			'.menu-people': '/img/m/people-mask.png'
+		},
+		visuals_low_res: {
+			'.about-1 .visual': '/img/b/index.jpg',
+			'.about-2 .visual': '/img/b/about-1.jpg',
+			'.cocktail-1 .visual': '/img/b/cocktails-2.jpg',
+			'.cocktail-2 .visual': '/img/b/wine-1.jpg',
+			'.white-wine .visual': '/img/b/white-wine.jpg',
+			'.red-wine .visual': '/img/b/red-wine.jpg',
+			'.beer-1 .visual': '/img/b/beer-1.jpg',
+			'.whiskey .visual': '/img/b/whiskey.jpg',
+			'.gin .visual': '/img/b/gin.jpg',
+			'.vodka .visual': '/img/b/gin.jpg',
+			'.bitter .visual': '/img/b/bitter.jpg',
+			'.tequila .visual': '/img/b/tequila.jpg',
+			'.bourbon .visual': '/img/b/bourbon.jpg',
+			'.cognac .visual': '/img/b/cognac.jpg',
+			'.rum .visual': '/img/b/rum.jpg'
+		}
+	}
+	this.loadGroup = function(group, complete_callback, item_callback){
+		log("Loading group " + group);
+		var imgs = {}, togo=0;
+		var loaded = function(){
+			togo--;
+			log('Loaded image ' + this.src + ', ' + togo + ' left');
+			if(item_callback) item_callback(this);
+			if(togo <= 0){
+				log("Group loaded");
+				if(complete_callback) complete_callback(imgs);
+			}
+		}
+		$.each(image_groups[group], function(k,v){
+			img = new Image();
+			img.src = v;
+			img.rel = k;
+			$(img).load(loaded);
+			imgs[k] = img;
+			togo++;
+		});
+	}
+
 }

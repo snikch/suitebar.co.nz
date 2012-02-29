@@ -16,8 +16,43 @@
     <link href='css/style.css?v=1' media='all' rel='stylesheet' />
     <link href='css/suite.css?v=1' media='all' rel='stylesheet' />
     <script src='js/libs/modernizr-2.0.6.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        window.jQuery || document.write("<script src='js/jquery.min.js'>\x3C/script>")
+      //]]>
+    </script>
+    
+    <script src='js/plugins.js?v=1'></script>
+    <script src='js/cookie.js?v=1'></script>
+    <script src='js/spin.min.js?v=1'></script>
+    <script src='js/doorman.js?v=1'></script>
+    <script src='js/engine.js?v=1'></script>
+    <script src='js/script.js?v=1'></script>
   </head>
   <body>
+    <div class='modal-overlay' id='loading-overlay'>
+      <div class='modal' id='loading'>
+        <div class='spin'></div>
+        <div class='message'></div>
+      </div>
+    </div>
+    <div class='modal-overlay disappear' id='bouncer-overlay'>
+      <div class='modal' id='bouncer'>
+        <img src='/img/skull-bouncer.png' />
+        <h1>Have You Come Of Age Yet?</h1>
+        <div class='options'>
+          <a class='btn y' href='#'>Yes</a>
+          <a class='btn n' href='#'>No</a>
+        </div>
+      </div>
+    </div>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var site = new Suite();
+        site.load();
+      //]]>
+    </script>
     <header id='top'>
       <h1>
         <a href='#main-menu'>Suite</a>
@@ -2450,41 +2485,6 @@
       
     </div>
     <footer></footer>
-    <div class='modal-overlay' id='loading-overlay'>
-      <div class='modal' id='loading'>
-        <div class='spin'></div>
-        <div class='message'></div>
-      </div>
-    </div>
-    <div class='modal-overlay disappear' id='bouncer-overlay'>
-      <div class='modal' id='bouncer'>
-        <img src='/img/skull-bouncer.png' />
-        <h1>Have You Come Of Age Yet?</h1>
-        <div class='options'>
-          <a class='btn y' href='#'>Yes</a>
-          <a class='btn n' href='#'>No</a>
-        </div>
-      </div>
-    </div>
-    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        window.jQuery || document.write("<script src='js/jquery.min.js'>\x3C/script>")
-      //]]>
-    </script>
-    
-    <script src='js/plugins.js?v=1'></script>
-    <script src='js/cookie.js?v=1'></script>
-    <script src='js/spin.min.js?v=1'></script>
-    <script src='js/doorman.js?v=1'></script>
-    <script src='js/engine.js?v=1'></script>
-    <script src='js/script.js?v=1'></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        var site = new Suite();
-        site.load();
-      //]]>
-    </script>
     <script type='text/javascript'>
       //<![CDATA[
         var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"],["_trackPageLoadTime"]];
