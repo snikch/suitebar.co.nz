@@ -4,7 +4,7 @@
 $(function(){
 	$("nav a, .menu-item, header a").click(function(e) {
 		var hash = $(this).attr('href');
-		_gaq.push(['_trackPageview', hash]);
+		_gaq.push(['_trackPageview', hash.replace('#','')]);
 		if(window.location.href.indexOf('scroll=true') !== -1) return;
 		e.preventDefault();
 		$('html, body').animate({
