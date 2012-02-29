@@ -204,6 +204,7 @@ function Scroll(){
 		_this.hash_debounce = setTimeout(function(){
 			location.hash = hash;
 			_gaq.push(['_trackPageview', hash.replace('#','')]);
+			_this.trigger_ui(hash);
 		}, 300);
 	}
 	this.removeStyles = function(){
@@ -240,6 +241,20 @@ function Scroll(){
 		if(i === -1) return;
 		_this.stories[i].addClass(follow ? _this.classes.fixed : _this.classes.bottom);
 	};
+	this.trigger_ui = function(ui){
+		log("Triggering " + ui);
+		switch(ui.replace('#','')){
+		case 'contact':
+			this.init_contact();
+			break;
+		}
+	};
+	this.init_contact = function(){
+		if(_this.contact) return;
+		_this.contact = new Contact();
+		_this.contact.init();
+
+	}
 }
 
 var ImageLoader = function(){
@@ -309,6 +324,56 @@ var ImageLoader = function(){
 		});
 	}
 
+}
+var maps_callback;
+var Contact = function(){
+	var _this = this, map, suite = [-36.844739,174.763244], selector = '#contact .visual .map';
+	this.init = function(){
+		maps_callback = _this.load;
+		$.getScript('//maps.googleapis.com/maps/api/js?sensor=false&callback=maps_callback');
+		_this.fix_cursor_bug();
+	}
+	this.fix_cursor_bug = function(){
+		cursor = new Image();
+		cursor.src = 'http://maps.gstatic.com/mapfiles/openhand_8_8.cur';
+	};
+	this.load = function(){
+		log(google.maps.LatLng)
+		var opts = {
+          zoom: 16,
+          scrollwheel: false,
+          center: new google.maps.LatLng(-36.845880,174.768276),
+          disableDefaultUI: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map($(selector).get(0), opts);
+		_this.pin_suite();
+	}
+	this.pin_suite = function(){
+        var shadow = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin-shadow.png',
+            new google.maps.Size(70, 42),
+            new google.maps.Point(0,0),
+            new google.maps.Point(10, 42)
+        );
+        var image = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin.png',
+            new google.maps.Size(41, 54),
+            new google.maps.Point(0,0),
+            new google.maps.Point(20, 54)
+        );
+
+        var shape = {
+            coord: [1, 1, 1, 20, 18, 20, 18 , 1],
+            type: 'poly'
+        };
+        var pin_lat_lng = new google.maps.LatLng(suite[0], suite[1]);
+        var marker = new google.maps.Marker({
+            position: pin_lat_lng,
+            map: map,
+            icon: image,
+            shadow: shadow,
+            shape: shape
+        });
+	}
 }
 $.extend($.easing,
 {
