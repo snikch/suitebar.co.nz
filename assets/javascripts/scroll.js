@@ -78,8 +78,9 @@ function Scroll(){
 		});
 	};
 	this.init_stories = function(){
-		$('.story').each(function(){
+		$('.story').each(function(i){
 			story = $(this);
+			story.css({zIndex: i+70})
 			$.each(_this.s.stories, function(k,v){
 				if(!story.hasClass(v)) return true;
 				story.prepend($('<div class="visual" />'));
@@ -129,7 +130,7 @@ function Scroll(){
 		}
 		match = i === _this.s.last_story_index && follow === _this.s.follow;
 		if(!match){
-			method === 'style' ? _this.removeStyles() : _this.removeClasses();
+			method === 'style' ? _this.removeStyles() : _this.removeClasses(i,follow);
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
 			if(i !== _this.s.last_story_index && i !== -1){
 				el = (method === 'style' ? _this.stories[i].parent() : _this.stories[i]).eq(0)
@@ -139,17 +140,26 @@ function Scroll(){
 					attempts++;
 				}
 				if(id)
-					_this.push_hash('#' + id)
+					_this.push_hash('#' + id, i)
 			}
 		}
 		_this.s.last_story_index = i;
 		_this.s.follow = follow;
 	};
-	this.push_hash = function(hash){
+	this.push_hash = function(hash,i){
 		clearTimeout(_this.hash_debounce)
 		_this.hash_debounce = setTimeout(function(){
 			hash = hash.replace( /^#/, '' );
 			var fx, node = $( '#' + hash );
+			_this.stories[i].find('h2').animate({ opacity: 0},{
+					duration: 200,
+					easing: 'easeInOutSine',
+					complete: function(){
+				_this.stories[i].addClass('delayed')
+				$(this).animate({opacity: 1}, {
+					duration: 200,
+					easing: 'easeInOutSine'});
+			}});
 			if ( node.length ) {
 			  fx = $( '<div></div>' ).css({
 				  position:'absolute',
@@ -178,9 +188,12 @@ function Scroll(){
 			bottom: 'auto'
 		});
 	};
-	this.removeClasses = function(){
+	this.removeClasses = function(i, follow){
+		if((follow && i !=  _this.s.last_story_index) || i < _this.s.last_story_index)
+			$('.story').removeClass('delayed');
 		i = _this.s.last_story_index;
 		if(i === false || i === -1) return;
+
 		_this.stories[i].removeClass(_this.classes.fixed);
 		_this.stories[i].removeClass(_this.classes.bottom);
 	};

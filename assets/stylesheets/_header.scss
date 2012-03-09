@@ -3,7 +3,7 @@ header{
 	top: 20px;
 	width: 100%;
 	height: 130px;
-	z-index: 70; // All header indexes in the 7x space please
+	z-index: 90; // All header indexes in the 7x space please
 	h1{
 		width: 100px;
 		height: 76px;
@@ -11,7 +11,7 @@ header{
 		text-align: center;
 		position:absolute;
 		margin:0 0 0 30px;
-		z-index: 79;
+		z-index: 100;
 		padding:4px 0 0;
 		background-color:#000;
 		a, a:link, a:visited{
