@@ -26,6 +26,7 @@ function Scroll(){
 		_this.s.num_stories = _this.stories.length;
 		$(window).scroll(_this.scrollHandler);
 		$(window).resize(_this.resizeHandler);
+		_this.initMenu();
 
 	};
 	this.menu_preparations = function(){
@@ -210,14 +211,20 @@ function Scroll(){
 		_this.stories[i].removeClass(_this.classes.fixed);
 		_this.stories[i].removeClass(_this.classes.bottom);
 	};
-	this.startMenuHint = function(){
+	// start the menu hint timer, and set up menu items to stop it if they're hovered
+	this.initMenu = function(){
+		_this.startMenuHint();
+		$('.menu-item').hover(_this.clearMenuHint,function(){
+			_this.startMenuHint(6000);
+		});
+	}
+	this.startMenuHint = function(delay){
 		_this.clearMenuHint();
 		_this.menuHintTimeout = setTimeout(function(){
-			log("HINT!");
 			hint = $('#main-menu .hint');
-			hint.animate({ opacity: 0.5 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1000).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
+			hint.animate({ opacity: 0.5 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1500).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
 
-		}, 3000);
+		}, delay || 4000);
 	}
 	this.clearMenuHint = function(){
 		clearTimeout(_this.menuHintTimeout);
