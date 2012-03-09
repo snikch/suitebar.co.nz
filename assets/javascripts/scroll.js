@@ -37,11 +37,8 @@ function Scroll(){
 		});
 	}
 	this.scroll_to_hash = function(){
-		if(location.hash && $(location.hash)){
+		if(location.hash){
 			hash = location.hash;
-			$('html, body').css({
-				scrollTop: $(location.hash).offset().top
-			});
 			_this.trigger_ui(hash);
 		}
 	}
