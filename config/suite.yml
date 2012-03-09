@@ -1,0 +1,4 @@
+compress_javascript: true
+compress_css: true
+shorten_javascript_variables: true
+
