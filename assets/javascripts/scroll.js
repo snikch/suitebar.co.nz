@@ -196,6 +196,7 @@ function Scroll(){
 			$('.story').removeClass('delayed');
 		}
 		if(i < 0){
+			_this.startMenuHint();
 			// Lazily remove the current tag when hitting the top
 			setTimeout(function(){
 				$('header li').removeClass('active');
@@ -209,6 +210,18 @@ function Scroll(){
 		_this.stories[i].removeClass(_this.classes.fixed);
 		_this.stories[i].removeClass(_this.classes.bottom);
 	};
+	this.startMenuHint = function(){
+		_this.clearMenuHint();
+		_this.menuHintTimeout = setTimeout(function(){
+			log("HINT!");
+			hint = $('#main-menu .hint');
+			hint.animate({ opacity: 0.5 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1000).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
+
+		}, 3000);
+	}
+	this.clearMenuHint = function(){
+		clearTimeout(_this.menuHintTimeout);
+	}
 	this.setStylesAt = function(i, follow){
 		if(i === -1) return;
 		if(follow)
