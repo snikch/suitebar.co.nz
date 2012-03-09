@@ -52,7 +52,7 @@ function Scroll(){
 				$('html, body').animate({
 					scrollTop: $(hash).offset().top
 				},{
-					duration: 300,
+					duration: 200,
 					easing: 'easeInOutSine',
 					complete: function(){
 						location.hash = hash
@@ -139,7 +139,7 @@ function Scroll(){
 					attempts++;
 				}
 				if(id)
-					_this.push_hash('#' + id)	
+					_this.push_hash('#' + id)
 			}
 		}
 		_this.s.last_story_index = i;
@@ -167,7 +167,7 @@ function Scroll(){
 			}
 			_gaq.push(['_trackPageview', hash]);
 			_this.trigger_ui(hash);
-		}, 300);
+		}, 150);
 	}
 	this.removeStyles = function(){
 		i = _this.s.last_story_index;
@@ -210,6 +210,8 @@ function Scroll(){
 			this.init_contact();
 			break;
 		}
+		$('header li').removeClass('active');
+		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
 	this.init_contact = function(){
 		if(_this.contact) return;

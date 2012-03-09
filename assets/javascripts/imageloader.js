@@ -1,5 +1,6 @@
 var ImageLoader = function(){
 	var _this = this;
+	this.saved_groups = {};
 	var image_groups = {
 		index: {
 			'#main-menu': '/assets/images/b/index.jpg',
@@ -46,6 +47,7 @@ var ImageLoader = function(){
 	this.loadGroup = function(group, complete_callback, item_callback){
 		log("Loading group " + group);
 		var imgs = {}, togo=0;
+		_this.saved_groups[group] = imgs
 		var loaded = function(){
 			togo--;
 			log('Loaded image ' + this.src + ', ' + togo + ' left');
@@ -56,11 +58,10 @@ var ImageLoader = function(){
 			}
 		}
 		$.each(image_groups[group], function(k,v){
-			$i = $("<img>");
-			$i.load(loaded);
-			$i.attr('src', v);
-			img = $i.get(0)
+			img = new Image();
 			img.rel = k;
+			img.onload = loaded;
+			img.src = v;
 			imgs[k] = img;
 			togo++;
 		});

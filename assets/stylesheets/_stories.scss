@@ -19,6 +19,7 @@
 		bottom: 0;
 		top: auto;
 	}
+	line-height: 22px;
 	position:relative;
 	min-height:100%;
 	margin:0;
@@ -26,11 +27,12 @@
 	font-size:1.2em;
 	h2, h3, p, table{
 		margin:0 0 0 -599px;
-		background: #ececec url(/assets/images/bg/soft_wallpaper.jpg);
-		text-shadow: 0 1px 1px #fff;
-		color:#333;
+		background: RGBA(0,0,0,0.8) ;
+		color:#fff;
 		width:489px;
 		padding:10px 20px;
+		position:relative;
+		z-index:80;
 	}
 	h2{
 		text-align:center;
