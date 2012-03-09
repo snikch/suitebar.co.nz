@@ -67,7 +67,7 @@ header{
 					}
 				}
 				&.active a{
-					background-color: RGBA(0,0,0,0.7);
+					background-color: RGBA(0,0,0,0.9);
 					padding-bottom:60px;
 					opacity: 1;
 					@include transition(0.1s ease-in opacity);
