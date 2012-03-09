@@ -157,7 +157,7 @@ function Scroll(){
 					complete: function(){
 				_this.stories[i].addClass('delayed')
 				$(this).animate({opacity: 1}, {
-					duration: 200,
+					duration: 500,
 					easing: 'easeInOutSine'});
 			}});
 			if ( node.length ) {
