@@ -6,6 +6,7 @@
 	padding:0px 0 40px 100%;
 	font-size:1.2em;
 	overflow: auto;
+	padding-top:130px;
 	.visual{
 		position:absolute;
 		z-index:1;
@@ -23,7 +24,6 @@
 		position: fixed;
 	}
 	&.delayed{
-		padding-top:130px;
 		h2{
 			top: 0;
 			margin-top:20px;
@@ -51,11 +51,13 @@
 		z-index:60;
 	}
 	h2{
+		position:absolute;
 		text-align:center;
 		font-size: 24px;
 		font-weight:bold;
 		padding:10px 20px 30px;
-			margin-top: 40px;
+		margin-top: 38px;
+		top:0;
 	}
 	h3{
 		padding: 20px 20px 0;

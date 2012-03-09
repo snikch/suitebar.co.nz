@@ -151,15 +151,6 @@ function Scroll(){
 		_this.hash_debounce = setTimeout(function(){
 			hash = hash.replace( /^#/, '' );
 			var fx, node = $( '#' + hash );
-			_this.stories[i].find('h2').animate({ opacity: 0},{
-					duration: 200,
-					easing: 'easeInOutSine',
-					complete: function(){
-				_this.stories[i].addClass('delayed')
-				$(this).animate({opacity: 1}, {
-					duration: 500,
-					easing: 'easeInOutSine'});
-			}});
 			if ( node.length ) {
 			  fx = $( '<div></div>' ).css({
 				  position:'absolute',
@@ -175,13 +166,25 @@ function Scroll(){
 			  fx.remove();
 			  node.attr( 'id', hash );
 			}
+			if(_this.stories[i]){
+				_this.stories[i].find('h2').animate({ opacity: 0},{
+					duration: 200,
+					easing: 'easeInOutSine',
+					complete: function(){
+						_this.stories[i].addClass('delayed')
+						$(this).animate({opacity: 1}, { duration: 500, easing: 'easeInOutSine'});
+					}
+				});
+			}
 			_gaq.push(['_trackPageview', hash]);
 			_this.trigger_ui(hash);
 		}, 150);
 	}
 	this.removeStyles = function(){
 		i = _this.s.last_story_index;
-		if(i === false || i === -1) return;
+		if(i === false || i === -1){
+			return;
+		}
 		_this.stories[i].css({
 			position: 'absolute',
 			top: '0',
@@ -189,10 +192,19 @@ function Scroll(){
 		});
 	};
 	this.removeClasses = function(i, follow){
-		if((follow && i !=  _this.s.last_story_index) || i < _this.s.last_story_index)
+		if((follow && i !=  _this.s.last_story_index) || i < _this.s.last_story_index){
 			$('.story').removeClass('delayed');
+		}
+		if(i < 0){
+			// Lazily remove the current tag when hitting the top
+			setTimeout(function(){
+				$('header li').removeClass('active');
+			}, 500);
+		}
 		i = _this.s.last_story_index;
-		if(i === false || i === -1) return;
+		if(i === false || i === -1){
+			return;
+		}
 
 		_this.stories[i].removeClass(_this.classes.fixed);
 		_this.stories[i].removeClass(_this.classes.bottom);
