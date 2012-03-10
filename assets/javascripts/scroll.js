@@ -151,22 +151,7 @@ function Scroll(){
 		clearTimeout(_this.hash_debounce)
 		_this.hash_debounce = setTimeout(function(){
 			hash = hash.replace( /^#/, '' );
-			var fx, node = $( '#' + hash );
-			if ( node.length ) {
-			  fx = $( '<div></div>' ).css({
-				  position:'absolute',
-				  visibility:'hidden',
-				  top: _this.scrollY() + 'px'
-			  })
-			  .attr( 'id', hash )
-			  .appendTo( document.body );
-			  node.attr( 'id', '' );
-			}
-			document.location.hash = hash;
-			if ( node.length ) {
-			  fx.remove();
-			  node.attr( 'id', hash );
-			}
+			_this.replace_hash(hash);
 			if(_this.stories[i]){
 				_this.stories[i].find('h2').animate({ opacity: 0},{
 					duration: 200,
@@ -180,6 +165,24 @@ function Scroll(){
 			_gaq.push(['_trackPageview', hash]);
 			_this.trigger_ui(hash);
 		}, 150);
+	}
+	this.replace_hash = function (hash){
+		var fx, node = $( '#' + hash );
+		if ( node.length ) {
+		  fx = $( '<div></div>' ).css({
+			  position:'absolute',
+			  visibility:'hidden',
+			  top: _this.scrollY() + 'px'
+		  })
+		  .attr( 'id', hash )
+		  .appendTo( document.body );
+		  node.attr( 'id', '' );
+		}
+		document.location.hash = hash;
+		if ( node.length ) {
+		  fx.remove();
+		  node.attr( 'id', hash );
+		}
 	}
 	this.removeStyles = function(){
 		i = _this.s.last_story_index;
@@ -201,6 +204,7 @@ function Scroll(){
 			// Lazily remove the current tag when hitting the top
 			setTimeout(function(){
 				$('header li').removeClass('active');
+				_this.replace_hash('main-menu')
 			}, 500);
 		}
 		i = _this.s.last_story_index;
@@ -223,7 +227,6 @@ function Scroll(){
 		_this.menuHintTimeout = setTimeout(function(){
 			hint = $('#main-menu .hint');
 			hint.animate({ opacity: 0.8 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1500).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
-
 		}, delay || 4000);
 	}
 	this.clearMenuHint = function(){
