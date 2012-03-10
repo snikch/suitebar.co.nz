@@ -222,7 +222,7 @@ function Scroll(){
 		_this.clearMenuHint();
 		_this.menuHintTimeout = setTimeout(function(){
 			hint = $('#main-menu .hint');
-			hint.animate({ opacity: 0.5 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1500).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
+			hint.animate({ opacity: 0.8 }, { duraction: 300, easing: 'easeInOutSine'  }).delay(1500).animate({ opacity: 0 }, { duraction: 300, easing: 'easeInOutSine' } );
 
 		}, delay || 4000);
 	}
