@@ -1,0 +1,29 @@
+.black-overlay{
+	background-color: RGBA(0,0,0,0.8);
+	position: relative;
+	@include border-radius(10px);
+	height: 90px;
+	width: 200px;
+	p{
+		width: auto;
+		margin: 5px auto;
+		padding:0;
+		background: none;
+	}
+	&:before{
+		content: '';
+		border-color: RGBA(0,0,0,0.8) transparent transparent transparent;
+		border-style: solid;
+		border-width: 10px;
+		height:0;
+		width:0;
+		position:absolute;
+		top:100%;
+		left:50%;
+		margin-left: -10px;
+	}
+}
+
+#contact.story{
+	min-height: 150%;
+}

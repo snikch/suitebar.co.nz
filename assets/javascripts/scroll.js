@@ -81,7 +81,7 @@ function Scroll(){
 	this.init_stories = function(){
 		$('.story').each(function(i){
 			story = $(this);
-			story.css({zIndex: i+70})
+			story.css({zIndex: i+40})
 			$.each(_this.s.stories, function(k,v){
 				if(!story.hasClass(v)) return true;
 				story.prepend($('<div class="visual" />'));
