@@ -21,12 +21,6 @@
     -# CSS: implied media="all"
     = stylesheet_link_tag "style"
     = stylesheet_link_tag "suite"
-    %link{ rel: "shortcut icon", href: "/favicon.ico"}
-    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon.png"}
-    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon.png"}
-    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-72x72.png", sizes: "72x72"}
-    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-114x114.png", sizes: "114x114"}
-    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-144x144.png", sizes: "144x144"}
 
     -# All JavaScript at the bottom, except for Modernizr and Respond.
     -# Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
@@ -35,6 +29,13 @@
     :javascript
       window.jQuery || document.write("<script src='/assets/javascripts/libs/jquery-1.6.2.min'>\x3C/script>")
     = javascript_include_tag "application"
+
+    %link{ rel: "shortcut icon", href: "/favicon.ico"}
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon.png"}
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon.png"}
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-72x72.png", sizes: "72x72"}
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-114x114.png", sizes: "114x114"}
+    %link{ rel: "apple-touch-icon", href: "/apple-touch-icon-144x144.png", sizes: "144x144"}
 
   %body
     #loading-overlay.modal-overlay
