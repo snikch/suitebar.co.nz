@@ -34,14 +34,24 @@ var Contact = function(){
 		_this.setup_streetview();
 	}
 	var calculate_page_center = function(){
-		// 0.0001 = ~4.66px
+		// 0.0001 x = ~4.66px
+		// 0.0001 y = ~5.82px
 		var right_offset = 489+110;
-		return [suite[0]+0.001, suite[1]+(0.0001*Math.round((right_offset/2)/4.666))];
+		// 80 = InfoWindow + Icon / 2
+		return [
+			suite[0]+(0.0001*(80/5.82)), 
+			suite[1]+(0.0001*Math.round(right_offset/2)/4.666)
+		];
 	}
 	this.lonToX = function(lon, zoom){
 		offset = 256 << (zoom-1);
 		return Math.round(offset + (offset * lon / 180));
 	}
+	this.latToY = function(lat, zoom) {
+		offset = 256 << (zoom-1);
+		return Math.round(offset - offset/Math.PI * Math.log((1 + Math.sin(lat * Math.PI / 180)) / (1 - Math.sin(lat * Math.PI / 180))) / 2);
+	}
+	
 	this.pin_suite = function(){
         var shadow = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin-shadow.png',
             new google.maps.Size(70, 42),
