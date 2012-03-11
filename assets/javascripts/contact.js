@@ -43,15 +43,6 @@ var Contact = function(){
 			suite[1]+(0.0001*Math.round(right_offset/2)/4.666)
 		];
 	}
-	this.lonToX = function(lon, zoom){
-		offset = 256 << (zoom-1);
-		return Math.round(offset + (offset * lon / 180));
-	}
-	this.latToY = function(lat, zoom) {
-		offset = 256 << (zoom-1);
-		return Math.round(offset - offset/Math.PI * Math.log((1 + Math.sin(lat * Math.PI / 180)) / (1 - Math.sin(lat * Math.PI / 180))) / 2);
-	}
-	
 	this.pin_suite = function(){
         var shadow = new google.maps.MarkerImage('http://mal.co.nz/suite/skull-pin-shadow.png',
             new google.maps.Size(70, 42),
