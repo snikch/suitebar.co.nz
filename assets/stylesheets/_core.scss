@@ -23,3 +23,12 @@ body{
 a, a:link, a:hover, a:visited{
 	color:#333;
 }
+
+@mixin selection{
+ background: #000 url(/assets/images/background-skulls.png) top left repeat;
+ color: #fff;
+ text-shadow: none;
+}
+::-moz-selection { @include selection}
+::selection { @include selection }
+
