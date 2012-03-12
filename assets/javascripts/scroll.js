@@ -27,6 +27,7 @@ function Scroll(){
 		$(window).scroll(_this.scrollHandler);
 		$(window).resize(_this.resizeHandler);
 		_this.initMenu();
+		_this.prepareContact();
 
 	};
 	this.menu_preparations = function(){
@@ -261,11 +262,14 @@ function Scroll(){
 		$('header li').removeClass('active');
 		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
+	this.prepareContact = function(){
+		_this.card_to_call = new CardToCall("#card_container");
+		$('.card_flip').click(_this.card_to_call.flip);
+	}
 	this.init_contact = function(){
 		if(_this.contact) return;
 		_this.contact = new Contact();
 		_this.contact.init();
-
 	}
 }
 

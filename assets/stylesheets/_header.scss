@@ -32,6 +32,10 @@ header{
 		&:hover .scapegoat{
 			opacity: 1;
 		}
+		&:hover a, &:hover a:visited, &:hover a:active, &:hover a:link{
+			opacity: 1;					
+			@include transition(0.1s ease-in opacity);
+		}
 		width: 100%;
 		opacity: 1;
 		@include transition(0.1s ease-out all);
@@ -41,6 +45,7 @@ header{
 			z-index: 10;
 			padding:0 0 0 120px;
 			height: 100%;
+			overflow: auto;
 			li{
 				display:block;
 				float: left;
@@ -66,14 +71,6 @@ header{
 					background-color: RGBA(0,0,0,0.9);
 					opacity: 1;
 					@include transition(0.1s ease-in opacity);
-				}
-			}
-			&:hover li{
-				a{
-					opacity: 1;					
-					@include transition(0.1s ease-in opacity);
-				}
-				&.active a{
 				}
 			}
 		}

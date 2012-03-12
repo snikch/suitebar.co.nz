@@ -101,7 +101,7 @@ var Contact = function(){
 		  div.style.width = width + 'px';
 		  div.style.height = height + 'px';
 		}
-		overlay = new BlackOverlay('<p>Suite Bar</p><p><small>123 Hobson St<br />Auckland</small></p>', new google.maps.LatLng(suite[0], suite[1]), map);
+		overlay = new BlackOverlay('<p>Suite Bar</p><p><small>2 Hobson St<br />Auckland Central</small></p>', new google.maps.LatLng(suite[0], suite[1]), map);
 		google.maps.event.addListener(marker, 'click', function() {
 		  infowindow.open(map,marker);
 		});

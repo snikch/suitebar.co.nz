@@ -9,4 +9,5 @@
 //= require contact
 //= require engine
 
+//= require contact_card
 
