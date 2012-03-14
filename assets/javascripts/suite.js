@@ -15,9 +15,8 @@ function Suite(){
 	  top: 'auto', // Top position relative to parent in px
 	  left: 'auto' // Left position relative to parent in px
 	};
+	var bar = $('#loading .loading_bar span');
 	this.load = function(){
-		var target = $('#loading .spin');
-		var spinner = new Spinner(spin_opts).spin(target.get(0));
 		loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
 		$(function(){
 			scroller.prepare();
@@ -30,7 +29,8 @@ function Suite(){
 	};
 	this.bump_loading = function(){
 		loaded++;
-		loading_message.html(Math.round(loaded/9*100) + '%');
+		// Give a free 10%, and divide by total images - 1
+		bar.css({ width: (Math.round(loaded/8*94)+6) + '%'});
 	}
 	this.menu_preloaded = function(imgs){
 		$.each(imgs, function(k,v){
