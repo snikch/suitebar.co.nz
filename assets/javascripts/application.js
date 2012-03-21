@@ -9,4 +9,6 @@
 //= require engine
 
 //= require contact_card
+//= require kalendae
+//= require booking
 

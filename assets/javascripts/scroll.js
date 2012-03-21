@@ -265,6 +265,8 @@ function Scroll(){
 	this.prepareContact = function(){
 		_this.card_to_call = new CardToCall("#card_container");
 		$('.card_flip').click(_this.card_to_call.flip);
+		_this.booking = new Booking;
+		_this.booking.init();
 	}
 	this.init_contact = function(){
 		if(_this.contact) return;

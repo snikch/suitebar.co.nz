@@ -23,24 +23,26 @@
 .story
   %h2.first Reservations | Bookings
 
-  %p <a href="#" class="card_flip">Flip</a>
-  #card_container
-    #card_to_call
-      .front
-        %p
-        Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-        %form{ action: "#", method: "POST" }
-          %label{ for: :booking_name } Name
-          %input{ type: :text, id: :booking_name }
-          %label{ for: :booking_name } Name
-          %input{ type: :text, id: :booking_name }
-          %label{ for: :booking_name } Name
-          %input{ type: :text, id: :booking_name }
+  %p
+    Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+  %form{ action: "#", method: "POST" }
+    .input
+      %label{ for: :booking_name } Name:
+      %input{ type: :text, id: :booking_name }
+    .input
+      %label{ for: :booking_method } Contact Details:
+      %input{ type: :text, id: :booking_name, placeholder: "Phone number or email address" }
+    .input
+      %label{ for: :booking_guests } Number of guests:
+      %input{ type: :text, id: :booking_guests }
+    %label{ for: :booking_date } Date:
+    %div{ type: :text, id: :booking_date }
+    .input
+      %label{ for: :booking_comments } Comments:
+      %textarea{ id: :booking_comments, rows: 5 }
 
-      .back
-        Form here
-  %p Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-  %p Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+
 
 
 .story
