@@ -18,6 +18,7 @@ function Suite(){
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
 		loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
+		_this.initMobile();
 		$(function(){
 			scroller.prepare();
 			setTimeout(function(){
@@ -57,6 +58,10 @@ function Suite(){
 			backgroundImage: 'url(' + value + ')',
 			opacity: 1
 		}));
+	}
+	this.initMobile = function(){
+		if(!navigator.userAgent.match(/iP(hone|od|ad)/i)) return;
+		document.title = "Suite Bar"
 	}
 }
 
