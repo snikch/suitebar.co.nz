@@ -65,7 +65,6 @@
 	&.flipped {
 	  @include transform(rotateY( 180deg ));
 	}
-		
 }
 form{
 	label{
@@ -92,6 +91,5 @@ form{
 		background: transparent;
 		margin: 10px 0;
 		border:none;
-		
 	}
 }

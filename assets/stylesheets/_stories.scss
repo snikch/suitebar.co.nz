@@ -18,6 +18,8 @@
 		background-position: center center;
 		background-attachment:scroll;
 		background-image: url('/assets/images/b/loading.png');
+		opacity: 0;
+		@include transition(opacity 500ms ease);
 	}
 	&.fixed .visual{
 		top: 0;

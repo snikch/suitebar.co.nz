@@ -54,7 +54,8 @@ function Suite(){
 		var additional = additional || {}
 		log('Applying ' + selector);
 		$(selector).css($.extend(additional, {
-			backgroundImage: 'url(' + value + ')'
+			backgroundImage: 'url(' + value + ')',
+			opacity: 1
 		}));
 	}
 }

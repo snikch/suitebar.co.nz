@@ -8,6 +8,7 @@ var Contact = function(){
 
 	this.init = function(){
 		maps_callback = _this.load;
+		$('#contact .visual').css({ opacity: 1 })
 		$.getScript('//maps.googleapis.com/maps/api/js?sensor=false&callback=maps_callback');
 		_this.fix_cursor_bug();
 	}
