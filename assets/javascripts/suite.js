@@ -1,20 +1,5 @@
 function Suite(){
 	var _this = this, scroller = new Scroll(), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message');
-	var spin_opts = {
-	  lines: 16, // The number of lines to draw
-	  length: 0, // The length of each line
-	  width: 5, // The line thickness
-	  radius: 24, // The radius of the inner circle
-	  color: '#000', // #rgb or #rrggbb
-	  speed: 1.2, // Rounds per second
-	  trail: 60, // Afterglow percentage
-	  shadow: false, // Whether to render a shadow
-	  hwaccel: true, // Whether to use hardware acceleration
-	  className: 'spinner', // The CSS class to assign to the spinner
-	  zIndex: 2e9, // The z-index (defaults to 2000000000)
-	  top: 'auto', // Top position relative to parent in px
-	  left: 'auto' // Left position relative to parent in px
-	};
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
 		loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
@@ -23,6 +8,7 @@ function Suite(){
 			scroller.prepare();
 			setTimeout(function(){
 				bouncer.verify_age(function(){
+					_this.initMenu();
 					scroller.init();
 				});
 			}, 700);
@@ -62,6 +48,21 @@ function Suite(){
 	this.initMobile = function(){
 		if(!navigator.userAgent.match(/iP(hone|od|ad)/i)) return;
 		document.title = "Suite Bar"
+	}
+	this.initMenu = function(){
+		$('a[rel=reservations]').click(function(e){
+			e.preventDefault();
+			offset = $('#reservations').offset().top
+			console.log(offset)
+			if(window.location.href.indexOf('scroll=true') == -1){
+				$('html, body').scrollTop(offset);
+			} else {
+				$('html, body').animate({ scrollTop: offset },{
+					duration: 200,
+					easing: 'easeInOutSine'
+				});
+			}
+		})
 	}
 }
 

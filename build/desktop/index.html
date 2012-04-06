@@ -11,8 +11,8 @@
     <meta content='' name='description' />
     <meta content='' name='author' />
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-    <link rel="stylesheet" href="/assets/stylesheets/ed1c66555e93d1255ca38dbbad766a0c.css" media="all" />
-    <link rel="stylesheet" href="/assets/stylesheets/f5defc6e78adbe4000be3e6d49fd3b6d.css" media="all" />
+    <link rel="stylesheet" href="/assets/stylesheets/d00e49327a21bd8982d3570effcced75.css" media="all" />
+    <link rel="stylesheet" href="/assets/stylesheets/44e169c85c4bbc343cf37fa4190b7d68.css" media="all" />
     <script type="text/javascript" src="/assets/javascripts/79c61759396ec4e3498452b7d3675dff.js"></script>
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
     <script type='text/javascript'>
@@ -20,7 +20,7 @@
         window.jQuery || document.write("<script src='/assets/javascripts/libs/jquery-1.6.2.min'>\x3C/script>")
       //]]>
     </script>
-    <script type="text/javascript" src="/assets/javascripts/b361b93d0c45d305edbf47cbb8d25bf2.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/3e93894db8042f920d268b104ef4b68d.js"></script>
     <link href='/favicon.ico' rel='shortcut icon' />
     <link href='/apple-touch-icon.png' rel='apple-touch-icon' />
     <link href='/apple-touch-icon.png' rel='apple-touch-icon' />
@@ -31,7 +31,9 @@
   <body>
     <div class='modal-overlay' id='loading-overlay'>
       <div class='modal' id='loading'>
-        <div class='spin'></div>
+        <div class='loading_bar'>
+          <span></span>
+        </div>
         <div class='message'></div>
       </div>
     </div>
@@ -52,10 +54,15 @@
       //]]>
     </script>
     <header id='top'>
-      <h1>
-        <a href='#main-menu'>Suite</a>
-      </h1>
       <nav>
+        <h1>
+          <a href='#main-menu'>Suite</a>
+          <p>Tue – Fri<br />4pm -:cd  5am</p>
+          <p>Sat<br />8pm - 5am</p>
+          <p>
+            <a href='#contact'>Reservations</a>
+          </p>
+        </h1>
         <div class='scapegoat'></div>
         <ul>
           <li>
@@ -137,74 +144,46 @@
       <h2 class='first'>Cocktail | Drink | Libation</h2>
       <p>This is our list of favourite drinks, it’s what we are currently enjoying. We try to encourage our customers to chat to us about making a drink that suits the moment and is revelant to the time/weather/event whatever! A tall refreshing drink, such as a Collins Style might be a great way to start your evening. Follow this with a stronger, more intense style, a Negroni for instance, as a stellar finish to your night.</p>
       <p>So please don’t be shy and ask us to make you a great drink, the strangest requests are often our favourites.</p>
-      <div class='cocktail'>
-        <h3>Bijou Cocktail</h3>
-        <p>Tanqueray Gin, Punt e Mes, Green Chartreuse, Orange Bitters</p>
-        <p>Harry Johnston - Harry Johnston’s Bartenders Manual - 1900.</p>
-      </div>
-      <div class='cocktail'>
-        <h3>From The Arawak To The Zapotec</h3>
-        <p>Appletons 8yr, Cuervo Tradicional, Agave Syrup, Rosso Antigua, Angostura Bitters, Orange Bitters</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Tommy’s Margarita</h3>
-        <p>Arette Blanco, Fresh Lime Juice, Agave Syrup, Maldon Smoked Sea Salt</p>
-        <P>Tommy Bermejo - Tommy’s Mexican Restaurant - San Francisco, CA.</P>
-      </div>
-      <div class='cocktail'>
-        <h3>Whistling Dixie</h3>
-        <p>Martell VS, Manzanilla Sherry, Dolin Rouge, Dolin Dry, Orange Bitters, Ardbeg Mist</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Handpicked Collins</h3>
-        <p>Beefeater Summer, Fresh Grapefruit Juice, Massenez Ginger & Lime, Celery Bitters</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Manhattan Island</h3>
-        <p>Wild Turkey Rye, Punt e Mes, Cruzan Black Strap, Angostura Bitters, Own-Decanter Bitters</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Coffee & Chocolate</h3>
-        <P>Chivas Regal 8, Dark Chocolate, Aromatic Bitters, Angostura Bitters, Orange Zest, Coffee Mist</P>
-        <p>Chris Harrop - Suite Bar (2008) - Auckland, NZ.</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Vila Velha</h3>
-        <p>Sagatiba Velha, Fresh Lime Juice, Sugar Syrup</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Blue Mountain Fizz</h3>
-        <p>Plymouth Gin, Vitamin Blue, St Germain, Fresh Lime Juice, Sugar Syrup, Egg White</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Rum & Benedictine</h3>
-        <p class='last'>It’s just Rum with Dom Benedictine added. Served Frappé, Straight or Over Ice.</p>
-      </div>
+      <h3>Bijou Cocktail</h3>
+      <p>Tanqueray Gin, Punt e Mes, Green Chartreuse, Orange Bitters</p>
+      <p>Harry Johnston - Harry Johnston’s Bartenders Manual - 1900.</p>
+      <h3>From The Arawak To The Zapotec</h3>
+      <p>Appletons 8yr, Cuervo Tradicional, Agave Syrup, Rosso Antigua, Angostura Bitters, Orange Bitters</p>
+      <h3>Tommy’s Margarita</h3>
+      <p>Arette Blanco, Fresh Lime Juice, Agave Syrup, Maldon Smoked Sea Salt</p>
+      <P>Tommy Bermejo - Tommy’s Mexican Restaurant - San Francisco, CA.</P>
+      <h3>Whistling Dixie</h3>
+      <p>Martell VS, Manzanilla Sherry, Dolin Rouge, Dolin Dry, Orange Bitters, Ardbeg Mist</p>
+      <h3>Handpicked Collins</h3>
+      <p>Beefeater Summer, Fresh Grapefruit Juice, Massenez Ginger & Lime, Celery Bitters</p>
+      <h3>Manhattan Island</h3>
+      <p>Wild Turkey Rye, Punt e Mes, Cruzan Black Strap, Angostura Bitters, Own-Decanter Bitters</p>
+      <h3>Coffee & Chocolate</h3>
+      <P>Chivas Regal 8, Dark Chocolate, Aromatic Bitters, Angostura Bitters, Orange Zest, Coffee Mist</P>
+      <p>Chris Harrop - Suite Bar (2008) - Auckland, NZ.</p>
+      <h3>Vila Velha</h3>
+      <p>Sagatiba Velha, Fresh Lime Juice, Sugar Syrup</p>
+      <h3>Blue Mountain Fizz</h3>
+      <p>Plymouth Gin, Vitamin Blue, St Germain, Fresh Lime Juice, Sugar Syrup, Egg White</p>
+      <h3>Rum & Benedictine</h3>
+      <p class='last'>It’s just Rum with Dom Benedictine added. Served Frappé, Straight or Over Ice.</p>
     </div>
     <div class='story cocktail-2'>
       <h2 class='first'>Science | Experimental | Molecular</h2>
       <p>Welcome to Suite Bar’s laboratory. We create, play, conjure and develop drinks that are sometimes a bit crazy, but we like it that way. All our homemade concoctions, molecular creations or our competition cocktails live here and this section changes frequent- ly. If you’re not so sure about the sounds of some of these drinks, ask us about the process behind creating them... We might just be able to change your mind.</p>
-      <div class='cocktail'>
-        <h3>Horse & Cart</h3>
-        <p>Bas Armagnac Fine, Cruzan Black Strap, Galliano Authentico, Maple Syrup, TBT Old Time Aromatic Bitters, Crunchy Nut Cornflake Infused Milk</p>
-        <p>I really wanted to put a milk punch on the menu after being in the US and literally drinking it everyday! I also wanted to make good use of the current cereal infusion trend but keep it kind of classic, so i used Arma- gnac instead of Cognac, Rum, sugar and infused milk. Hope you like it. James Goggin</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Ginger Apple Fizz</h3>
-        <P>Appleton’s 8, Stones Ginger Wine, Fresh Lime Juice, Egg White, Homemade Lime Sorbet, Re-Carbonated Apple Cider</P>
-        <p>I got the idea for this drink when I was playing around with sorbet and discovered how it changes the profile of the drink as it melts. So I decided to make my own sorbet and build my flavours around the lime incorporating other fruits. Kenny Ariaens</p>
-      </div>
-      <div class='cocktail'>
-        <h3>Oaxacan Julep</h3>
-        <p>Arette Blanco, Del Maguey Chichicapa, Agave Syrup, Bittermens Boston Bittahs, TBT Celery Bitters, Fresh Basil</p>
-        <p>For this drink I wanted to use the similar vegetal flavours that exist in Mezcal and Basil. I used a julep style of cocktail which controls dilution well and keeps the drink cold which is essential. Enjoy. Margarita Vovna 25</p>
-      </div>
-      <div class='cocktail'>
-        <h3>I Got Beetroot On Mai Tai</h3>
-        <p>Appleton’s 8, Homemade Beetroot Syrup, Fresh Lime Juice, Orgeat Syrup, TBT Pimento Dram, Peychaud’s Bitters</p>
-        <p>I got my idea for this drink during an Appleton tasting with Allen the representative for Appleton’s/The Rum Company. We did food matches with the rum and I wanted to use beetroot because of its earthy/sweet characteristics which provide a clear match with the 8yr Appleton’s. Barney Toy</p>
-        <p class='last'>2011 Appleton Estate New Zealand Competition Winner</p>
-      </div>
+      <h3>Horse & Cart</h3>
+      <p>Bas Armagnac Fine, Cruzan Black Strap, Galliano Authentico, Maple Syrup, TBT Old Time Aromatic Bitters, Crunchy Nut Cornflake Infused Milk</p>
+      <p>I really wanted to put a milk punch on the menu after being in the US and literally drinking it everyday! I also wanted to make good use of the current cereal infusion trend but keep it kind of classic, so i used Arma- gnac instead of Cognac, Rum, sugar and infused milk. Hope you like it. James Goggin</p>
+      <h3>Ginger Apple Fizz</h3>
+      <P>Appleton’s 8, Stones Ginger Wine, Fresh Lime Juice, Egg White, Homemade Lime Sorbet, Re-Carbonated Apple Cider</P>
+      <p>I got the idea for this drink when I was playing around with sorbet and discovered how it changes the profile of the drink as it melts. So I decided to make my own sorbet and build my flavours around the lime incorporating other fruits. Kenny Ariaens</p>
+      <h3>Oaxacan Julep</h3>
+      <p>Arette Blanco, Del Maguey Chichicapa, Agave Syrup, Bittermens Boston Bittahs, TBT Celery Bitters, Fresh Basil</p>
+      <p>For this drink I wanted to use the similar vegetal flavours that exist in Mezcal and Basil. I used a julep style of cocktail which controls dilution well and keeps the drink cold which is essential. Enjoy. Margarita Vovna 25</p>
+      <h3>I Got Beetroot On Mai Tai</h3>
+      <p>Appleton’s 8, Homemade Beetroot Syrup, Fresh Lime Juice, Orgeat Syrup, TBT Pimento Dram, Peychaud’s Bitters</p>
+      <p>I got my idea for this drink during an Appleton tasting with Allen the representative for Appleton’s/The Rum Company. We did food matches with the rum and I wanted to use beetroot because of its earthy/sweet characteristics which provide a clear match with the 8yr Appleton’s. Barney Toy</p>
+      <p class='last'>2011 Appleton Estate New Zealand Competition Winner</p>
     </div>
     
     <div class='story white-wine wine' id='wine'>
@@ -2503,15 +2482,59 @@
       <div class='visual'>
         <div class='map'></div>
       </div>
-      <h2>Location</h2>
-      <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
+      <h2 class='first'>Contact Us</h2>
+      <p>
+        <strong>Address<br /></strong>
+        2 Hobson St.<br />
+        Auckland Central 1010
+      </p>
+      <p>
+        <strong>Opening Hours<br /></strong>
+        Mon Closed<br />
+        Tue 4pm – 5am<br />
+        Wed 4pm – 5am<br />
+        Thur 4pm – 5am<br />
+        Fri 4pm – 5am<br />
+        Sat 8pm – 5am<br />
+        Sun Closed
+      </p>
+      <p>
+        <strong>Phone<br /></strong>
+        09 3077030
+      </p>
+      <p>
+        <strong>Fax</br ></strong>
+        09 3077031
+      </p>
+      <p>Want to make a reservation? Scroll down.</p>
     </div>
     <div class='story'>
-      <h2>Contact Details</h2>
-      <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
-      <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
-      <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</p>
+      <h2 class='first'>Reservations | Bookings</h2>
+      <p>
+        Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+      </p>
+      <form action='#' method='POST'>
+        <div class='input'>
+          <label for='booking_name'>Name:</label>
+          <input id='booking_name' type='text' />
+        </div>
+        <div class='input'>
+          <label for='booking_method'>Contact Details:</label>
+          <input id='booking_name' placeholder='Phone number or email address' type='text' />
+        </div>
+        <div class='input'>
+          <label for='booking_guests'>Number of guests:</label>
+          <input id='booking_guests' type='text' />
+        </div>
+        <label for='booking_date'>Date:</label>
+        <div id='booking_date' type='text'></div>
+        <div class='input'>
+          <label for='booking_comments'>Comments:</label>
+          <textarea id='booking_comments' rows='5'></textarea>
+        </div>
+      </form>
     </div>
+    <div class='story'></div>
     <script type='text/javascript'>
       //<![CDATA[
         var _gaq=[["_setAccount","UA-26181122-1"],["_trackPageview"],["_trackPageLoadTime"]];
