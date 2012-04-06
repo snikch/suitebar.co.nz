@@ -5,13 +5,13 @@ header{
 	z-index: 90; // All header indexes in the 7x space please
 	h1{
 		width: 108px;
-		height: 32px;
+		height: 80px;
 		text-index: -9999px;
 		text-align: center;
 		position:absolute;
 		margin:0 0 0 20px;
 		z-index: 100;
-		padding:48px 0 0;
+		padding:0 0 0;
 		background: #000 url(/assets/images/suite-header-logo.png) center 10px no-repeat;
 		background-size: 93px 58px;
 		text-indent: -9999px;
@@ -19,6 +19,11 @@ header{
 		a, a:link, a:visited, p{
 			color: #fff;
 			text-decoration: none;
+		}
+		a.home
+		{
+			display:block;
+			height: 80px;
 		}
 		p{
 			font-size: 12px;
@@ -33,7 +38,7 @@ header{
 			margin:7px 0 0;
 		}
 		&:hover{
-			height: 152px;
+			height: 210px;
 			p{
 				opacity: 1;
 			}
