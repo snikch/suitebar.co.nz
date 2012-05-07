@@ -32,3 +32,5 @@ a, a:link, a:hover, a:visited{
 ::-moz-selection { @include selection}
 ::selection { @include selection }
 
+.left{ float: left; }
+.clear{ clear:both; }

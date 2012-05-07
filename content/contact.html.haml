@@ -28,21 +28,38 @@
 
   %p
     Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-  %form{ action: "#", method: "POST" }
+  %form{ action: "#", method: "POST", id: :booking_form }
     .input
-      %label{ for: :booking_name } Name:
-      %input{ type: :text, id: :booking_name }
+      %label{ for: :booking_name } Contact Name:
+      %input{ type: :text, id: :booking_name, placeholder: "So we know what to call you" }
     .input
-      %label{ for: :booking_method } Contact Details:
-      %input{ type: :text, id: :booking_name, placeholder: "Phone number or email address" }
+      %label{ for: :booking_contact } Contact Details:
+      %input{ type: :text, id: :booking_contact, placeholder: "Phone number or email address" }
     .input
-      %label{ for: :booking_guests } Number of guests:
-      %input{ type: :text, id: :booking_guests }
-    %label{ for: :booking_date } Date:
-    %div{ type: :text, id: :booking_date }
-    .input
+      .guests
+        %label{ for: :booking_guests } Number of guests:
+        .guests_counter 2
+        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 12 }
+        .guests_over
+          For bookings over 12 people, please call xxx-xxx-xxx
+    .input.slim.left
+      %label.booking_date_display Date:
+      %input{ type: :hidden, id: :booking_date, name: :booking_date }
+      %input{ type: :hidden, id: :booking_time, name: :booking_time }
+    %div.left{ type: :text, id: :booking_date_picker }
+    %ul{ type: :text, id: :booking_time_picker }
+      %li 6pm
+      %li 6.30pm
+      %li 7pm
+      %li 7.30pm
+      %li 8pm
+      %li 8.30pm
+
+
+    .input.clear
       %label{ for: :booking_comments } Comments:
       %textarea{ id: :booking_comments, rows: 5 }
+    %input{ type: :submit }
 
 
 

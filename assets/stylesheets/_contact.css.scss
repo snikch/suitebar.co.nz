@@ -39,34 +39,8 @@
 	height: 400px;
 	z-index: 50;
 }
-#card_to_call{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	@include transform-style(preserve-3d);
-	@include transition(all 0.3s ease);
-	> div {
-		display: block;
-		position: absolute;
-		height: 100%;
-		width:489px;
-		background: RGBA(0,0,0,0.8) ;
-		padding:10px 20px;
-		@include backface-visibility(hidden);
-		color: #fff;
-	}
-
-	.front {
-	}
-	.back {
-	  @include transform(rotateY( 180deg ));
-	}
-
-	&.flipped {
-	  @include transform(rotateY( 180deg ));
-	}
-}
-form{
+#booking_form{
+	padding: 10px 17px;
 	label{
 		color:#333;
 		clear:both;
@@ -77,10 +51,12 @@ form{
 		margin: 10px 0;
 	}
 	.input{
-		margin: 10px 0 10px 0;
 		overflow: hidden;
+		border: 3px solid #000;
+		@include transition(all 0.4s ease-in-out);
+		margin: 10px 0 10px 0;
 		background-color: #fff;
-		@include border-radius(4px);
+		@include border-radius(7px);
 		@include box-shadow(inset 1px 1px 8px RGBA(0,0,0,0.7));
 	}
 	input, textarea{
@@ -89,7 +65,43 @@ form{
 		padding: 6px;
 		font-family: 'AmericanTypewriterRegular';
 		background: transparent;
-		margin: 10px 0;
+		margin: 10px 0 0;
 		border:none;
+	}
+	.guests{
+		@include transition(all 0.4s ease-in-out);
+		height: 50px;
+		background: url(/assets/images/people-range.png) 220px 3px no-repeat;
+		input{
+			margin: 12px 0 10px 35px;
+			width: 150px;
+		}
+		.guests_counter{
+			display:block;
+			float:left;
+			margin: 10px 0 0;
+			font-size: 16px;
+			color: white;
+			@include border-radius(23px);
+			background-color: #333;
+			padding: 4px;
+			width: 30px;
+			text-align:center;
+		}
+		.guests_over{
+			clear:both;
+			color:#333;
+			font-size: 14px;
+			padding: 0 10px;
+			text-align: right;
+		}
+	}
+	#booking_time_picker li{ cursor: pointer; }
+	.large{
+		height: 80px;
+	}
+	.slim{ width: 222px; label{ width: auto; } }
+	.error{
+		border: 3px solid #970000;
 	}
 }
