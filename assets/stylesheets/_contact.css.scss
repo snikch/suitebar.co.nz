@@ -41,6 +41,7 @@
 }
 #booking_form{
 	padding: 10px 17px;
+	color:#333;
 	label{
 		color:#333;
 		clear:both;
@@ -54,7 +55,10 @@
 		overflow: hidden;
 		border: 3px solid #000;
 		@include transition(all 0.4s ease-in-out);
-		margin: 10px 0 10px 0;
+		margin: 10px 0 0px 0;
+		@include box-shadow(inset 1px 1px 8px RGBA(0,0,0,0.7));
+	}
+	.well{
 		background-color: #fff;
 		@include border-radius(7px);
 		@include box-shadow(inset 1px 1px 8px RGBA(0,0,0,0.7));
@@ -96,12 +100,86 @@
 			text-align: right;
 		}
 	}
-	#booking_time_picker li{ cursor: pointer; }
+	.date{
+		input{ width: 150px; }
+	}
+	#booking_time_picker{
+		padding: 0;
+		margin: 13px 0 0;
+		li{
+			text-align: center;
+			padding: 3px 0 1px;
+			width: 73px;
+			margin: 0 0 5px;
+			font-size: 14px;
+	   		cursor: pointer;
+		}
+	}
 	.large{
 		height: 80px;
 	}
 	.slim{ width: 222px; label{ width: auto; } }
 	.error{
 		border: 3px solid #970000;
+	}
+	.button input{
+		width: 200px;
+		float: right;
+		padding: 10px;
+		text-align: right;
+		font-size: 20px;
+		color:#fff;
+	}
+}
+
+.kalendae{
+	*{ font-family: 'AmericanTypewriterRegular'; }
+	background: white;
+	box-shadow: inset 1px 1px 8px RGBA(0, 0, 0, 0.7);
+	margin: 13px 5px;
+	.k-caption {
+		font-size: 14px;
+	}
+}
+.booking_confirmation{
+	text-shadow: 1px 1px 1px #fff;
+	.modal{
+		height: auto;
+		padding-bottom: 40px;
+	}
+	.input{
+		color: #333;
+		margin-bottom: 10px;
+		overflow: auto;
+		clear:both; 
+		font-size: 16px;
+	}
+	.options{
+		padding-top: 20px;
+	}
+	.n{ font-size: 11px; }
+	.dotted{
+		border-bottom: 1px dashed #333;
+		padding: 0 0 2px 5px;
+	}
+	span.dotted{
+		display: inline-block;
+		padding: 0 5px 2px 5px;
+	}
+	.statement{
+		margin-left: 133px;
+	}
+	.disabled{
+		color: #888;
+	}
+	.title{
+		width: 120px;
+		float: left;
+		text-align: right;
+		padding-right: 12px;
+	}
+	.value{
+		width: 196px;
+		float: left;
 	}
 }

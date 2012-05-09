@@ -29,37 +29,58 @@
   %p
     Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
   %form{ action: "#", method: "POST", id: :booking_form }
-    .input
+    .input.well
       %label{ for: :booking_name } Contact Name:
       %input{ type: :text, id: :booking_name, placeholder: "So we know what to call you" }
-    .input
+    .input.well
       %label{ for: :booking_contact } Contact Details:
       %input{ type: :text, id: :booking_contact, placeholder: "Phone number or email address" }
-    .input
+    .input.well
       .guests
         %label{ for: :booking_guests } Number of guests:
         .guests_counter 2
         %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 12 }
         .guests_over
           For bookings over 12 people, please call xxx-xxx-xxx
-    .input.slim.left
-      %label.booking_date_display Date:
+    .input.slim.left.well.date
+      %label.left Date:
+      %input.left{ type: :text, id: :booking_date_display, placeholder: "Select a day & time", disabled: :disabled }
       %input{ type: :hidden, id: :booking_date, name: :booking_date }
       %input{ type: :hidden, id: :booking_time, name: :booking_time }
     %div.left{ type: :text, id: :booking_date_picker }
-    %ul{ type: :text, id: :booking_time_picker }
-      %li 6pm
-      %li 6.30pm
-      %li 7pm
-      %li 7.30pm
-      %li 8pm
-      %li 8.30pm
-
-
-    .input.clear
+    %ul.left{ type: :text, id: :booking_time_picker }
+      %li.well 6pm
+      %li.well 6.30pm
+      %li.well 7pm
+      %li.well 7.30pm
+      %li.well 8pm
+      %li.well 8.30pm
+    .input.clear.well
       %label{ for: :booking_comments } Comments:
       %textarea{ id: :booking_comments, rows: 5 }
-    %input{ type: :submit }
+    .input.button
+      %input{ type: :submit, value: "Review Booking ↠" }
+.booking_confirmation.modal-overlay.disappear.animate
+  .modal
+    %h1 Booking Request
+    %h2 Please confirm the following details
+    .name.input
+      .title Name:
+      .value.dotted
+    .contact.input
+      .title Contact:
+      .value.dotted
+    .date.input
+      .title Date:
+      .value.dotted
+    .guests.input.statement
+      For
+      %span.dotted.number
+      %span.word
+    .comments.input
+    .options
+      %a.btn.y{ href: "#" } Confirm
+      %a.btn.n{ href: "#" } Change
 
 
 

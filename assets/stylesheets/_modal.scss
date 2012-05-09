@@ -34,11 +34,14 @@
 		display:block;
 		margin:40px auto 40px;
 	}
-	h1{
+	h1, h2{
 		text-align:center;
 		font-size:22px;
 		color:#333;
 		text-shadow: 0 1px 0 #fff;
+	}
+	h2{
+		font-size: 18px;
 	}
 	.options{
 		text-align:center;
@@ -46,6 +49,9 @@
 			margin-right:20px;
 		}
 	}
+}
+.animate{
+	@include transition(all 0.3s ease-in-out);
 }
 
 #loading{
