@@ -82,6 +82,9 @@
 	.last{
 		padding-bottom:60px;
 	}
+	a{
+		color:#fff;
+	}
 }
 
 th{
@@ -126,4 +129,7 @@ th{
 }
 #contact .map{
 	height: 100%;
+}
+.quote{
+	font-style: italic;
 }

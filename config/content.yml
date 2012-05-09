@@ -6,7 +6,7 @@ desktop:
         # a root page called index
         index:
             # content contains all the parts of the page, in this case one partial
-            content: ["header", "about", "drinks/cocktails", "drinks/wine", "drinks/beer", "drinks/spirits", "food", "bartenders", "contact"]
+            content: ["header", "about", "contact", "drinks/cocktails", "drinks/wine", "drinks/beer", "drinks/spirits", "food", "bartenders"]
 
 #        # Here's an example of nested pages
 #        about:

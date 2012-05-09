@@ -29,7 +29,7 @@
 	width:400px;
 	height:435px;
 	opacity: 1;
-	background: #ececec url(/assets/images/bg/soft_wallpaper.jpg) top left repeat;
+	background: #ececec url(/assets/images/bg/paper.jpg) top left repeat;
 	img{
 		display:block;
 		margin:40px auto 40px;
@@ -58,7 +58,8 @@
 	&:before{
 		display:block;
 		content: "";
-		background: url(/assets/images/skull-loading.png) center center no-repeat;
+		background: url(/assets/images/skull-bouncer.png) center center no-repeat;
+		background-size: 43%;
 		width: 200px;
 		height: 150px;
 		position:absolute;
