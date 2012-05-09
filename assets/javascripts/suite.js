@@ -2,6 +2,7 @@ function Suite(){
 	var _this = this, scroller = new Scroll(), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message');
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
+		_this.init_loading();
 		loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
 		_this.initMobile();
 		$(function(){
@@ -14,6 +15,9 @@ function Suite(){
 			}, 700);
 		});
 	};
+	this.init_loading = function(){
+		$('head').append($('<style type="text/css" />').html("@font-face {font-family: 'AmericanTypewriterRegular';src: url('/assets/images/fonts/at-webfont.eot');src: url('/assets/images/fonts/at-webfont.eot?#iefix') format('embedded-opentype'),url('/assets/images/fonts/at-webfont.woff') format('woff'),url('/assets/images/fonts/at-webfont.ttf') format('truetype'),url('/assets/images/fonts/at-webfont.svg#AmericanTypewriterRegular') format('svg');font-weight: normal;font-style: normal;"));
+	}
 	this.bump_loading = function(){
 		loaded++;
 		// Give a free 10%, and divide by total images - 1
