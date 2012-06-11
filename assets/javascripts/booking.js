@@ -12,7 +12,7 @@ var Booking = function(){
 		guests.change(function(){
 			var num = parseInt($(this).val());
 			$('.guests_counter').html(num);
-			if(num == 12)
+			if(num == 10)
 				$('.guests').addClass('large');
 			else
 				$('.guests').removeClass('large');

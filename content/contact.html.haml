@@ -40,9 +40,9 @@
       .guests
         %label{ for: :booking_guests } Number of guests:
         .guests_counter 2
-        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 12 }
+        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 10 }
         .guests_over
-          For bookings over 12 people, please call xxx-xxx-xxx
+          For bookings over 10 people, please call xxx-xxx-xxx
     .input.slim.left.well.date
       %label.left Date:
       %input.left{ type: :text, id: :booking_date_display, placeholder: "Select a day & time", disabled: :disabled }
