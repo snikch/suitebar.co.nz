@@ -5,7 +5,7 @@ function Scroll(){
 		follow: false,
 		num_stories: 0,
 		window_height: false,
-		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food"]
+		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food","awards"]
 	};
 	this.classes = {
 		prev: 'prev',
