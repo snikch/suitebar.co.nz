@@ -30,7 +30,7 @@ function Suite(){
 		});
 		loader.loadGroup('visuals_low_res',function(){
 			loader.loadGroup('visuals_high_res', scroller.set_positions, _this.high_visual_preloaded);
-		},  _this.low_visual_preloaded);
+		},  _this.high_visual_preloaded);
 		$('#loading-overlay').remove();
 	}
 	this.low_visual_preloaded = function(el){
