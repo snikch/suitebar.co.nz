@@ -26,6 +26,7 @@ var ImageLoader = function(){
 			'.tequila .visual': '/assets/images/b/tequila.jpg',
 			'.bourbon .visual': '/assets/images/b/bourbon.jpg',
 			'.cognac .visual': '/assets/images/b/cognac.jpg',
+			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.rum .visual': '/assets/images/b/rum.jpg'
 		},
 		visuals_low_res: {
@@ -41,6 +42,7 @@ var ImageLoader = function(){
 			'.tequila .visual': '/assets/images/b/low/tequila.jpg',
 			'.bourbon .visual': '/assets/images/b/low/bourbon.jpg',
 			'.cognac .visual': '/assets/images/b/low/cognac.jpg',
+			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.rum .visual': '/assets/images/b/low/rum.jpg'
 		}
 	}
