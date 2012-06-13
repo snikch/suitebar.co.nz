@@ -8,11 +8,11 @@ Contact Details
 -------------------
 Name: <%= @booking.name %>
 Phone: <%= @booking.phone %>
-Email: <%= @booking.respond_to?(:email) ? @booking.email : "not supplied" %>
+Email: <%= @booking.email ? @booking.email : "not supplied" %>
 
 Comments
 -------------------
-<%= @booking.respond_to?(:comments) ? @booking.comments : "No comments" %>
+<%= @booking.comments ? @booking.comments : "No comments" %>
 
 
 Please respond to <%= @booking.name %>.

@@ -8,21 +8,12 @@ class Booking
   validates_numericality_of :guests
   validate :validate_booked_at
 
-  attr_accessor :attributes
+  attr_accessor :name, :phone, :email, :guests, :booked_at, :comments
 
   def initialize(attributes = {})
-    @attributes = attributes
-  end
-
-  def read_attribute_for_validation(key)
-    @attributes[key]
-  end
-
-  def method_missing name, *params
-    if @attributes[name]
-      return @attributes[name]
+    attributes.each do |k,v|
+      instance_variable_set("@#{k}", v)
     end
-    super
   end
 
   private
@@ -36,6 +27,7 @@ class Booking
   end
 
   def validate_booked_at
+    return errors.add("booked_at", "is required") unless booked_at
     return errors.add("booked_at", "is in the past") if booked_at <= Time.now
     return errors.add("booked_at", "bookings are not accepted for today") if booked_at.to_date.today?
     return errors.add("booked_at", "is on an invalid day") unless Diary.day_valid? booked_at
