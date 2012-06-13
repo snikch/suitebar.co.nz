@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
       phone: params[:phone],
       booked_at: DateTime.parse(params[:booked_at])
     if booking.valid?
-      BookingMailer.request(booking).deliver
-      render status: 200
+      BookingMailer.requesting(booking).deliver
+      render nothing: true, status: 200
     else
       render json: booking.errors, status: 400
     end

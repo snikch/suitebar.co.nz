@@ -2,14 +2,14 @@ require 'active_model'
 
 class Booking
   include ActiveModel::Validations
-  
+
   validates_presence_of :name
   validates_presence_of :phone
   validates_numericality_of :guests
   validate :validate_booked_at
 
   attr_accessor :attributes
-  
+
   def initialize(attributes = {})
     @attributes = attributes
   end
@@ -22,9 +22,9 @@ class Booking
     if @attributes[name]
       return @attributes[name]
     end
-    raise NoMethodError
+    super
   end
-  
+
   private
 
   def convert_created_at
