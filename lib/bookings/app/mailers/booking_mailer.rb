@@ -3,7 +3,7 @@ class BookingMailer < ActionMailer::Base
 
   def requesting booking
     @booking = booking
-    mail to: "bookings@suitebar.co.nz",
+    mail to: "mal+bookings@mal.co.nz", #bookings@suitebar.co.nz",
       subject: "Website Booking from #{booking.name}"
   end
 
