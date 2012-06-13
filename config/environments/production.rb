@@ -6,8 +6,7 @@ Bookings::Application.configure do
 
   config.action_mailer.smtp_settings = {
     :user_name => "snikch",
-    :password => "sendgridpassword",
-    :domain => "mal.co.nz",
+    :password => "zr8$z{xq[BG6YqFRtI",
     :address => "smtp.sendgrid.net",
     :port => 587,
     :authentication => :plain,
