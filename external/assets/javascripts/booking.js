@@ -7,7 +7,7 @@ var Booking = function(){
 			direction: "today-future",
 			disableNextYear: true,
 			blackout: function (date) {return [0,1,1,1,0,0,0][Kalendae.moment(date).day()];},
-			subscribe: { change: this.change_date }	
+			subscribe: { change: this.change_date }
 		});
 		guests.change(function(){
 			var num = parseInt($(this).val());
@@ -67,7 +67,7 @@ var Booking = function(){
 		if(attention.length == 0) return _this.show_confirmation();
 
 		$.each(attention, function(k,v){
-			show_error(v, k == 0)	
+			show_error(v, k == 0)
 		});
 	}
 
