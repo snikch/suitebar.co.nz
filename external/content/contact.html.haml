@@ -32,7 +32,7 @@
   %form{ action: "#", method: "POST", id: :booking_form }
     .input.well
       %label{ for: :booking_name } Contact Name:
-      %input{ type: :text, id: :booking_name, placeholder: "So we know what to call you" }
+      %input{ type: :text, id: :booking_name, name: :name, placeholder: "So we know what to call you" }
     .input.well
       %label{ for: :booking_contact } Contact Details:
       %input{ type: :text, id: :booking_contact, placeholder: "Phone number or email address" }
@@ -40,7 +40,7 @@
       .guests
         %label{ for: :booking_guests } Number of guests:
         .guests_counter 2
-        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 10 }
+        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 10, name: :guests }
         .guests_over
           For bookings over 10 people, please call xxx-xxx-xxx
     .input.slim.left.well.date
@@ -58,7 +58,7 @@
       %li.well 8.30pm
     .input.clear.well
       %label{ for: :booking_comments } Comments:
-      %textarea{ id: :booking_comments, rows: 5 }
+      %textarea{ id: :booking_comments, rows: 5, name: :comments }
     .input.button
       %input{ type: :submit, value: "Review Booking ↠" }
 .booking_confirmation.modal-overlay.disappear.animate

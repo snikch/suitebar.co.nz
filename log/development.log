@@ -1532,3 +1532,369 @@ SuiteBot
 
   Rendered text template (0.0ms)
 Completed 200 OK in 151ms (Views: 4.7ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00" for 127.0.0.1 at 2012-06-13 15:21:01 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00"}
+
+Sent mail to bookings@suitebar.co.nz (38ms)
+Date: Wed, 13 Jun 2012 15:21:01 +1200
+From: suitebot@suitebar.co.nz
+To: bookings@suitebar.co.nz
+Message-ID: <4fd8071d6f9c8_fa7c3fcde8ba30d8487ad@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 68ms (Views: 1.7ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:21:10 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+
+Sent mail to bookings@suitebar.co.nz (37ms)
+Date: Wed, 13 Jun 2012 15:21:10 +1200
+From: suitebot@suitebar.co.nz
+To: bookings@suitebar.co.nz
+Message-ID: <4fd8072696054_fa7c3fcde8ba2f2048884@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 55ms (Views: 0.7ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:21:38 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+Completed 500 Internal Server Error in 3ms
+
+ArgumentError (wrong number of arguments (2 for 1)):
+  app/models/booking.rb:28:in `respond_to?'
+  app/controllers/bookings_controller.rb:8:in `create'
+
+
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.2ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.0ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:21:56 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (2 for 1)):
+  app/models/booking.rb:28:in `respond_to?'
+  app/controllers/bookings_controller.rb:8:in `create'
+
+
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.1ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:23:41 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+  Rendered booking_mailer/requesting.text.erb (2.4ms)
+
+Sent mail to mal+bookings@mal.co.nz (125ms)
+Date: Wed, 13 Jun 2012 15:23:42 +1200
+From: suitebot@suitebar.co.nz
+To: mal+bookings@mal.co.nz
+Message-ID: <4fd807be3ac4d_fe023fc7616ef524698b7@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+mal has requested a booking via the website.
+
+Date: June 21, 2012 19:00
+
+Guests: 3
+
+Contact Details
+-------------------
+Name: mal
+Phone: 123
+Email: 
+
+Comments
+-------------------
+
+
+
+Please respond to mal.
+
+
+Cheers
+
+SuiteBot
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 776ms (Views: 3.4ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:24:56 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+  Rendered booking_mailer/requesting.text.erb (0.9ms)
+
+Sent mail to mal+bookings@mal.co.nz (69ms)
+Date: Wed, 13 Jun 2012 15:24:56 +1200
+From: suitebot@suitebar.co.nz
+To: mal+bookings@mal.co.nz
+Message-ID: <4fd80808eead3_fe023fc7617303a869964@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+mal has requested a booking via the website.
+
+Date: June 21, 2012 19:00
+
+Guests: 3
+
+Contact Details
+-------------------
+Name: mal
+Phone: 123
+Email: not supplied
+
+Comments
+-------------------
+No comments
+
+
+Please respond to mal.
+
+
+Cheers
+
+SuiteBot
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 95ms (Views: 1.4ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:25:14 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+  Rendered booking_mailer/requesting.text.erb (0.2ms)
+
+Sent mail to mal+bookings@mal.co.nz (44ms)
+Date: Wed, 13 Jun 2012 15:25:14 +1200
+From: suitebot@suitebar.co.nz
+To: mal+bookings@mal.co.nz
+Message-ID: <4fd8081ae65af_fe023fc76162800070067@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+mal has requested a booking via the website.
+
+Date: June 21, 2012 19:00
+
+Guests: 3
+
+Contact Details
+-------------------
+Name: mal
+Phone: mal@mal.co.nz
+Email: not supplied
+
+Comments
+-------------------
+No comments
+
+
+Please respond to mal.
+
+
+Cheers
+
+SuiteBot
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 79ms (Views: 1.2ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz" for 127.0.0.1 at 2012-06-13 15:25:30 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz"}
+  Rendered booking_mailer/requesting.text.erb (0.2ms)
+
+Sent mail to mal+bookings@mal.co.nz (34ms)
+Date: Wed, 13 Jun 2012 15:25:30 +1200
+From: suitebot@suitebar.co.nz
+To: mal+bookings@mal.co.nz
+Message-ID: <4fd8082a6d8c6_fe023fc761627ed4701a9@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+mal has requested a booking via the website.
+
+Date: June 21, 2012 19:00
+
+Guests: 3
+
+Contact Details
+-------------------
+Name: mal
+Phone: 123
+Email: mal@mal.co.nz
+
+Comments
+-------------------
+No comments
+
+
+Please respond to mal.
+
+
+Cheers
+
+SuiteBot
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 57ms (Views: 1.2ms)
+
+
+Started GET "/booking.json?name=mal&phone=123&guests=3&booked_at=2012-06-21%2019:00:00&email=mal@mal.co.nz&comments=%20fuck%20you!" for 127.0.0.1 at 2012-06-13 15:25:40 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "phone"=>"123", "guests"=>"3", "booked_at"=>"2012-06-21 19:00:00", "email"=>"mal@mal.co.nz", "comments"=>" fuck you!"}
+  Rendered booking_mailer/requesting.text.erb (0.2ms)
+
+Sent mail to mal+bookings@mal.co.nz (48ms)
+Date: Wed, 13 Jun 2012 15:25:40 +1200
+From: suitebot@suitebar.co.nz
+To: mal+bookings@mal.co.nz
+Message-ID: <4fd8083415f42_fe023fc76161adec7029d@Frylock.local.mail>
+Subject: Website Booking from mal
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+mal has requested a booking via the website.
+
+Date: June 21, 2012 19:00
+
+Guests: 3
+
+Contact Details
+-------------------
+Name: mal
+Phone: 123
+Email: mal@mal.co.nz
+
+Comments
+-------------------
+ fuck you!
+
+
+Please respond to mal.
+
+
+Cheers
+
+SuiteBot
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 67ms (Views: 0.8ms)
+
+
+Started GET "/booking.json" for 127.0.0.1 at 2012-06-13 15:26:22 +1200
+Processing by BookingsController#create as JSON
+Completed 500 Internal Server Error in 0ms
+
+TypeError (can't convert nil into String):
+  app/controllers/bookings_controller.rb:9:in `parse'
+  app/controllers/bookings_controller.rb:9:in `create'
+
+
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.2ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/booking.json" for 127.0.0.1 at 2012-06-13 15:26:42 +1200
+Processing by BookingsController#create as JSON
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `<=' for nil:NilClass):
+  app/models/booking.rb:30:in `validate_booked_at'
+  app/controllers/bookings_controller.rb:10:in `create'
+
+
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.3ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/mal/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.8ms)
+
+
+Started GET "/booking.json" for 127.0.0.1 at 2012-06-13 15:27:04 +1200
+Processing by BookingsController#create as JSON
+Completed 400 Bad Request in 5ms (Views: 0.4ms)
+
+
+Started GET "/booking.json?name=mal" for 127.0.0.1 at 2012-06-13 15:27:10 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal"}
+Completed 400 Bad Request in 4ms (Views: 0.5ms)
+
+
+Started GET "/booking.json?name=mal&booked_at=2011-06-24%2000:00:00" for 127.0.0.1 at 2012-06-13 15:27:20 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "booked_at"=>"2011-06-24 00:00:00"}
+Completed 400 Bad Request in 5ms (Views: 1.7ms)
+
+
+Started GET "/booking.json?name=mal&booked_at=2012-06-24%2000:00:00" for 127.0.0.1 at 2012-06-13 15:27:23 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "booked_at"=>"2012-06-24 00:00:00"}
+Completed 400 Bad Request in 6ms (Views: 0.6ms)
+
+
+Started GET "/booking.json?name=mal&booked_at=2012-06-24%2018:00:00" for 127.0.0.1 at 2012-06-13 15:27:26 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"mal", "booked_at"=>"2012-06-24 18:00:00"}
+Completed 400 Bad Request in 2ms (Views: 0.2ms)
+
+
+Started GET "/booking.json?callback=jQuery17200733895618468523_1339559727640&name=asd+asd+&guests=2&booking_date=2012-06-23&booking_time=7pm&comments=&_=1339559742073" for 127.0.0.1 at 2012-06-13 15:55:42 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"callback"=>"jQuery17200733895618468523_1339559727640", "name"=>"asd asd ", "guests"=>"2", "booking_date"=>"2012-06-23", "booking_time"=>"7pm", "comments"=>"", "_"=>"1339559742073"}
+Completed 400 Bad Request in 22ms (Views: 3.9ms)
+
+
+Started GET "/booking.json?callback=jQuery17200733895618468523_1339559727640&name=asd+asd+&guests=2&booking_date=2012-06-23&booking_time=7pm&comments=&_=1339559742073" for 127.0.0.1 at 2012-06-13 15:56:35 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"callback"=>"jQuery17200733895618468523_1339559727640", "name"=>"asd asd ", "guests"=>"2", "booking_date"=>"2012-06-23", "booking_time"=>"7pm", "comments"=>"", "_"=>"1339559742073"}
+Completed 400 Bad Request in 8ms (Views: 6.3ms)
+
+
+Started POST "/booking.json" for 127.0.0.1 at 2012-06-13 15:58:30 +1200
+Processing by BookingsController#create as JSON
+  Parameters: {"name"=>"123", "guests"=>"2", "booking_date"=>"2012-06-17", "booking_time"=>"7.30pm", "comments"=>""}
+WARNING: Can't verify CSRF token authenticity
+Completed 400 Bad Request in 2ms (Views: 0.3ms)

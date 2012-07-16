@@ -1,5 +1,5 @@
 var Booking = function(){
-	var _this = this, date_picker = $('#booking_date_picker'), time_picker = $('#booking_time_picker'), date = $('#booking_date'), time = $('#booking_time'), guests = $('#booking_guests'), name = $('#booking_name'), contact = $('#booking_contact'), form = $('#booking_form'), confirmation_container = $('.booking_confirmation'), comments = $('#booking_comments'), empty, show_error;
+	var _this = this, date_picker = $('#booking_date_picker'), time_picker = $('#booking_time_picker'), date = $('#booking_date'), time = $('#booking_time'), guests = $('#booking_guests'), name = $('#booking_name'), contact = $('#booking_contact'), form = $('#booking_form'), confirmation_container = $('.booking_confirmation'), comments = $('#booking_comments'), empty, show_error, booking_url = 'http://0.0.0.0:3001/v1/bookings/create';//'http://suite-bookings.herokuapp.com/booking.json';
 
 	this.init = function(){
 		date_picker.kalendae({
@@ -104,6 +104,23 @@ var Booking = function(){
 			scrollTop: form.offset().top - 140
 		});
 	}
+
+	this.submit_booking = function(e){
+		e.preventDefault();
+		$.ajax({ url: booking_url, data: form.serialize(), type: "post", dataType: 'json' })
+			.done(_this.booking_succeeded)
+			.fail(_this.booking_failed)
+	}
+
+	this.booking_succeeded = function(data){
+		console.log("succeeded")
+		console.log(data);
+	}
+	this.booking_failed = function(data){
+		console.log("failed")
+		console.log(data)
+	}
+
 	this.show_confirmation_dialog = function(){
 		confirmation_container.removeClass('disappear');
 	}
