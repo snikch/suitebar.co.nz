@@ -1,0 +1,90 @@
+#contact.story
+  .visual
+    .map
+  %h2.first Contact Us
+  %p
+    %strong Address<br />
+    2 Hobson St.<br />
+    Auckland Central 1010
+  %p
+    %strong Opening Hours<br />
+    Mon Closed<br />
+    Tue 4pm – 5am<br />
+    Wed 4pm – 5am<br />
+    Thur 4pm – 5am<br />
+    Fri 4pm – 5am<br />
+    Sat 8pm – 5am<br />
+    Sun Closed
+  %p
+    %strong Phone<br />
+    09 3077030
+  %p
+    %strong Fax</br >
+    09 3077031
+  %p
+    %a{ rel: :reservations, href: "#" } Reservations
+
+.story
+  %h2.first#reservations Reservations | Bookings
+
+  %p
+    Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+  %form{ action: "#", method: "POST", id: :booking_form }
+    .input.well
+      %label{ for: :booking_name } Contact Name:
+      %input{ type: :text, id: :booking_name, name: :name, placeholder: "So we know what to call you" }
+    .input.well
+      %label{ for: :booking_contact } Contact Details:
+      %input{ type: :text, id: :booking_contact, placeholder: "Phone number or email address" }
+    .input.well
+      .guests
+        %label{ for: :booking_guests } Number of guests:
+        .guests_counter 2
+        %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 10, name: :guests }
+        .guests_over
+          For bookings over 10 people, please call xxx-xxx-xxx
+    .input.slim.left.well.date
+      %label.left Date:
+      %input.left{ type: :text, id: :booking_date_display, placeholder: "Select a day & time", disabled: :disabled }
+      %input{ type: :hidden, id: :booking_date, name: :booking_date }
+      %input{ type: :hidden, id: :booking_time, name: :booking_time }
+    %div.left{ type: :text, id: :booking_date_picker }
+    %ul.left{ type: :text, id: :booking_time_picker }
+      %li.well 6pm
+      %li.well 6.30pm
+      %li.well 7pm
+      %li.well 7.30pm
+      %li.well 8pm
+      %li.well 8.30pm
+    .input.clear.well
+      %label{ for: :booking_comments } Comments:
+      %textarea{ id: :booking_comments, rows: 5, name: :comments }
+    .input.button
+      %input{ type: :submit, value: "Review Booking ↠" }
+.booking_confirmation.modal-overlay.disappear.animate
+  .modal
+    %h1 Booking Request
+    %h2 Please confirm the following details
+    .name.input
+      .title Name:
+      .value.dotted
+    .contact.input
+      .title Contact:
+      .value.dotted
+    .date.input
+      .title Date:
+      .value.dotted
+    .guests.input.statement
+      For
+      %span.dotted.number
+      %span.word
+    .comments.input
+    .options
+      %a.btn.y{ href: "#" } Confirm
+      %a.btn.n{ href: "#" } Change
+
+
+
+
+
+.story
