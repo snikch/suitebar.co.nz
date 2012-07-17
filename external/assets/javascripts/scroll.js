@@ -1,18 +1,16 @@
  window.requestAnimFrame = (function(){
-	return  window.requestAnimationFrame       || 
-		window.webkitRequestAnimationFrame || 
-		window.mozRequestAnimationFrame    || 
-		window.oRequestAnimationFrame      || 
-		window.msRequestAnimationFrame     || 
+	return  window.requestAnimationFrame       ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame    ||
+		window.oRequestAnimationFrame      ||
+		window.msRequestAnimationFrame     ||
 		function( callback ){
 			window.setTimeout(callback, 1000 / 60);
 		};
 })();
- 
- 
-    // usage: 
+    // usage:
     // instead of setInterval(render, 16) ....
- 
+
 function Scroll(){
 	var _this = this;
 	this.s = {
