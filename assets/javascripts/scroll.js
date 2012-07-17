@@ -1,3 +1,18 @@
+ window.requestAnimFrame = (function(){
+	return  window.requestAnimationFrame       || 
+		window.webkitRequestAnimationFrame || 
+		window.mozRequestAnimationFrame    || 
+		window.oRequestAnimationFrame      || 
+		window.msRequestAnimationFrame     || 
+		function( callback ){
+			window.setTimeout(callback, 1000 / 60);
+		};
+})();
+ 
+ 
+    // usage: 
+    // instead of setInterval(render, 16) ....
+ 
 function Scroll(){
 	var _this = this;
 	this.s = {
@@ -15,21 +30,26 @@ function Scroll(){
 		next: 'next'
 	};
 	this.prepare = function(){
+		_this.stories = [];
 		_this.init_stories();
 		_this.scroll_to_hash();
 		_this.handle_hash_links();
 		_this.menu_preparations();
 	};
 	this.init = function(){
-		_this.stories = [];
 		_this.set_positions();
 		_this.s.num_stories = _this.stories.length;
-		$(window).scroll(_this.scrollHandler);
 		$(window).resize(_this.resizeHandler);
 		_this.initMenu();
 		_this.prepareContact();
+		_this.animloop();
 
 	};
+	this.animloop = function(){
+      requestAnimFrame(_this.animloop);
+      _this.scrollHandler();
+    };
+
 	this.menu_preparations = function(){
 		/* Handle cocktails / music z-index */
 		$('.menu-cocktails').hover(function(){
