@@ -18,7 +18,7 @@ function Scroll(){
 		follow: false,
 		num_stories: 0,
 		window_height: false,
-		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food","awards"]
+		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food","awards", "bookings"]
 	};
 	this.classes = {
 		prev: 'prev',
@@ -40,6 +40,7 @@ function Scroll(){
 		$(window).resize(_this.resizeHandler);
 		_this.initMenu();
 		_this.prepareContact();
+		_this.init_contact();
 		_this.animloop();
 
 	};
@@ -89,6 +90,7 @@ function Scroll(){
 		_this.s.window_height = _this.windowY();
 		$('.story .visual').css({ height: _this.s.window_height});
 		_this.story_positions = [];
+		_this.stories = [];
 		$('.story').each(function(){
 			_this.story_positions.push(_this.offsetTop(this));
 			if(method === 'style')
@@ -140,16 +142,25 @@ function Scroll(){
 	this.scrollHandler = function(){
 		y = _this.scrollY();
 		follow = true;
+		set = false
 
 		for(var i=0,j=_this.s.num_stories;i<j;i++){
 			pos = _this.story_positions[i];
 			if(y >= pos) continue;
+			set = true
 			i--;
 			follow = y <= pos - _this.s.window_height;
 			break;
 		}
+		// If it wasn't set, we're at the end
+		if(set == false){
+			i--;
+		}
 		match = i === _this.s.last_story_index && follow === _this.s.follow;
 		if(!match){
+		console.log("Follow" + follow);
+		console.log("I " + i);
+		console.log("j " + j);
 			method === 'style' ? _this.removeStyles() : _this.removeClasses(i,follow);
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
 			if(i !== _this.s.last_story_index && i !== -1){
@@ -281,8 +292,6 @@ function Scroll(){
 		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
 	this.prepareContact = function(){
-		_this.card_to_call = new CardToCall("#card_container");
-		$('.card_flip').click(_this.card_to_call.flip);
 		_this.booking = new Booking;
 		_this.booking.init();
 	}

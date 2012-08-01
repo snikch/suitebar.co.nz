@@ -29,7 +29,8 @@ var ImageLoader = function(){
 			'.cognac .visual': '/assets/images/b/cognac.jpg',
 			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.awards .visual': '/assets/images/b/awards.jpg',
-			'.rum .visual': '/assets/images/b/rum.jpg'
+			'.rum .visual': '/assets/images/b/rum.jpg',
+			'.bookings .visual': '/assets/images/b/bookings.jpg'
 		},
 		visuals_low_res: {
 			'.about-2 .visual': '/assets/images/b/low/about-1.jpg',
@@ -47,7 +48,8 @@ var ImageLoader = function(){
 			'.cognac .visual': '/assets/images/b/low/cognac.jpg',
 			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.awards .visual': '/assets/images/b/awards.jpg',
-			'.rum .visual': '/assets/images/b/low/rum.jpg'
+			'.rum .visual': '/assets/images/b/low/rum.jpg',
+			'.bookings .visual': '/assets/images/b/bookings.jpg'
 		}
 	}
 	this.loadGroup = function(group, complete_callback, item_callback){
