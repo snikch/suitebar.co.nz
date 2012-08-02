@@ -43,7 +43,7 @@
 		bottom: 0;
 		top: auto;
 	}
-	> h2, > h3, > p, > table, > form{
+	> h2, > h3, > h4, > p, > table, > form, > ol{
 		margin:0 0 0 -599px;
 		background: RGBA(0,0,0,0.8) ;
 		color:#fff;
@@ -151,12 +151,15 @@ th{
 }
 .food{
 	td{
-		padding: 20px 4px;
+		padding: 4px 4px;
 		&:first-child{
 			width: 430px;
 			font-size: 16px;
-			padding: 20px 20px;
+			padding: 4px 20px;
 		}
+	}
+	tr:first-child td{
+		padding: 20px 20px;
 	}
 }
 .spirit td{
@@ -183,4 +186,36 @@ th{
 }
 .quote{
 	font-style: italic;
+}
+#people{
+	li{
+		display:block;
+		width: 300px;
+		margin:auto;
+		text-align:center;
+		padding: 4px;
+	}
+	h4{
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 0;
+	}
+	a{
+		display:block;
+		margin: auto;
+		padding: 0;
+		background: #000 url(/assets/images/people/barney-small.jpg) top left no-repeat;
+		width: 400px;
+		height: 225px;
+		border: 10px solid RGB(25,25,25);
+		&:hover{
+			border-color: #fff;
+		}
+	}
+	.barney{
+		background-image: url(/assets/images/people/barney-small.jpg);
+		&:hover{
+			background-image: url(/assets/images/people/barney-small-hover.jpg);
+		}
+	}
 }
