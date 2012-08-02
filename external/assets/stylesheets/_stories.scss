@@ -91,7 +91,7 @@ th{
 	text-align:left;
 }
 
-.wine, .beer, .spirit, .food, .awards{
+.wine, .beer, .spirit, .food, .awards, .cocktail-1{
 	td, th{
 		padding:4px;
 	}
@@ -180,6 +180,26 @@ th{
     padding: 26px 20px 8px;
     font-size: 18px;
   }
+}
+.cocktail-1{
+	td{
+		padding-top: 20px;
+		font-size: 13px;
+		&:first-child{
+			padding-left: 20px;
+		}
+		&:last-child{
+			padding-right: 20px;
+		}
+	}
+	em{
+		font-size: 19px;
+		font-weight: normal;
+	}
+	strong{
+		font-size: 17px;
+		font-weight: normal;
+	}
 }
 #contact .map{
 	height: 100%;
