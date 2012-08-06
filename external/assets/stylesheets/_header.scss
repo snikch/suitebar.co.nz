@@ -28,6 +28,7 @@ header{
 		p{
 			font-size: 12px;
 			font-weight: normal;
+			filter: alpha(opacity=0);
 			opacity: 0;
 			text-indent: 0px;
 			@include transition(0.5s ease all);
@@ -40,6 +41,7 @@ header{
 		&:hover{
 			height: 210px;
 			p{
+				filter: alpha(opacity=100);
 				opacity: 1;
 			}
 		}
@@ -47,23 +49,29 @@ header{
 	nav{
 		.scapegoat{
 			opacity: 0;
+			filter: alpha(opacity=0);
 			height: 100%;
 			width: 100%;
 			top: 0;
+			background-color:RGB(0,0,0);
 			background-color:RGBA(0,0,0,0.7);
 			position: absolute;
 			z-index: 1;
-					@include transition(0.1s ease-in opacity);
+			@include transition(0.1s ease-in opacity);
 		}
 		&:hover .scapegoat{
 			opacity: 1;
+			filter: alpha(opacity=100);
 		}
 		&:hover a, &:hover a:visited, &:hover a:active, &:hover a:link{
 			opacity: 1;
+			filter: alpha(opacity=100);
 			@include transition(0.1s ease-in opacity);
 		}
 		width: 100%;
 		opacity: 1;
+		filter: alpha(opacity=100);
+
 		@include transition(0.1s ease-out all);
 		ul{
 			margin-right:550px;
@@ -84,17 +92,20 @@ header{
 					color:#fff;
 					text-decoration:none;
 					opacity: 0;
+					filter: alpha(opacity=0);
 					@include transition(0.3s ease-in opacity);
 					padding:10px 14px 51px;
 					background-color: RGBA(0,0,0,0.0);
 					&:hover{
 						background-color: RGBA(255,255,255,0.2);
 						opacity: 1;
+						filter: alpha(opacity=100);
 						@include transition(0.1s ease-in opacity);
 					}
 				}
 				&.active a{
 					background-color: RGBA(0,0,0,0.9);
+					filter: alpha(opacity=100);
 					opacity: 1;
 					@include transition(0.1s ease-in opacity);
 				}
@@ -103,6 +114,7 @@ header{
 	}
 	&:hover{
 		nav{
+			filter: alpha(opacity=100);
 			opacity:1;
 		}
 	}

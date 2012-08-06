@@ -1,11 +1,12 @@
 #cocktails.story.cocktail-1
   %h2.first Cocktail | Drink | Libation
-  %p This is our list of favourite drinks, it’s what we are currently enjoying. We try to encourage our customers to chat to us about making a drink that suits the moment and is revelant to the time/weather/event/whatever! A tall refreshing drink, such as a Collins Style might be a great way to start your evening. Follow this with a stronger, more intense style, a Negroni for instance, as a stellar finish to your night.
+  %p This is a list of our favourite drinks’s that we are currently enjoying. We try to encourage our customers to chat to us about making a drink that suits the moment and is revelant to the time/weather/event whatever! A tall refresh- ing drink, such as a Collins Style might be a great way to start your evening. Follow this with a stronger, more intense style, a Negroni for instance, as a stellar finish to your night.
   %p So please don’t be shy and ask us to make you a great drink, the strangest requests are often our favourites.
+  %p Suite also prides itself in crafting a fun range of non-alcoholic cocktails, to your personal liking. Please ask your bartender for suggestions
 
   %table
     - require 'csv'
-    - CSV.foreach("/Users/mal/Code/github/suite/projects/suitebar/external/content/drinks/cocktails.csv", :quote_char => '"') do |row|
+    - CSV.foreach("/Users/mal/Code/github/suite/external/content/drinks/cocktails.csv", :quote_char => '"') do |row|
       %tr
         %td
           %em= row[0]

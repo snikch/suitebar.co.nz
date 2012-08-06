@@ -19,6 +19,7 @@
 		background-attachment:scroll;
 		background-image: url('/assets/images/b/loading.png');
 		opacity: 0;
+		filter: alpha(opacity=0);
 		@include transition(opacity 500ms ease);
 	}
 	&.fixed .visual{
@@ -35,6 +36,7 @@
 
 			position: fixed;
 			z-index: 111;
+			background-color: RGB(0,0,0);
 			background-color: RGBA(0,0,0,0.9);
 		}
 
@@ -45,6 +47,7 @@
 	}
 	> h2, > h3, > h4, > p, > table, > form, > ol{
 		margin:0 0 0 -599px;
+		background: RGBA(0,0,0) ;
 		background: RGBA(0,0,0,0.8) ;
 		color:#fff;
 		width:489px;

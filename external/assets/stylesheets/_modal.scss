@@ -11,6 +11,7 @@
 	&.disappear{
 		@include transition(all 0.3s ease-in-out);
 		margin-top:-100%;
+		opacity: 0;
 		#bouncer{
 			opacity: 0;
 		}
@@ -19,7 +20,7 @@
 .modal {
 	@include transition(opacity 0.3s ease-in-out);
 	-webkit-transform: translateZ(0);
-	position:fixed;
+	position:absolute;
 	margin:-225px 0 0 -208px;
 	top: 50%;
 	left: 50%;

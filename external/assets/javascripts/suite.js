@@ -1,3 +1,6 @@
+document.createElement("nav");
+document.createElement("header");
+document.createElement("article");
 function Suite(){
 	var _this = this, scroller = new Scroll(), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message');
 	var bar = $('#loading .loading_bar span');
@@ -16,7 +19,6 @@ function Suite(){
 		});
 	};
 	this.init_loading = function(){
-		$('head').append($('<style type="text/css" />').html("@font-face {font-family: 'AmericanTypewriterRegular';src: url('/assets/images/fonts/at-webfont.eot');src: url('/assets/images/fonts/at-webfont.eot?#iefix') format('embedded-opentype'),url('/assets/images/fonts/at-webfont.woff') format('woff'),url('/assets/images/fonts/at-webfont.ttf') format('truetype'),url('/assets/images/fonts/at-webfont.svg#AmericanTypewriterRegular') format('svg');font-weight: normal;font-style: normal;"));
 	}
 	this.bump_loading = function(){
 		loaded++;
