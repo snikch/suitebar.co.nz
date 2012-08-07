@@ -11,7 +11,8 @@
     // usage:
     // instead of setInterval(render, 16) ....
 
-function Scroll(){
+function Scroll(app_instance){
+	this.app = app_instance;
 	var _this = this;
 	this.s = {
 		last_story_index: false,
@@ -28,16 +29,20 @@ function Scroll(){
 		next: 'next'
 	};
 	this.prepare = function(){
+		log("preparing scroller");
 		_this.stories = [];
 		_this.init_stories();
+		_this.set_positions();
 		_this.scroll_to_hash();
 		_this.handle_hash_links();
+		if(_this.app.isMobile()) return;
 		_this.menu_preparations();
 	};
 	this.init = function(){
-		$(window).resize();
-		_this.set_positions();
+		log("Scroller init");
+		_this.scrollHandler();
 		_this.s.num_stories = _this.stories.length;
+		if(_this.app.isMobile()) return;
 		$(window).resize(_this.resizeHandler);
 		_this.initMenu();
 		_this.prepareContact();
@@ -46,6 +51,7 @@ function Scroll(){
 
 	};
 	this.animloop = function(){
+		alog("reqwust")
       requestAnimFrame(_this.animloop);
       _this.scrollHandler();
     };
@@ -293,10 +299,12 @@ function Scroll(){
 		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
 	this.prepareContact = function(){
+		return;
 		_this.booking = new Booking;
 		_this.booking.init();
 	}
 	this.init_contact = function(){
+		return ;
 		if(_this.contact) return;
 		_this.contact = new Contact();
 		_this.contact.init();

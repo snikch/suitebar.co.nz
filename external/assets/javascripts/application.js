@@ -1,5 +1,4 @@
 
-//= require background-size
 //= require plugins
 //= require cookie
 //= require doorman

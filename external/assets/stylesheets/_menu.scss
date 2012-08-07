@@ -1,7 +1,12 @@
 .menu-container{
+	display:none;
+}
+.showmenu .menu-container{
 	min-height: 100%;
+	display:block;
 }
 #main-menu{
+	display: block;
 	max-height:800px;
 	min-height:700px;
 	background-size: initial;

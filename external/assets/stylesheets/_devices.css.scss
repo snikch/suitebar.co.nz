@@ -1,0 +1,93 @@
+@mixin solid-menu{
+	header {
+			width: 140px;
+		h1{
+			&:hover{
+				height: 80px;
+			}
+			p{
+				display:none;
+			}
+		}
+		nav{
+			.scapegoat{ 
+				display: none;
+			}
+			ul{
+				margin: 0 20px 0;
+				padding: 80px 0 0;
+				width: 120px;
+				li{
+					float:none;
+					a, a:visited, a:active, a:link{
+						background-color: #000;
+						margin: 0;
+						width: 88px;
+						display:block;
+						text-align: center;
+						opacity: 1;
+						&:hover{
+							background-color: #333;
+						}
+					}
+					&.active a{
+						background-color: #444;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin compact-margins{
+	header{
+		top: 0;
+		nav{
+			min-height: 100px;
+			h1{
+				margin: 0;
+			}
+			ul{
+				display: none;
+				margin: 0 0 0 108px;
+				padding: 0;
+				width: 160px;
+				li{
+					a, a:visited, a:active, a:link{
+						width: 120px;
+					}
+				}
+			}
+			&:hover ul, ul.active{
+				display: block;
+			}
+		}
+	}
+	.story{
+		padding: 20px 0;
+		> h2, > h3, > h4, > p, > table, > form, > ol{
+			margin: auto;
+			width: 440px;
+		}
+		> table{
+			width: 480px;
+		}
+		h2{
+			position: relative;
+		}
+		&.delayed h2{
+			margin-top: 0;
+			padding-left: 108px;
+			text-align: left;
+			width: auto;
+		}
+	}
+
+	#booking_date_picker{
+		clear: left;
+	}
+
+	#booking_form input{
+		width: 230px;
+	}
+}

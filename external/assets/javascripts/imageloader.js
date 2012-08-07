@@ -1,6 +1,5 @@
 var ImageLoader = function(){
 	var _this = this;
-	this.saved_groups = {};
 	var image_groups = {
 		index: {
 			'#main-menu': '/assets/images/b/index.jpg',
@@ -36,36 +35,44 @@ var ImageLoader = function(){
 		visuals_low_res: {
 			'.about-2 .visual': '/assets/images/b/low/about-1.jpg',
 			'.cocktail-1 .visual': '/assets/images/b/low/cocktails-2.jpg',
-			'.cocktail-2 .visual': '/assets/images/b/cocktails-1.jpg',
-			'.white-wine .visual': '/assets/images/b/wine-white.jpg',
-			'.red-wine .visual': '/assets/images/b/wine-red.jpg',
-			'.beer-1 .visual': '/assets/images/b/beer.jpg',
+			'.cocktail-2 .visual': '/assets/images/b/low/cocktails-1.jpg',
+			'.white-wine .visual': '/assets/images/b/low/wine-white.jpg',
+			'.red-wine .visual': '/assets/images/b/low/wine-red.jpg',
+			'.beer-1 .visual': '/assets/images/b/low/beer.jpg',
 			'.whiskey .visual': '/assets/images/b/low/whiskey.jpg',
 			'.gin .visual': '/assets/images/b/low/gin.jpg',
 			'.bitter .visual': '/assets/images/b/low/bitter.jpg',
-			'.vodka .visual': '/assets/images/b/vodka.jpg',
+			'.vodka .visual': '/assets/images/b/low/vodka.jpg',
 			'.tequila .visual': '/assets/images/b/low/tequila.jpg',
 			'.bourbon .visual': '/assets/images/b/low/bourbon.jpg',
 			'.cognac .visual': '/assets/images/b/low/cognac.jpg',
-			'.food .visual': '/assets/images/b/food-2.jpg',
-			'.awards .visual': '/assets/images/b/awards.jpg',
+			'.food .visual': '/assets/images/b/low/food-2.jpg',
+			'.awards .visual': '/assets/images/b/low/awards.jpg',
 			'.rum .visual': '/assets/images/b/low/rum.jpg',
-			'.people .visual': '/assets/images/b/people.jpg',
-			'.bookings .visual': '/assets/images/b/bookings.jpg'
+			'.people .visual': '/assets/images/b/low/people.jpg',
+			'.bookings .visual': '/assets/images/b/low/bookings.jpg'
 		}
 	}
 	this.loadGroup = function(group, complete_callback, item_callback){
 		log("Loading group " + group);
+		var precache = [
+			new Image(),
+			new Image(),
+			new Image(),
+			new Image()
+		];
 		var imgs = {}, togo=0;
-		_this.saved_groups[group] = imgs
 		var loaded = function(){
 			togo--;
-			log('Loaded image ' + this.src + ', ' + togo + ' left');
+			//log('Loaded image ' + this.src + ', ' + togo + ' left');
 			if(item_callback) item_callback(this);
 			if(togo <= 0){
 				log("Group loaded");
 				if(complete_callback) complete_callback(imgs);
 			}
+		}
+		var queue = function(img){
+			
 		}
 		$.each(image_groups[group], function(k,v){
 			img = new Image();

@@ -1,0 +1,35 @@
+@media screen and (max-width: 1279px) {
+
+	header nav ul{
+		li a, li a:visited, li a:active, li a:link{
+			padding: 10px;
+			width: 60px;
+
+		}
+			
+	}
+}
+@media screen and (max-width: 1045px) {
+	@include solid_menu;
+}
+@media screen and (max-width: 600px) {
+	@include compact-margins;
+}
+@media screen and (max-width: 479px) {
+	.story{
+		> h2, > h3, > h4, > p, > table, > form, > ol{
+			margin: auto;
+			width: 280px;
+		}
+		> table{
+			width: 320px;
+		}
+
+	}
+	#people{
+		a, img{
+			width: 160px;
+			height: auto;
+		}
+	}
+}

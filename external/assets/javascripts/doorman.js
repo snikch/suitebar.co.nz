@@ -10,9 +10,13 @@ function Doorman(){
 		return navigator.userAgent.match(new RegExp('(' + identifiers.join(')|(') + ')', 'i')) !== null;
 	};
 	this.verify_age = function(callback){
-		if(is_verified() || is_vip()){
+		log("verifying age")
+		if(true | is_verified() || is_vip()){
+			log("is verified")
 			$('#bouncer-overlay').remove();
+			log("removed overlay")
 			if(callback) callback();
+			log("returning")
 			return;
 		}
 		return this.ask_for_id(callback);
