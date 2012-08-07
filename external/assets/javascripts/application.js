@@ -7,6 +7,7 @@
 //= require imageloader
 //= require contact
 //= require engine
+//= require background-size
 
 //= require contact_card
 //= require kalendae
