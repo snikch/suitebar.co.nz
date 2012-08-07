@@ -1,4 +1,5 @@
 
+//= require background-size
 //= require plugins
 //= require cookie
 //= require doorman
@@ -7,7 +8,6 @@
 //= require imageloader
 //= require contact
 //= require engine
-//= require background-size
 
 //= require contact_card
 //= require kalendae

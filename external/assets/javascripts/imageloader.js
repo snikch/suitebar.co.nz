@@ -30,6 +30,7 @@ var ImageLoader = function(){
 			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.awards .visual': '/assets/images/b/awards.jpg',
 			'.rum .visual': '/assets/images/b/rum.jpg',
+			'.people .visual': '/assets/images/b/people.jpg',
 			'.bookings .visual': '/assets/images/b/bookings.jpg'
 		},
 		visuals_low_res: {
@@ -49,6 +50,7 @@ var ImageLoader = function(){
 			'.food .visual': '/assets/images/b/food-2.jpg',
 			'.awards .visual': '/assets/images/b/awards.jpg',
 			'.rum .visual': '/assets/images/b/low/rum.jpg',
+			'.people .visual': '/assets/images/b/people.jpg',
 			'.bookings .visual': '/assets/images/b/bookings.jpg'
 		}
 	}

@@ -18,7 +18,7 @@ function Scroll(){
 		follow: false,
 		num_stories: 0,
 		window_height: false,
-		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food","awards", "bookings"]
+		stories: ["about-1", "about-2", "cocktail-1", "cocktail-2", "white-wine", "red-wine", "beer-1", "whiskey", "gin", "vodka", "bitter", "tequila", "bourbon", "cognac", "rum", "food","awards", "bookings", "people"]
 	};
 	this.classes = {
 		prev: 'prev',
@@ -35,6 +35,7 @@ function Scroll(){
 		_this.menu_preparations();
 	};
 	this.init = function(){
+		$(window).resize();
 		_this.set_positions();
 		_this.s.num_stories = _this.stories.length;
 		$(window).resize(_this.resizeHandler);
