@@ -16,6 +16,7 @@
 	}
 	&:before{
 		content: '';
+		border-color: RGB(0,0,0) transparent transparent transparent;
 		border-color: RGBA(0,0,0,0.9) transparent transparent transparent;
 		border-style: solid;
 		border-width: 10px;
@@ -105,6 +106,7 @@
 	#booking_time_picker{
 		padding: 0;
 		margin: 13px 0 0;
+		list-style-type: none;
 		li{
 			text-align: center;
 			padding: 3px 0 1px;
@@ -133,7 +135,7 @@
 
 .kalendae{
 	*{ font-family: 'AmericanTypewriterRegular'; }
-	background: white;
+	background-color: #fff;
 	box-shadow: inset 1px 1px 8px RGBA(0, 0, 0, 0.7);
 	margin: 13px 5px;
 	.k-caption {
