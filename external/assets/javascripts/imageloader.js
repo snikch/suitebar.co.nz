@@ -55,33 +55,37 @@ var ImageLoader = function(){
 	}
 	this.loadGroup = function(group, complete_callback, item_callback){
 		log("Loading group " + group);
-		var precache = [
-			new Image(),
-			new Image(),
-			new Image(),
-			new Image()
-		];
-		var imgs = {}, togo=0;
-		var loaded = function(){
-			togo--;
-			//log('Loaded image ' + this.src + ', ' + togo + ' left');
-			if(item_callback) item_callback(this);
-			if(togo <= 0){
-				log("Group loaded");
-				if(complete_callback) complete_callback(imgs);
+		var cache_size = 4, complete = 0;
+		var queue = function(selector, source, cache){
+			img = cache;
+			img.rel = selector
+			img.onload = function(){
+				if(item_callback) item_callback(selector, source);
+				if(selectors.length > 0){
+					cache = null;
+					queue(selectors.shift(), sources.shift(), new Image());
+				}else{
+					complete++;
+					if(complete == cache_size){
+						log("Group loaded")
+						if(complete_callback) complete_callback(image_groups[group]);
+					}
+				}
 			}
+			img.src = source
 		}
-		var queue = function(img){
-			
-		}
+		selectors = [];
+		sources = [];
 		$.each(image_groups[group], function(k,v){
-			img = new Image();
-			img.rel = k;
-			img.onload = loaded;
-			img.src = v;
-			imgs[k] = img;
-			togo++;
+			selectors.push(k)
+			sources.push(v);
 		});
+		console.log(image_groups[group]);
+		console.log(selectors);
+		console.log(sources);
+		for(i=0; i<cache_size;i++){
+			queue(selectors.shift(), sources.shift(), new Image());
+		}
 	}
 
 }

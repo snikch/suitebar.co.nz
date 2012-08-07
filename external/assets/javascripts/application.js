@@ -7,6 +7,7 @@
 //= require imageloader
 //= require contact
 //= require engine
+//= require image-modal
 
 //= require contact_card
 //= require kalendae

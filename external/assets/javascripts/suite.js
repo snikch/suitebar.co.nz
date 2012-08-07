@@ -9,8 +9,8 @@ function Suite(){
 	var _this = this, scroller = new Scroll(this), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message');
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
+		scroller.prepare();
 		if(_this.isMobile()){
-			scroller.prepare();
 			loader.loadGroup('visuals_low_res',function(){
 				$('#loading-overlay').hide();
 				_this.initMenu();
@@ -18,6 +18,7 @@ function Suite(){
 			},  _this.low_visual_preloaded);	
 
 		}else{
+			log ("Loading as desktop browser")
 			$('body').addClass('showmenu');
 			loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
 		}
@@ -28,6 +29,9 @@ function Suite(){
 				log('age virified');
 			//});
 		});
+		$('.people a').click(function(e){
+		   	e.preventDefault();
+		   	new ImageModal($(this).attr('href'))})
 	};
 	this.bump_loading = function(){
 		loaded++;
@@ -36,24 +40,25 @@ function Suite(){
 	}
 	this.menu_preloaded = function(imgs){
 		$.each(imgs, function(k,v){
-			_this.apply_image(k, v.src);
-			log("loaded " + k + ' with ' + v.src)
+			_this.apply_image(k, v);
 		});
 		loader.loadGroup('visuals_low_res',function(){
-			loader.loadGroup('visuals_high_res', scroller.set_positions, _this.high_visual_preloaded);
-		},  _this.high_visual_preloaded);
+			loader.loadGroup('visuals_high_res', scroller.init, _this.high_visual_preloaded);
+		},  _this.low_visual_preloaded);
 		$('#loading-overlay').remove();
 	}
-	this.low_visual_preloaded = function(el){
-		log('Loaded ' + el.rel);
-		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover'});
+	this.low_visual_preloaded = function(selector, source){
+		_this.apply_image(selector, source, _this.isMobile() ? {} : { backgroundSize: 'cover'});
 	};
-	this.high_visual_preloaded = function(el){
-		log('Loaded ' + el.rel);
-		_this.apply_image(el.rel, el.src, { backgroundSize: 'cover'});
+	this.high_visual_preloaded = function(selector, source){
+		_this.apply_image(selector, source, { backgroundSize: 'cover'});
 	};
 	this.apply_image = function(selector, value, additional){
 		var additional = additional || {}
+		if(_this.isMobile()){
+			// Add the visual block
+			selector = selector.replace(/ .visual/, '');
+		}
 		log('Applying ' + selector);
 		$(selector).css($.extend(additional, {
 			backgroundImage: 'url(' + value + ')',
@@ -64,7 +69,6 @@ function Suite(){
 		if(_this.isMobile()) document.title = "Suite Bar";
 	}
 	this.isMobile = function(){
-		return true;
 		return navigator.userAgent.match(/iP(hone|od|ad)/i)
 	}
 	this.initMenu = function(){

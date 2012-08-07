@@ -40,18 +40,18 @@ function Scroll(app_instance){
 	};
 	this.init = function(){
 		log("Scroller init");
+		_this.set_positions();
 		_this.scrollHandler();
 		_this.s.num_stories = _this.stories.length;
+		_this.prepareContact();
+		_this.init_contact();
 		if(_this.app.isMobile()) return;
 		$(window).resize(_this.resizeHandler);
 		_this.initMenu();
-		_this.prepareContact();
-		_this.init_contact();
 		_this.animloop();
 
 	};
 	this.animloop = function(){
-		alog("reqwust")
       requestAnimFrame(_this.animloop);
       _this.scrollHandler();
     };
@@ -299,12 +299,10 @@ function Scroll(app_instance){
 		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
 	this.prepareContact = function(){
-		return;
 		_this.booking = new Booking;
 		_this.booking.init();
 	}
 	this.init_contact = function(){
-		return ;
 		if(_this.contact) return;
 		_this.contact = new Contact();
 		_this.contact.init();

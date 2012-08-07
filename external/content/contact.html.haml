@@ -29,7 +29,9 @@
   %h2.first#reservations Reservations | Bookings
 
   %p
-    Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+    You can book a dinner table right here online. For bookings on the day, or bookings for larger groups, please contact us directly on 09 3077030.
+  %p
+    Suite can cater for both small and large parties, with our capacity being 130 people. Our company policy is no 21st birthday parties.
   %form{ action: "#", method: "POST", id: :booking_form }
     .input.well
       %label{ for: :booking_name } Contact Name:
@@ -43,7 +45,7 @@
         .guests_counter 2
         %input{ type: :range, id: :booking_guests, value: 2, min: 1, max: 10, name: :guests }
         .guests_over
-          For bookings over 10 people, please call xxx-xxx-xxx
+          For bookings over 10 people, please call 09 3077030
     .input.slim.left.well.date
       %label.left Date:
       %input.left{ type: :text, id: :booking_date_display, placeholder: "Select a day & time", disabled: :disabled }
