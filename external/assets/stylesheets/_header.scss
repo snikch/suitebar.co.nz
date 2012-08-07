@@ -97,6 +97,7 @@ header{
 					padding:10px 14px 51px;
 					background-color: RGBA(0,0,0,0.0);
 					&:hover{
+						background-color: RGB(46,46,46);
 						background-color: RGBA(255,255,255,0.2);
 						opacity: 1;
 						filter: alpha(opacity=100);
@@ -104,6 +105,7 @@ header{
 					}
 				}
 				&.active a{
+					background-color: RGB(0,0,0);
 					background-color: RGBA(0,0,0,0.9);
 					filter: alpha(opacity=100);
 					opacity: 1;

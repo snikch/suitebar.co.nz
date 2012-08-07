@@ -15,6 +15,7 @@
 		top: 0;
 		left: 0;
 		opacity: 0;
+		filter: alpha(opacity=0);
 		background-color: #000;
 	}
 	.menu-item{
@@ -37,19 +38,23 @@
 			position:absolute;
 			color:#fff;
 			font-weight:normal;
+			filter: alpha(opacity=0);
 		}
 		img{
 			@include transition(all 0.3s ease-in-out);
 			@include transform(scaleY(1));
 			opacity: 1;
+			filter: alpha(opacity=100);
 		}
 		&:hover{
 			h2{
 				@include transform(scale(1));
+				filter: alpha(opacity=100);
 			}
 			img{
 				@include transform(scale(7));
 				opacity: 0;
+				filter: alpha(opacity=0);
 			}
 		}
 	}

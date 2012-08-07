@@ -6,7 +6,7 @@
 
   %table
     - require 'csv'
-    - CSV.foreach("/Users/mal/Code/github/suite/external/content/drinks/cocktails.csv", :quote_char => '"') do |row|
+    - CSV.foreach("/Users/mal/Code/personal/suitebar/external/content/drinks/cocktails.csv", :quote_char => '"') do |row|
       %tr
         %td
           %em= row[0]
