@@ -25,6 +25,9 @@
     -# All JavaScript at the bottom, except for Modernizr and Respond.
     -# Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
     = javascript_include_tag "libs/modernizr-2.0.6.min"
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
     %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js" }
     :javascript
       window.jQuery || document.write("<script src='/assets/javascripts/libs/jquery-1.6.2.min'>\x3C/script>")
