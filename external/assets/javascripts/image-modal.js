@@ -10,6 +10,9 @@ var ImageModal = function(image){
 		
 		loading.remove();
 		overlay.append($img);
+		if($img.width() > $(window).width()){
+			$img.css({width: $(window).width()});
+		}
 		$img.css({ position: 'absolute', display: "block", left: '50%', top: '50%', marginTop: (-1*($img.height()/2)) + "px", marginLeft: (-1*($img.width()/2)) + "px"  })
 	
 		$img.click(close);

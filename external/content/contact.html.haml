@@ -37,8 +37,11 @@
       %label{ for: :booking_name } Contact Name:
       %input{ type: :text, id: :booking_name, name: :name, placeholder: "So we know what to call you" }
     .input.well
-      %label{ for: :booking_contact } Contact Details:
-      %input{ type: :text, id: :booking_contact, placeholder: "Phone number or email address" }
+      %label{ for: :booking_phone } Phone Number:
+      %input{ type: :text, id: :booking_phone, name: :phone, placeholder: "Phone number (required)" }
+    .input.well
+      %label{ for: :booking_email } Email:
+      %input{ type: :text, id: :booking_email, name: :email, placeholder: "Email Address" }
     .input.well
       .guests
         %label{ for: :booking_guests } Number of guests:
@@ -54,11 +57,11 @@
     %div.left{ type: :text, id: :booking_date_picker }
     %ul.left{ type: :text, id: :booking_time_picker }
       %li.well 6pm
-      %li.well 6.30pm
+      %li.well 6:30pm
       %li.well 7pm
-      %li.well 7.30pm
+      %li.well 7:30pm
       %li.well 8pm
-      %li.well 8.30pm
+      %li.well 8:30pm
     .input.clear.well
       %label{ for: :booking_comments } Comments:
       %textarea{ id: :booking_comments, rows: 5, name: :comments }
@@ -71,8 +74,11 @@
     .name.input
       .title Name:
       .value.dotted
-    .contact.input
-      .title Contact:
+    .phone.input
+      .title Phone:
+      .value.dotted
+    .email.input
+      .title Email:
       .value.dotted
     .date.input
       .title Date:

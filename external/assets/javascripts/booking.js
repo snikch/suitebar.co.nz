@@ -1,5 +1,20 @@
 var Booking = function(){
-	var _this = this, date_picker = $('#booking_date_picker'), time_picker = $('#booking_time_picker'), date = $('#booking_date'), time = $('#booking_time'), guests = $('#booking_guests'), name = $('#booking_name'), contact = $('#booking_contact'), form = $('#booking_form'), confirmation_container = $('.booking_confirmation'), comments = $('#booking_comments'), empty, show_error, booking_url = 'http://0.0.0.0:3001/v1/bookings/create';//'http://suite-bookings.herokuapp.com/booking.json';
+	var _this = this,
+		date_picker = $('#booking_date_picker'),
+		time_picker = $('#booking_time_picker'),
+		date = $('#booking_date'),
+		time = $('#booking_time'),
+		guests = $('#booking_guests'),
+		name = $('#booking_name'),
+		phone = $('#booking_phone'),
+		email = $('#booking_email'),
+		form = $('#booking_form'),
+		confirmation_container = $('.booking_confirmation'),
+		comments = $('#booking_comments'),
+		empty,
+		show_error,
+		booking_url = 'http://0.0.0.0:3001/v1/bookings/create';
+		booking_url = 'http://suite-bookings.herokuapp.com/v1/bookings/create';
 
 	this.init = function(){
 		date_picker.kalendae({
@@ -45,7 +60,8 @@ var Booking = function(){
 		e.preventDefault();
 		var values = {
 			name: name.val(),
-			contact: contact.val(),
+			phone: phone.val(),
+			email: email.val(),
 			date: date.val(),
 			time: time.val(),
 			guests: guests.val()
@@ -55,8 +71,8 @@ var Booking = function(){
 
 		if(empty(values.name))
 			attention.push(name)
-		if(empty(values.contact))
-			attention.push(contact)
+		if(empty(values.phone))
+			attention.push(phone)
 		if(empty(values.date))
 			attention.push(date)
 		if(empty(values.time))
@@ -77,7 +93,8 @@ var Booking = function(){
 	}
 	this.update_confirmation_details = function(){
 		$('.name .value', confirmation_container).html(name.val());
-		$('.contact .value', confirmation_container).html(contact.val());
+		$('.phone .value', confirmation_container).html(phone.val());
+		$('.email .value', confirmation_container).html(email.val() == "" ? "not given" : email.val());
 		$('.date .value', confirmation_container).html(_this.date_display());
 		$('.guests .number', confirmation_container).html(guests.val());
 		$('.guests .word', confirmation_container).html(
@@ -107,18 +124,30 @@ var Booking = function(){
 
 	this.submit_booking = function(e){
 		e.preventDefault();
-		$.ajax({ url: booking_url, data: form.serialize(), type: "post", dataType: 'json' })
+		$.ajax({ url: booking_url, data: form.serialize(), type: "get", dataType: 'jsonp' })
 			.done(_this.booking_succeeded)
-			.fail(_this.booking_failed)
 	}
 
 	this.booking_succeeded = function(data){
+		if(data["status"] != "success"){
+			return _this.booking_failed(data);
+		}
 		console.log("succeeded")
 		console.log(data);
+		$('.modal', confirmation_container).html("<h1>Booking Request</h1><h2>Your request has been sent!</h2><h2>Thank you for making a booking request. We review requests regularly and will be in touch to confirm soon.</h2><div class='options'><a class='btn n'>Close</a></div>")
+		$('.n', confirmation_container).click(_this.change_booking);
 	}
 	this.booking_failed = function(data){
 		console.log("failed")
 		console.log(data)
+		if(data["status"] == "error"){
+			$('.modal', confirmation_container).html("<h1>Booking Request</h1><h2>Sorry, an error occured!</h2><h2>Looks like things didn’t go as planned on our end… please contact Suite directly to make your booking.</h2><div class='options'><a class='btn n'>Close</a></div>");
+			setTimeout(_this.hide_confirmation_dialog, 10000);
+			$('.n', confirmation_container).click(_this.change_booking);
+			return;
+		}
+		alert("Please fix the following: \n" + data["errors"].join("\n"))
+		_this.change_booking();
 	}
 
 	this.show_confirmation_dialog = function(){

@@ -10,10 +10,11 @@ function Suite(){
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
 		scroller.prepare();
+		_this.initMenu();
+		_this.initMobile();
 		if(_this.isMobile()){
 			loader.loadGroup('visuals_low_res',function(){
 				$('#loading-overlay').hide();
-				_this.initMenu();
 				scroller.init();
 			},  _this.low_visual_preloaded);	
 
@@ -22,7 +23,6 @@ function Suite(){
 			$('body').addClass('showmenu');
 			loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
 		}
-		_this.initMobile();
 		$(function(){
 			log('starting bouncer');
 			//bouncer.verify_age(function(){
@@ -66,12 +66,17 @@ function Suite(){
 		}));
 	}
 	this.initMobile = function(){
-		if(_this.isMobile()) document.title = "Suite Bar";
+		if(_this.isMobile()){
+			document.title = "Suite Bar";
+			$('body').addClass('touch');
+		}
 	}
 	this.isMobile = function(){
 		return navigator.userAgent.match(/iP(hone|od|ad)/i)
 	}
 	this.initMenu = function(){
+		$('header nav h1 a').click(function(e){ $('header nav ul').toggleClass('active'); })
+		$('header nav li a').click(function(e){ e.stopPropagation(); $('header nav ul').toggleClass('active', false); })
 		$('a[rel=reservations]').click(function(e){
 			e.preventDefault();
 			offset = $('#reservations').offset().top

@@ -63,6 +63,8 @@
 			}
 		}
 	}
+	.touch header nav:hover ul{ display: none; }
+	.touch header nav:hover ul.active{ display: block; }
 	.story{
 		padding: 20px 0;
 		> h2, > h3, > h4, > p, > table, > form, > ol{
@@ -74,6 +76,7 @@
 		}
 		h2{
 			position: relative;
+			text-align: right;
 		}
 		&.delayed h2{
 			margin-top: 0;
