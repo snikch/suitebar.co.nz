@@ -623,4 +623,4 @@ Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0));};
 
 // Can combine with clippaths for awesomeness: http://generic.cx/for/webkit/test.html
 
-Modernizr.addTest('cssmask', Modernizr.testAllProps('mask'));
+Modernizr.addTest('cssmask', Modernizr.testAllProps('maskRepeat'));

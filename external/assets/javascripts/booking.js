@@ -124,6 +124,13 @@ var Booking = function(){
 
 	this.submit_booking = function(e){
 		e.preventDefault();
+		$yes = $('.y', confirmation_container);
+		if($yes.attr('disabled') == 'disabled'){
+			console.log("Ignoring disabled submit");
+			return;
+		}
+		$yes.attr('disabled', true).css('opacity', 0.5);
+
 		$.ajax({ url: booking_url, data: form.serialize(), type: "get", dataType: 'jsonp' })
 			.done(_this.booking_succeeded)
 	}
@@ -146,6 +153,8 @@ var Booking = function(){
 			$('.n', confirmation_container).click(_this.change_booking);
 			return;
 		}
+		$yes = $('.y', confirmation_container);
+		$yes.attr('disabled', false).css('opacity', 1);
 		alert("Please fix the following: \n" + data["errors"].join("\n"))
 		_this.change_booking();
 	}
