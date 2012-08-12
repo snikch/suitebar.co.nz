@@ -165,9 +165,6 @@ function Scroll(app_instance){
 		}
 		match = i === _this.s.last_story_index && follow === _this.s.follow;
 		if(!match){
-		console.log("Follow" + follow);
-		console.log("I " + i);
-		console.log("j " + j);
 			method === 'style' ? _this.removeStyles() : _this.removeClasses(i,follow);
 			method === 'style' ? _this.setStylesAt(i, follow) : _this.setClassesAt(i, follow);
 			if(i !== _this.s.last_story_index && i !== -1){

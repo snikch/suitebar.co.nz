@@ -29,7 +29,16 @@
 	}
 }
 
-#contact.story{
+#contact.story .link{
+	display:none;
+}
+.touch #contact{
+	.link{
+		display: block;
+	}
+	.text{
+		display: none;
+	}
 }
 #card_container{
 	margin:0 0 0 -599px;
@@ -74,7 +83,7 @@
 	.guests{
 		@include transition(all 0.4s ease-in-out);
 		height: 50px;
-		background: url(/assets/images/people-range.png) 220px 3px no-repeat;
+		background: url(#{$asset_path}/images/people-range.png) 220px 3px no-repeat;
 		input{
 			margin: 12px 0 10px 35px;
 			width: 150px;

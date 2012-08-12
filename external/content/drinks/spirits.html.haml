@@ -1,148 +1,27 @@
+- require 'csv'
+- spirits = {}
+- %w[ gin vodka rum whiskey bourbon cognac bitter tequila ].each do |spirit|
+  - spirits[spirit] = {}
+  - CSV.foreach("/Users/mal/Code/github/suite/projects/suitebar/external/content/drinks/#{spirit}.csv", :quote_char => '"') do |row|
+    - unless row.at 1
+      - spirits[spirit][row.first] = []
+    - else
+      - spirits[spirit][spirits[spirit].keys.last] << row
+
 #spirits.story.spirit.gin
   %h2.first Gin | Jenever | Genièvre
   %p ‘Drunk for a penny, Dead drunk for two pence, Clean straw for nothing!’ - A notice seen all around London in the 1730’s.
-  %table
-    %thead
-      %tr
-        %th Modern
-    %tbody
-      %tr
-        %td 209 Gin
-        %td USA
-        %td 16
-      %tr
-        %td Beefeater Summer
-        %td England
-        %td 10
-      %tr
-        %td Hendricks
-        %td Scotland
-        %td 16
-      %tr
-        %td Junipero
-        %td USA
-        %td 12
-      %tr
-        %td Lighthouse
-        %td New Zealand
-        %td 12
-      %tr
-        %td Martin Miller Arctic
-        %td England
-        %td 12
-      %tr
-        %td Martin Miller Westbourne
-        %td England
-        %td 15
-      %tr
-        %td Saffron Gin
-        %td France
-        %td 11
-      %tr
-        %td South
-        %td New Zealand
-        %td 12
-  %table
-    %thead
-      %tr
-        %th London Dry
-    %tbody
-      %tr
-        %td Beefeater
-        %td England
-        %td 9
-      %tr
-        %td Beefeater 24
-        %td England
-        %td 13
-      %tr
-        %td Beefeater Crown Jewel
-        %td England
-        %td 25
-      %tr
-        %td Blackwoods Vintage Dry Gin
-        %td Scotland
-        %td 11.5
-      %tr
-        %td Geranium Gin
-        %td England
-        %td 16
-      %tr
-        %td No3
-        %td England
-        %td 13
-      %tr
-        %td Tanqueray
-        %td England
-        %td 9.5
-      %tr
-        %td Tanqueray no.10
-        %td England
-        %td 12
-      %tr
-        %td Whitley Neill
-        %td England
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Sloe Gin
-    %tbody
-      %tr
-        %td The Bitter Truth SloeBerry Gin
-        %td Germany
-        %td 11
-      %tr
-        %td Gabriel Boudier SloeBerry
-        %td France
-        %td 10
-      %tr
-        %td Hayman Sloe Gin
-        %td England
-        %td 11
-  %table
-    %thead
-      %tr
-        %th Genever Gin
-    %tbody
-      %tr
-        %td Bokma Jonge Geneva
-        %td Holland
-        %td 9
-      %tr
-        %td Bols Jonge Geneva
-        %td Holland
-        %td 9
-      %tr
-        %td Ketel One Granjenever
-        %td Holland
-        %td 12
-      %tr
-        %td De Kuyper Square Gin
-        %td Holland
-        %td 11
-  %table
-    %thead
-      %tr
-        %th Old Tom Gin
-    %tbody
-      %tr
-        %td Hayman Old Tom
-        %td England
-        %td 11
-  %table
-    %thead
-      %tr
-        %th Plymouth Gin
-    %tbody
-      %tr
-        %td Plymouth English
-        %td England
-        %td 9.5
-      %tr
-        %td Plymouth Navy Strength
-        %td England
-        %td 18
+  - spirits["gin"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
   %h3.first Gin Flight:
   %p ‘Why Cucumbers Are Better Than Men’
@@ -155,338 +34,51 @@
   %p “Such people came to inhabit a new social layer: the lumpenproletariat, or to use the terminology of the time, the posadskaia golytba (urban poor) - those who were forever half-starved, spiteful, cruel, cynical, unfettered by any of the norms of the people in general, and whose energies could be directed into any channel for the price of a “bucket” of vodka.
   %p A paragraph used to describe drunkards in early 16th Century Russia. ‘A History of Vodka’ - William Pokhlebkin.
 
-  %table
-    %thead
-      %tr
-        %th Wheat
-    %tbody
-      %tr
-        %td 42 Below
-        %td New Zealand
-        %td 10
-      %tr
-        %td Ketel One
-        %td Holland
-        %td 12.5
-      %tr
-        %td Russian Standard Imperia
-        %td Russia
-        %td 16
-      %tr
-        %td Russian Standard Gold
-        %td Russia
-        %td 9
-      %tr
-        %td Russian Standard Platinum
-        %td Russia
-        %td 14
-      %tr
-        %td Absolut 100
-        %td Sweden
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Rye
-    %tbody
-      %tr
-        %td Belvedere
-        %td Poland
-        %td 14
-  %table
-    %thead
-      %tr
-        %th Grape
-    %tbody
-      %tr
-        %td Ciroc
-        %td France
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Bisongrass
-    %tbody
-      %tr
-        %td Zubrowka
-        %td Poland
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Flavoured
-    %tbody
-      %tr
-        %td 42 Below Feijoa
-        %td New Zealand
-        %td 10
-      %tr
-        %td 42 Below Honey
-        %td New Zealand
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Whey
-    %tbody
-      %tr
-        %td Broken Shed
-        %td New Zealand
-        %td 12.5
-  %p.last
+  - spirits["vodka"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
 .story.spirit.cognac
   %h2.first Cognac | Eau de Vie | Brandy
   %p “Claret is the liquor for boys, port for men, but he who aspires to be a hero must drink brandy.” - Samuel Johnson
-  %table
-    %thead
-      %tr
-        %th Cognac
-    %tbody
-      %tr
-        %td Courvoisier XO
-        %td Cognac, France
-        %td 30
-      %tr
-        %td Delmaine XO
-        %td Cognac, France
-        %td 25
-      %tr
-        %td Hennessy XO
-        %td Cognac, France
-        %td 45
-      %tr
-        %td Martell XO
-        %td Cognac, France
-        %td 40
-      %tr
-        %td Cohiba Cognac
-        %td Cognac, France
-        %td 50
-      %tr
-        %td Martell Cordon Bleu
-        %td Cognac, France
-        %td 30
-      %tr
-        %td Martell VS
-        %td Cognac, France
-        %td 12
-      %tr
-        %td Otard XO
-        %td Cognac, France
-        %td 35
-  %table
-    %thead
-      %tr
-        %th Armagnac
-    %tbody
-      %tr
-        %td Bas-Armagnac Delord XO
-        %td Armagnac, France
-        %td 15
-      %tr
-        %td Fine Armagnac Delord
-        %td Armagnac, France
-        %td 9
-      %tr
-        %td Bas-Armagnac Delord VSOP
-        %td Armagnac, France
-        %td 12
-      %tr
-        %td Marq de Montesquiou XO
-        %td Armagnac, France
-        %td 14
-  %table
-    %thead
-      %tr
-        %th Calvados
-    %tbody
-      %tr
-        %td Breuil Calvados Fine
-        %td Calvados, France
-        %td 14
-      %tr
-        %td Breuil Calvados VSOP
-        %td Calvados, France
-        %td 12
-      %tr
-        %td Cristian Drouin Pays Du Auge
-        %td Calvados, France
-        %td 14
-  %table
-    %thead
-      %tr
-        %th Eau-De-Vie
-    %tbody
-      %tr
-        %td Briottet Framboise Saurage
-        %td France
-        %td 14
-      %tr
-        %td Briottet Poire William
-        %td France
-        %td 14
-      %tr
-        %td Briottet Mirabelle
-        %td France
-        %td 14
-      %tr
-        %td Drouin Blanche Normandie
-        %td Normandie, France
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Pisco
-    %tbody
-      %tr
-        %td Casa Del Inca
-        %td Lima, Peru
-        %td 12
 
+  - spirits["cognac"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
+   
   %p.last.first ‘All our Cognacs are poured and priced to 45ml because we think 30mls just isn’t enough.’
 
 .story.spirit.tequila
   %h2.first Tequila | Pulque | Mezcal
   %p R.I.P. Tomás “Tommy” Bermejo ~ 1932-2011
-  %table
-    %thead
-      %tr
-        %th Blanco
-    %tbody
-      %tr
-        %td Arette Blanco
-        %td Tequila, Jalisco
-        %td 9
-      %tr
-        %td Chamucos
-        %td Tequila, Jalisco
-        %td 15
-      %tr
-        %td Don Julio Blanco
-        %td Atotonilco el Alto, Jalisco
-        %td 18
-      %tr
-        %td Gran Centenario Plata
-        %td Tequila, Jalisco
-        %td 16
-      %tr
-        %td Hacienda Cristero Blanco
-        %td Amatitan, Jalisco
-        %td 14
-      %tr
-        %td Herradurra Blanco
-        %td Amatitan, Jalisco
-        %td 14
-      %tr
-        %td Patron Silver
-        %td Tequila, Jalisco
-        %td 16
-  %table
-    %thead
-      %tr
-        %th Anejo
-    %tbody
-      %tr
-        %td Arette Anejo
-        %td Tequila, Jalisco
-        %td 14
-      %tr
-        %td Cazadores Anejo
-        %td Arandas, Jalisco
-        %td 18
-      %tr
-        %td Chamucos
-        %td Tequila, Jalisco
-        %td 17
-      %tr
-        %td Don Julio Anejo
-        %td Atotonilco el Alto, Jalisco
-        %td 20
-      %tr
-        %td Gran Corralejo Anejo
-        %td Guanajuato, Jalisco
-        %td 50
-  %table
-    %thead
-      %tr
-        %th Super Anejo
-    %tbody
-      %tr
-        %td Cuervo Res de La Familia
-        %td Tequila, Jalisco
-        %td 20
-      %tr
-        %td El Mayor
-        %td Guadalajara, Jalisco
-        %td 30
-      %tr
-        %td Herradura Seleccion Suprema
-        %td Amatitan, Jalisco
-        %td 50
-      %tr
-        %td Patron Anejo
-        %td Mexico
-        %td 19
-      %tr
-        %td Sauza Tres Generaciones
-        %td Tequila, Jalisco
-        %td 13
-  %table
-    %thead
-      %tr
-        %th Reposado
-    %tbody
-      %tr
-        %td Chamucos Reposado
-        %td Tequila, Jalisco
-        %td 16
-      %tr
-        %td Cuervo Tradicional
-        %td Tequila, Jalisco
-        %td 11
-      %tr
-        %td Don Julio Reposado
-        %td Atotonilco el Alto, Jalisco
-        %td 18
-      %tr
-        %td Gran Centenario Reposado
-        %td Tequila, Jalisco
-        %td 15.5
-      %tr
-        %td Herradura Antiguo 1870
-        %td Amatitan, Jalisco
-        %td 11
-      %tr
-        %td Herradura Reposado
-        %td Amatitan, Jalisco
-        %td 15
-      %tr
-        %td Patron Reposado
-        %td
-        %td 18
-  %table
-    %thead
-      %tr
-        %th Mezcals
-    %tbody
-      %tr
-        %td Maguey Mezcal Chichicapa
-        %td Chichicapam, Oaxaca
-        %td 21.5
-      %tr
-        %td Maguey Mezcal San Luis Del Rio
-        %td San Luis del Rio, Oaxaca
-        %td 21.5
-      %tr
-        %td Maguey Mezcal Minero
-        %td Santa Catarina Minas, Oaxaca
-        %td 21.5
-      %tr
-        %td Maguey Mezcal Tobala
-        %td Tobalá, Oaxaca
-        %td 30
 
+  - spirits["tequila"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
   %h3.first Tequila Flight:
   %p “White Lightning”
@@ -498,260 +90,17 @@
   %h2.first Rumbullion | Ron | Rhum
   %p “Such a day, rum all out - our company somewhat sober ,a damned confusion amongst us! Rogues a plotting - great talk of separation. So I looked sharp for a prize - such a day took one, with a great deal of liquor on board; so kept the company hot, damned hot, then all things went well again.” - Written in Edward Teach’s (Blackbeard) journal found aboard the Adventure.
 
-  %table
-    %thead
-      %tr
-        %th Gold Rum
-    %tbody
-      %tr
-        %td Angostura 1919
-        %td Trinidad
-        %td 14.5
-      %tr
-        %td Angostura 1824
-        %td  Trinidad
-        %td 20
-      %tr
-        %td Appleton 8 yr
-        %td Jamaica
-        %td 11
-      %tr
-        %td Appleton 12 yr
-        %td Jamaica
-        %td 12
-      %tr
-        %td Appletons 21yr
-        %td Jamaica
-        %td 25
-      %tr
-        %td Appleton Master Blenders Legacy
-        %td Jamaica
-        %td 18
-      %tr
-        %td Banks 5 Island
-        %td Caribbean Islands
-        %td 14
-      %tr
-        %td Cockspur 12yr
-        %td Barbados
-        %td 13.5
-      %tr
-        %td Cadenhead Demerara 12 yr
-        %td Guyana
-        %td 16
-      %tr
-        %td Cadenhead Trinidad 12 yr
-        %td Trinidad
-        %td 25
-      %tr
-        %td Cruzan Single Barrel St.
-        %td Croix
-        %td 13.5
-      %tr
-        %td Edwin Charlie Enlighten
-        %td Jamaica
-        %td POA
-      %tr
-        %td Edwin Charlie Transform
-        %td Jamaica
-        %td POA
-      %tr
-        %td Edwin Charlie Virtue
-        %td Jamaica
-        %td POA
-      %tr
-        %td El Dorado 15 yr
-        %td Guyana
-        %td 16
-      %tr
-        %td El Dorado 12 yr
-        %td Guyana
-        %td 14.5
-      %tr
-        %td El Dorado 5 yr
-        %td Guyana
-        %td 11.5
-      %tr
-        %td Flor de Cana Centenario 18 yr
-        %td Nicaragua
-        %td 17
-      %tr
-        %td Flor de Cana 7 yr
-        %td Nicaragua
-        %td 12
-      %tr
-        %td Havana Club Barrel Proof
-        %td Cuba
-        %td 18
-      %tr
-        %td Havana Club Anos 7 yr
-        %td Cuba
-        %td 12
-      %tr
-        %td Havana Club Anejo Reserva
-        %td Cuba
-        %td 10
-      %tr
-        %td Malteco 20 yr
-        %td Guatemala
-        %td 18
-      %tr
-        %td Matusalem Solera 7 yr
-        %td Dominican Republic
-        %td 11
-      %tr
-        %td Matusalem Grand Reserva 15 yr
-        %td Dominican Republic
-        %td 13
-      %tr
-        %td Mocambo 20 yr
-        %td Mexico
-        %td 13
-      %tr
-        %td Mt Gay XO
-        %td Barbados
-        %td 12.5
-      %tr
-        %td Murray McDavid Guyana 14 yr
-        %td Guyana
-        %td 17
-      %tr
-        %td Murray McDavid Jamaica 13 yr
-        %td Jamaica
-        %td 17
-      %tr
-        %td Pussers Navy
-        %td Multi
-        %td 10
-      %tr
-        %td Pyrat XO
-        %td Anguilla
-        %td 15
-      %tr
-        %td Pyrat Cask 1623
-        %td Anguilla
-        %td 50
-      %tr
-        %td Rhum Barbancourt 5 Star
-        %td Haiti
-        %td 14.5
-      %tr
-        %td Ron Varadero 15 yr
-        %td Cuba
-        %td 12
-      %tr
-        %td Ron Zacapa 15 yr
-        %td Guatemala
-        %td 15
-      %tr
-        %td Ron Zacapa 23 yr
-        %td Guatemala
-        %td 22
-      %tr
-        %td Santiago De Cuba Anniversary
-        %td Cuba
-        %td 20
-      %tr
-        %td Stolen Gold
-        %td Trinidad
-        %td 9
-      %tr
-        %td St James Vieux
-        %td Martinique
-        %td 10
-      %tr
-        %td St James Vieux 12
-        %td Martinique
-        %td 14
-  %table
-    %thead
-      %tr
-        %th White Rum
-    %tbody
-      %tr
-        %td Edwin Charlie Foundation
-        %td Jamaica
-        %td POA
-      %tr
-        %td Flor De Cana Extra Dry 4yr
-        %td Nicaragua
-        %td 11
-      %tr
-        %td Briottet Rhum Agricole Blanc
-        %td France
-        %td 10
-      %tr
-        %td Havana Club 3yr
-        %td Cuba
-        %td 13.5
-      %tr
-        %td Havana Blanco
-        %td Cuba
-        %td 9
-      %tr
-        %td St James Blanc
-        %td Martinique
-        %td 13
-      %tr
-        %td Stolen White
-        %td Trinidad
-        %td 9
-      %tr
-        %td Wray Nephew OP
-        %td Jamaica
-        %td 13
-  %table
-    %thead
-      %tr
-        %th Dark Rum
-    %tbody
-      %tr
-        %td Cruzan Black Strap
-        %td St. Croix
-        %td 10
-      %tr
-        %td Gosling Black Seal
-        %td Bermuda
-        %td 14
-      %tr
-        %td Myers
-        %td Jamacia
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Spiced Rum
-    %tbody
-      %tr
-        %td Sailor Jerry
-        %td Caribbean
-        %td 11
-      %tr
-        %td Homemade Mermaid Tears Rum
-        %td Homemade
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Cachaca
-    %tbody
-      %tr
-        %td Leblon Cachaca
-        %td Brazil
-        %td 13
-      %tr
-        %td Sagatiba Pura
-        %td Brazil
-        %td 9
-      %tr
-        %td Sagatiba Velha
-        %td Brazil
-        %td 10.5
-      %tr
-        %td Ypioca Cachca
-        %td Brazil
-        %td 10
-
+  - spirits["rum"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
   %h3.first Rum Flight:
   %p ‘Dr. Mordough & Project B.R.A.I.N’
@@ -769,123 +118,17 @@
     We ain’t paid no whiskey tax since 1792”
   %p Line from a folk song written about the Whiskey Rebellion in the 1790’s.
 
-  %table
-    %thead
-      %tr
-        %th Rye Whisky
-    %tbody
-      %tr
-        %td Jim Beam Rye
-        %td Frankfort, Kentucky
-        %td 10
-      %tr
-        %td Pikesville Rye
-        %td Bardstown, Kentucky
-        %td 14.5
-      %tr
-        %td Van Winkle Rye 13yr
-        %td Frankfort, Kentucky
-        %td 25
-      %tr
-        %td Wild Turkey Rye
-        %td Lawrenceburg, Kentucky
-        %td 11
-      %tr
-        %td Rittenhouse Rye
-        %td Bardstown, Kentucky
-        %td 12
-      %tr
-        %td Rittenhouse 100 Proof
-        %td Bardstown, Kentucky
-        %td 14
-      %tr
-        %td Old Potrero
-        %td San Francisco, California
-        %td 25
-      %tr
-        %td Sazerac Rye
-        %td Frankfort, Kentucky
-        %td 18
-  %table
-    %thead
-      %tr
-        %th Kentucky Straight Whisky
-    %tbody
-      %tr
-        %td Bakers 7yr
-        %td Clermont, Kentucky
-        %td 11
-      %tr
-        %td Bookers Bourbon
-        %td Clermont, Kentucky
-        %td 14.5
-      %tr
-        %td Buffalo Trace
-        %td Frankfort, Kentucky
-        %td 10
-      %tr
-        %td Bulleit
-        %td Lawrenceburg, Kentucky
-        %td 10
-      %tr
-        %td Eagle Rare 10yr
-        %td Frankfort, Kentucky
-        %td 15
-      %tr
-        %td Elijah Craig 12yr
-        %td Bardstown, Kentucky
-        %td 15
-      %tr
-        %td Jeffersons Reserve
-        %td Louisville, Kentucky
-        %td 16.5
-      %tr
-        %td Knob Creek
-        %td Clermont, Kentucky
-        %td 18.5
-      %tr
-        %td Makers Mark
-        %td Loretto, Kentucky
-        %td 9
-      %tr
-        %td Wild Turkey 8yr
-        %td Lawrenceburg, Kentucky
-        %td 10
-      %tr
-        %td Wild Turkey Rare Breed
-        %td Lawrenceburg, Kentucky
-        %td 16
-      %tr
-        %td Woodford Reserve
-        %td Versailles, Kentucky
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Tennessee Whisky
-    %tbody
-      %tr
-        %td Jack Daniels Black
-        %td Lynchburg, Tennessee
-        %td 9
-  %table
-    %thead
-      %tr
-        %th Wheat Whisky
-    %tbody
-      %tr
-        %td Bernhiem Wheat Whisky
-        %td Bardstown, Kentucky
-        %td 22
-  %table
-    %thead
-      %tr
-        %th Straight Bourbon Whisky
-    %tbody
-      %tr
-        %td AH Hirsch 16yr
-        %td Schaefferstown, Pennsylvania
-        %td 35
+  - spirits["bourbon"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
   %h3.first American Flight:
   %p “Yet all the lads they smile on me, When comin’ thro’ the rye”
@@ -896,152 +139,18 @@
 .story.spirit.whiskey
   %h2.first Whiskey | Whisky | Uisce Beatha
   %p ‘To Friar John Cor, by order of the King, to make aqua vitae VIII bolls of malt.’ The earliest documented record of distilling in Scotland - Exchequer Rolls 1494.
-  %table
-    %thead
-      %tr
-        %th Single Malt
-    %tbody
-      %tr
-        %td Amrut Fusion
-        %td Bangalore, India
-        %td 22
-      %tr
-        %td Glenfarclas 105
-        %td Highland, Scotland
-        %td 20
-      %tr
-        %td Glengoyne 17yr
-        %td Highland, Scotland
-        %td 20
-      %tr
-        %td Glenmorangie 15 yr
-        %td Highland, Scotland
-        %td 22
-      %tr
-        %td Ardbeg 10yr
-        %td Islay, Scotland
-        %td 14.5
-      %tr
-        %td Ardbeg 15yr
-        %td Islay, Scotland
-        %td 25
-      %tr
-        %td Bruichladdie 125 Anniversary
-        %td Islay, Scotland
-        %td 40
-      %tr
-        %td Caol Ila Cask Strength
-        %td Islay, Scotland
-        %td 22
-      %tr
-        %td Lagavulin 16yr
-        %td Islay, Scotland
-        %td 20
-      %tr
-        %td Laphroaig 10yr
-        %td Islay, Scotland
-        %td 16
-      %tr
-        %td Octomore 3.152
-        %td Islay, Scotland
-        %td 50
-      %tr
-        %td Auchentoshen 3 Wood
-        %td Lowland, Scotland
-        %td 18
-      %tr
-        %td Ledaig 12yr (Dun Bheagan)
-        %td Mull, Scotland
-        %td 18
-      %tr
-        %td Tobermory 15yr
-        %td Mull, Scotland
-        %td 30
-      %tr
-        %td Highland Park 12yr
-        %td Orkney, Scotland
-        %td 13
-      %tr
-        %td Highland Park 18yr
-        %td Orkney, Scotland
-        %td 25
-      %tr
-        %td Glenrothes 1994
-        %td Speyside, Scotland
-        %td 25
-      %tr
-        %td Glenlivet Nadura
-        %td Speyside, Scotland
-        %td 25
-      %tr
-        %td Tailsker 30
-        %td Skye, Scotland
-        %td 70
-  %table
-    %thead
-      %tr
-        %th Blended
-    %tbody
-      %tr
-        %td Chivas Regal 18yr
-        %td Speyside, Scotland
-        %td 20
-      %tr
-        %td Chivas Regal 21yr Royal Salute
-        %td Speyside, Scotland
-        %td 35
-      %tr
-        %td J&B Rare
-        %td Speyside, Scotland
-        %td 9
-      %tr
-        %td Monkey Shoulder
-        %td Speyside, Scotland
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Irish Whiskey
-    %tbody
-      %tr
-        %td Jameson
-        %td Cork, Ireland
-        %td 9
-      %tr
-        %td Midleton Very Rare
-        %td Cork, Ireland
-        %td 25
-  %table
-    %thead
-      %tr
-        %th Grain Whisky
-    %tbody
-      %tr
-        %td Compass Box Hedonism
-        %td Speyside, Scotland
-        %td 22
-  %table
-    %thead
-      %tr
-        %th Pure Pot Still
-    %tbody
-      %tr
-        %td Redbreast 12yr
-        %td Cork, Ireland
-        %td 12
-      %tr
-        %td Redbreast 15yr
-        %td Cork, Ireland
-        %td 20
-  %table
-    %thead
-      %tr
-        %th Japanese Whisky
-    %tbody
-      %tr
-        %td Yamazaki 12yr
-        %td Osaka, Japan
-        %td 11
+
+  - spirits["whiskey"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
 
   %h3.first Whiskey Flight:
   %p ‘Orphans: Brawlers, Bawlers & Bastards’
@@ -1053,222 +162,17 @@
   %h2.first Bitter | Digestif | Apéritifs
   %p Ok, if I say to you Fernet Branca, what is it? Yeah, it does the job but ohh how it tastes. - Bill Cosby
 
-  %table
-    %thead
-      %tr
-        %th Absinthe
-    %tbody
-      %tr
-        %td Absente
-        %td France
-        %td 12
-      %tr
-        %td La Grande Absente
-        %td France
-        %td 18
-      %tr
-        %td La Fee Bohemian Czech
-        %td Republic
-        %td 18
-      %tr
-        %td La Fee Parisienne Czech
-        %td Republic
-        %td 18
-      %tr
-        %td Pernod Absinthe
-        %td France
-        %td 25
-      %tr
-        %td Mansinthe
-        %td Swizerland
-        %td 25
-      %tr
-        %td Mythe Absinthe Traditional
-        %td France
-        %td 12
-  %table
-    %thead
-      %tr
-        %th Amaro
-    %tbody
-      %tr
-        %td Amaro Montenegro
-        %td Italy
-        %td 11
-      %tr
-        %td Amaro Ramazotti
-        %td Italy
-        %td 11
-      %tr
-        %td Averna
-        %td Italy
-        %td 11
-      %tr
-        %td The Bitter Truth Elixier
-        %td Germany
-        %td 11
-      %tr
-        %td Cynar
-        %td Italy
-        %td 9
-  %table
-    %thead
-      %tr
-        %th Aperitif
-    %tbody
-      %tr
-        %td Pernod
-        %td France
-        %td 8.5
-      %tr
-        %td Pimms
-        %td England
-        %td 8
-  %table
-    %thead
-      %tr
-        %th Bitters
-    %tbody
-      %tr
-        %td Aperol
-        %td Italy
-        %td 10
-      %tr
-        %td Branca Menta
-        %td Italy
-        %td 10
-      %tr
-        %td Campari
-        %td Italy
-        %td 8
-      %tr
-        %td Fernet Branca
-        %td Italy
-        %td 10
-      %tr
-        %td Gran Classico
-        %td Swizerland
-        %td 12
-      %tr
-        %td Kuemmerling
-        %td Denmark
-        %td 10
-      %tr
-        %td Unicum
-        %td Hungary
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Fortified Wine
-    %tbody
-      %tr
-        %td Stones Ginger Wine
-        %td England
-        %td 8
-  %table
-    %thead
-      %tr
-        %th Grappa
-    %tbody
-      %tr
-        %td Carpene Malvotti Grappa di Prosecco
-        %td Italy
-        %td 16
-      %tr
-        %td Francoli Del Piemonte Grappa 3yr
-        %td Italy
-        %td 14
-      %tr
-        %td Francoli Grappa
-        %td Italy
-        %td 18
-      %tr
-        %td Johanneshof Gewurtztraminer
-        %td New Zealand
-        %td 16
-  %table
-    %thead
-      %tr
-        %th Marc
-    %tbody
-      %tr
-        %td Billecart-Salmon Marc de Champagne
-        %td France
-        %td 15
-  %table
-    %thead
-      %tr
-        %th Pastis
-    %tbody
-      %tr
-        %td Henri Bardouin
-        %td France
-        %td 12
-      %tr
-        %td Jean Cannon
-        %td France
-        %td 12
-      %tr
-        %td Ricard
-        %td France
-        %td 10
-  %table
-    %thead
-      %tr
-        %th Vermouth
-    %tbody
-      %tr
-        %td Carpano Antica Formula
-        %td Italy
-        %td 15
-      %tr
-        %td Cinzano Extra Dry
-        %td Italy
-        %td 8
-      %tr
-        %td Cocchi Americano
-        %td Italy
-        %td 15
-      %tr
-        %td Dolin Blanc
-        %td France
-        %td 9
-      %tr
-        %td Dolin Dry
-        %td France
-        %td 9
-      %tr
-        %td Dolin Rouge
-        %td France
-        %td 9
-      %tr
-        %td Dubonnet
-        %td France
-        %td 8
-      %tr
-        %td Lillet Blanc
-        %td France
-        %td 8.5
-      %tr
-        %td Lillet Rouge
-        %td France
-        %td 8.5
-      %tr
-        %td Martini Dry
-        %td Italy
-        %td 9
-      %tr
-        %td Martini Rosso
-        %td Italy
-        %td 9
-      %tr
-        %td unt e Mes
-        %td Italy
-        %td 10
-      %tr
-        %td Rosso Antico
-        %td Italy
-        %td 10
+  - spirits["bitter"].each do |variety, bottles|
+    %table
+      %thead
+        %tr
+          %th= variety
+      %tbody
+        - bottles.each do |bottle|
+          %tr
+            %td= bottle.at 0
+            %td= bottle.at 1
+            %td= bottle.at 2
+
   %p.last
 

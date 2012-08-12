@@ -1,6 +1,6 @@
 .ie6, .ie7, .ie8{
 	header h1{
-		background-image: url(/assets/images/suite-header-logo.png);
+		background-image: url(#{$asset_path}/images/suite-header-logo.png);
 	}
 	#booking_form{
 	   .guests_counter{
@@ -12,7 +12,7 @@
 				margin-left: 5px;
 			}
 		}
-		
+
 	}
 	.kalendae{
 		display:block;

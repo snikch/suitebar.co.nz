@@ -11,7 +11,7 @@ function Doorman(){
 	};
 	this.verify_age = function(callback){
 		log("verifying age")
-		if(true | is_verified() || is_vip()){
+		if(is_verified() || is_vip()){
 			log("is verified")
 			$('#bouncer-overlay').remove();
 			log("removed overlay")

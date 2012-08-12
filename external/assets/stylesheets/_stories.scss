@@ -19,7 +19,7 @@
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-attachment:scroll;
-		background-image: url('/assets/images/b/loading.png');
+		background-image: url(#{$asset_path}/images/b/loading.png);
 		opacity: 0;
 		filter: alpha(opacity=0);
 		@include transition(opacity 500ms ease);
@@ -237,9 +237,9 @@ th{
 		}
 	}
 	.barney{
-		background-image: url(/assets/images/people/barney-small.jpg);
+		background-image: url(#{$asset_path}/images/people/barney-small.jpg);
 		&:hover{
-			background-image: url(/assets/images/people/barney-small-hover.jpg);
+			background-image: url(#{$asset_path}/images/people/barney-small-hover.jpg);
 		}
 	}
 }

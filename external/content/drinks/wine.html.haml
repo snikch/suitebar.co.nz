@@ -1,42 +1,21 @@
-- white = { "Sparkling, Prosecco & Champagne" => [["NV", "Deutz Prestige Cuvee", "Marlborough, New Zealand", 13.5, 65],
-["NV", "Champagne Deutz Brut Classic", "Epernay, France", 19, 128],
-["NV", "Bollinger Special Cuvee", "Champagne, France", 180],
-["NV", "Billecart-Salmon Rosé", "Champagne, France", 350],
-["02", "Perrier-Jouet Belle Epoque", "Champagne, France", 500],
-["NV", "Villa Sandi Prosecco", "Prosecco, Italy", 9.5, 50]],
-"Dry, Fragrant, Crisp - White" => [["09", "Pra Soave", "Veneto, Italy", 62],
-["05", "Kim Crawford ‘Small Parcels’ Bone Dry Riesling", "Marlborough, New Zealand", 69],
-["09", "La Bastide Viognier", "Languedoc, France", 9.5, 48],
-["09", "I Masoletti Pinot Grigio", "Trentino, Italy", 8.5, 44],
-["10", "Framingham Sauvignon Blanc", "Marlborough, New Zealand", 11, 54]],
-"Off-Dry & Sweeter - White" => [["09", "Rippon Riesling", "Wanaka, New Zealand", 79],
-["09", "Camshorn Classic Riesling", "Waipara, New Zealand", 11.5, 56],
-["09", "Guigal Côtes du Rhône Blanc", "Southern Rhône, France", 69]],
-"Medium to Full Bodied, Elegant, Textured - White" => [["09", "Churton Sauvignon Blanc", "Marlborough, New Zealand", 65],
-["05", "Kim Crawford ‘Small Parcels’ Parkland Gewurztraminer", "Gisborne, New Zealand", 69],
-["08", "Framingham Pinot Gris", "Marlborough, New Zealand", 13.5, 69],
-["09", "Telmo Rodriguez Gaba do Xil Godello", "Galicia, Spain", 76]],
-"Fuller-Bodied, Pronounced Oak Influence - White" => [["09", "Auntsfield Cob Cottage Chardonnay", "Marlborough, New Zealand", 14.5, 71],
-["08", "Kumeu River Matés Chardonnay", "Auckland, New Zealand", 120]],
-"Rosé" => [["09", "Conde De Valdemar Rosado", "Rioja, Spain", 9.5, 46],
-["10", "Gibbston Valley Rosé", "Gibbston, New Zealand", 69]]}
-- red = { "Youthful, Light - Red" => [["09", "Kumeu River Village Pinot Noir", "Auckland, New Zealand", 10, 50],
-["09", "La Vieille Ferme Côtes du Ventoux", "Southern Rhône, France", 69]],
-"Medium to Full Bodied, Supple - Red" => [["07", "Jean-Luc Colombo ‘Les Abeilles’ Côtes du Rhône", "Southern Rhône, France", 11, 54],
-["08", "Churton Pinot Noir", "Marlborough, New Zealand", 17.5, 85],
-["06", "Antinori Chianti Classico Riserva", "Tuscany, Italy", 98],
-["09", "Escarpment Pinot Noir", "Martinborough, New Zealand", 128]],
-"Fuller-Bodied, Rich & Soft - Red" => [["08", "Alluviale Rouge", "Hawkes Bay, New Zealand", 13.5, 69],
-["08", "Tormaresca Neprica Puglia", "Puglia, Italy", 52],
-["09", "Earthworks Shiraz", "Barossa Valley, Australia", 12, 60]],
-"Full Bodied, Firm, High Extract - Red" => [["07", "Wyndham Founders Reserve Shiraz", "Hunter Valley, Australia", 10, 52],
-["07", "St Hugo Cabernet Sauvignon", "Coonawarra, Australia", 105],
-["07", "Tenuta di Biserno ‘Il Pino di Biserno’", "Tuscany, Italy", 240]],
-"Sweet - Dessert" => [["09", "Huia Botrytis Riesling (375ml)", "Marlborough, New Zealand", 16, 68]]}
+- require 'csv'
+- whites = {}
+- CSV.foreach("/Users/mal/Code/github/suite/projects/suitebar/external/content/drinks/wine-white.csv", :quote_char => '"') do |row|
+  - unless row.at 1
+    - whites[row.first] = []
+  - else
+    - whites[whites.keys.last] << row
+
+- reds = {}
+- CSV.foreach("/Users/mal/Code/github/suite/projects/suitebar/external/content/drinks/wine-red.csv", :quote_char => '"') do |row|
+  - unless row.at 1
+    - reds[row.first] = []
+  - else
+    - reds[reds.keys.last] << row
 
 #wine.story.white-wine.wine
   %h2.first The Whites
-  - white.each do |variety, wines|
+  - whites.each do |variety, wines|
     %table
       %thead
         %tr
@@ -56,13 +35,12 @@
               =wine.at 1
               %br
               %span= wine.at 2
-            %td.price= wine.size == 5 ? wine.at(3) : nil
-            %td.price= wine.size == 5 ? wine.at(4) : wine.at(3)
-
+            %td.price= wine.at(3)
+            %td.price= wine.at(4)
   %p.last
 .story.red-wine.wine
   %h2.first The Reds
-  - red.each do |variety, wines|
+  - reds.each do |variety, wines|
     %table
       %thead
         %tr

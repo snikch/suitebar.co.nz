@@ -1,54 +1,13 @@
+- require 'csv'
+- beers = {}
+- CSV.foreach("/Users/mal/Code/github/suite/projects/suitebar/external/content/drinks/beers.csv", :quote_char => '"') do |row|
+  - unless row.at 1
+    - beers[row.first] = []
+  - else
+    - beers[beers.keys.last] << row
+
 #beer.story.beer-1.beer
   %h2.first Glorious Beer
-
-
-  - beers =  { "Lager" => [ ["Brewski", "330ml", "Wanaka, New Zealand", "9"],
-  ["Export Dry", "330ml", "Otahuhu, New Zealand", "8.5"],
-  ["Corona", "330ml", "Mexico City, Mexico", "9"],
-  ["Hallertau 1 Luxe", "330ml", "Auckland, New Zealand", "10"],
-  ["Harrington’s Lazy Sunday", "330ml", "Christchurch, New Zealand", "9"],
-  ["Harrington’s Rogue Hop", "330ml", "Christchurch, New Zealand", "9"],
-  ["Harrington’s Sobering Thought", "330ml", "Christchurch, New Zealand", "9"],
-  ["Leffe Radieuse", "330ml", "Namur, Belgium", "13"],
-  ["Kirin Ichiban", "330ml", "Yokohama, Japan", "11.5"],
-  ["Steinlager Pure", "330ml", "Auckland, New Zealand", "10"],
-  ["Tuatara Ardennes", "330ml", "Wellington, New Zealand", "12"],
-  ["Quilmes", "330ml", "Buenos Aires, Argentina", "9"],
-  ["Yeasty Boys Rex Attitude", "330ml", "Wellington, New Zealand", "12.5"],
-  ["Croucher Pilsner", "500ml", "Rotorua, New Zealand", "15"],
-  ["Harrington’s Ngahere Gold", "500ml", "Christchurch, New Zealand", "17"],
-  ["Three Boys Pilsner", "500ml", "Christchurch, New Zealand", "15"],
-  ["Sapporo", "634ml", "Tokyo, Japan", "16"],
-  ["Hallertau Stuntman", "750ml", "Auckland, New Zealand", "40"],
-  ["Asahi", "1L", "Tokyo, Japan", "25"],
-  ["Asahi", "2L", "Tokyo, Japan", "40"]],
-  "Ale" => [["Cooper’s Vintage 2010", "330ml", "Adelaide, Australia", "12"],
-  ["Cooper’s Sparkling Ale", "330ml", "Adelaide, Australia", "9"],
-  ["Croucher Pale Ale", "330ml", "Rotorua, New Zealand", "9"],
-  ["Epic Pale Ale", "330ml", "Auckland, New Zealand", "10"],
-  ["Moa St Five Hop", "375ml", "Malborough, New Zealand", "11"],
-  ["Moa St Josephs", "375ml", "Malborough, New Zealand", "11"],
-  ["Munich Bavarian", "330ml", "Auckland, New Zealand", "9"],
-  ["Mussell Inn ‘Captain Cooker’", "330ml", "Nelson, New Zealand", "11"],
-  ["Mystery Swappa", "500ml", "Wanaka, New Zealand", "15"],
-  ["NZ Craft Beer Mash Up", "500ml", "New Zealand", "20"],
-  ["Founders Generation Ale", "500ml", "Nelson, New Zealand", "16"],
-  ["Green Man Strong Org", "500ml", "Dunedin, New Zealand", "16"],
-  ["Harrington’s Big John", "500ml", "Christchurch, New Zealand", "16"],
-  ["Harrington’s Pig & Whistle", "500ml", "Christchurch, New Zealand", "15"],
-  ["Three Boy Golden Ale", "500ml", "Christchurch, New Zealand", "15"]],
-  "Porter" => [["Hallertau 4 Deception", "330ml", "Auckland, New Zealand", "10"],
-  ["Emerson’s London Porter", "500ml", "Dunedin, New Zealand", "17"],
-  ["Hallertau Porter Noir", "330ml", "Auckland, New Zealand", "35"]],
-  "Wheat" => [["Tuatara Hefe", "330ml", "Wellington, New Zealand", "10"],
-  ["Emerson’s Seasonal", "500ml", "Dunedin, New Zealand", "18"]],
-  "Cider" => [["Weka Apple Cider", "330ml", "Wanaka, New Zealand", "9"],
-  ["Bulmer’s Orignal Cider", "500ml", "Hereford, England", "12.5"]],
-  "Stout" =>[["Yeasty Boys Pot Kettle Black", "330ml", "Wellington, New Zealand", "10"],
-  ["Three Boys Oyster Stout", "500ml", "Christchurch, New Zealand", "15"]],
-  "IPA" => [["Epic Barrel Aged IPA", "500ml", "Auckland, New Zealand", "20"],
-  ["Epic Hop Zombie", "500ml", "Auckland, New Zealand", "20"],
-  ["Tuatara APA", "500ml", "Wellington, New Zealand", "16"]]}
 
   - beers.each do |k,v|
     %table

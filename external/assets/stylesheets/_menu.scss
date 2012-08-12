@@ -57,7 +57,6 @@
 				filter: alpha(opacity=100);
 			}
 			img{
-				@include transform(scale(7));
 				opacity: 0;
 				filter: alpha(opacity=0);
 			}
@@ -71,9 +70,6 @@
 		margin-left:-608px;
 		h2{
 		}
-		img{
-			@include mask-image('/assets/images/m/spirits-mask.png');
-		}
 	}
 	.menu-cocktails{
 		width: 203px;
@@ -83,9 +79,6 @@
 		margin-left:-354px;
 		z-index:74;
 		h2{
-		}
-		img{
-			@include mask-image('/assets/images/m/cocktails-mask.png');
 		}
 	}
 	.menu-food{
@@ -97,9 +90,6 @@
 		h2{
 			margin: 10% 0 0 180px;
 		}
-		img{
-			@include mask-image('/assets/images/m/food-mask.png');
-		}
 	}
 	.menu-beer{
 		width: 324px;
@@ -110,9 +100,6 @@
 		h2{
 			margin: 50% 0 0 120px;
 		}
-		img{
-			@include mask-image('/assets/images/m/beer-mask.png');
-		}
 	}
 	.menu-wine{
 		width: 181px;
@@ -122,9 +109,6 @@
 		margin-left:416px;
 		h2{
 			margin: 40% 0 0 80px;
-		}
-		img{
-			@include mask-image('/assets/images/m/wine-mask.png');
 		}
 	}
 	.menu-music{
@@ -137,9 +121,6 @@
 		h2{
 			margin: 20px 0 0 55px;
 		}
-		img{
-			@include mask-image('/assets/images/m/music-mask.png');
-		}
 	}
 	.menu-awards{
 		width: 154px;
@@ -149,9 +130,6 @@
 		margin-left:-81px;
 		h2{
 			margin: 94px 0 0 35px;
-		}
-		img{
-			@include mask-image('/assets/images/m/awards-mask.png');
 		}
 	}
 	.menu-people{
@@ -163,9 +141,51 @@
 		h2{
 			margin: 35% 0 0 25px;
 		}
-		img{
-			@include mask-image('/assets/images/m/people-mask.png');
-		}
 	}
 }
 
+.cssmask #main-menu{
+   	.menu-item img:hover{
+		@include transform(scale(7));
+	}
+	.menu-spirits{
+		img{
+			@include mask-image('#{$asset_path}/images/m/spirits-mask.png');
+		}
+	}
+	.menu-cocktails{
+		img{
+			@include mask-image('#{$asset_path}/images/m/cocktails-mask.png');
+		}
+	}
+	.menu-food{
+		img{
+			@include mask-image('#{$asset_path}/images/m/food-mask.png');
+		}
+	}
+	.menu-beer{
+		img{
+			@include mask-image('#{$asset_path}/images/m/beer-mask.png');
+		}
+	}
+	.menu-wine{
+		img{
+			@include mask-image('#{$asset_path}/images/m/wine-mask.png');
+		}
+	}
+	.menu-music{
+		img{
+			@include mask-image('#{$asset_path}/images/m/music-mask.png');
+		}
+	}
+	.menu-awards{
+		img{
+			@include mask-image('#{$asset_path}/images/m/awards-mask.png');
+		}
+	}
+	.menu-people{
+		img{
+			@include mask-image('#{$asset_path}/images/m/people-mask.png');
+		}
+	}
+}

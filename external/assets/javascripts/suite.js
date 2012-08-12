@@ -5,8 +5,17 @@ alog = function(message){
 	log.call(this, message);
 	alert(message);
 }
+var SuiteEnv = {
+	env:  function (){
+		return window.location.href.match('0.0.0.0') != null ? 'development' : 'production';
+	},
+	dev: function(){
+		return true;
+		return this.env() == 'development';
+	}
+}
 function Suite(){
-	var _this = this, scroller = new Scroll(this), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message');
+	var _this = this, scroller = new Scroll(this), bouncer = new Doorman(), loader = new ImageLoader(), loaded = 0, loading_message = $('#loading .message'), start = new Date();
 	var bar = $('#loading .loading_bar span');
 	this.load = function(){
 		scroller.prepare();
@@ -16,7 +25,7 @@ function Suite(){
 			loader.loadGroup('visuals_low_res',function(){
 				$('#loading-overlay').hide();
 				scroller.init();
-			},  _this.low_visual_preloaded);	
+			},  _this.low_visual_preloaded);
 
 		}else{
 			log ("Loading as desktop browser")
@@ -24,10 +33,8 @@ function Suite(){
 			loader.loadGroup('index', _this.menu_preloaded, _this.bump_loading);
 		}
 		$(function(){
-			log('starting bouncer');
-			//bouncer.verify_age(function(){
-				log('age virified');
-			//});
+			bouncer.verify_age(function(){
+			});
 		});
 		$('.people a').click(function(e){
 		   	e.preventDefault();
@@ -36,18 +43,31 @@ function Suite(){
 	this.bump_loading = function(){
 		loaded++;
 		// Give a free 10%, and divide by total images - 1
-		bar.css({ width: parseInt(Math.round(loaded/17*94)+6) + '%'});
+		total_images = 27;
+		bar.css({ width: parseInt(Math.round(loaded/(total_images-1)*94)+6) + '%'});
 	}
 	this.menu_preloaded = function(imgs){
 		$.each(imgs, function(k,v){
 			_this.apply_image(k, v);
 		});
 		loader.loadGroup('visuals_low_res',function(){
-			loader.loadGroup('visuals_high_res', scroller.init, _this.high_visual_preloaded);
+			// If it's been a few seconds, slide up
+			scroller.init();
+			var dialog = $('#loading-overlay');
+			if(new Date().getTime() - start.getTime() > 3000){
+				dialog.addClass('disappear');
+				setTimeout(function(){
+					dialog.remove();
+				}, 300);
+			}else{
+				dialog.remove();
+			}
+			if($(window).width() > 1024)
+				loader.loadGroup('visuals_high_res', null, _this.high_visual_preloaded);
 		},  _this.low_visual_preloaded);
-		$('#loading-overlay').remove();
 	}
 	this.low_visual_preloaded = function(selector, source){
+		_this.bump_loading();
 		_this.apply_image(selector, source, _this.isMobile() ? {} : { backgroundSize: 'cover'});
 	};
 	this.high_visual_preloaded = function(selector, source){

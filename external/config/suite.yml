@@ -1,4 +1,5 @@
 compress_javascript: true
 compress_css: true
 shorten_javascript_variables: true
+asset_host: '/suitebar/assets'
 

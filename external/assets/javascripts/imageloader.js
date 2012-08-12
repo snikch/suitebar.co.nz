@@ -1,60 +1,66 @@
 var ImageLoader = function(){
 	var _this = this;
-	var image_groups = {
+	//var asset_path = "/assets/images";
+	var asset_path = (SuiteEnv.dev() ? "" : "/suitebar") + "/assets/images";
+	this.image_groups = {
 		index: {
-			'#main-menu': '/assets/images/b/index.jpg',
-			'.menu-spirits': '/assets/images/m/spirits-mask.png',
-			'.menu-cocktails': '/assets/images/m/cocktails-mask.png',
-			'.menu-food': '/assets/images/m/food-mask.png',
-			'.menu-beer': '/assets/images/m/beer-mask.png',
-			'.menu-wine': '/assets/images/m/wine-mask.png',
-			'.menu-music': '/assets/images/m/music-mask.png',
-			'.menu-awards': '/assets/images/m/awards-mask.png',
-			'.menu-people': '/assets/images/m/people-mask.png'
+			'#main-menu': '/b/index.jpg',
+			'.menu-spirits': '/m/spirits-mask.png',
+			'.menu-cocktails': '/m/cocktails-mask.png',
+			'.menu-food': '/m/food-mask.png',
+			'.menu-beer': '/m/beer-mask.png',
+			'.menu-wine': '/m/wine-mask.png',
+			//'.menu-music': '/m/music-mask.png',
+			'.menu-awards': '/m/awards-mask.png',
+			'.menu-people': '/m/people-mask.png'
 		},
 		visuals_high_res: {
-			'.about-2 .visual': '/assets/images/b/about-1.jpg',
-			'.cocktail-1 .visual': '/assets/images/b/cocktails-2.jpg',
-			'.cocktail-2 .visual': '/assets/images/b/cocktails-1.jpg',
-			'.white-wine .visual': '/assets/images/b/wine-white.jpg',
-			'.red-wine .visual': '/assets/images/b/wine-red.jpg',
-			'.beer-1 .visual': '/assets/images/b/beer.jpg',
-			'.whiskey .visual': '/assets/images/b/whiskey.jpg',
-			'.gin .visual': '/assets/images/b/gin.jpg',
-			'.bitter .visual': '/assets/images/b/bitter.jpg',
-			'.vodka .visual': '/assets/images/b/vodka.jpg',
-			'.tequila .visual': '/assets/images/b/tequila.jpg',
-			'.bourbon .visual': '/assets/images/b/bourbon.jpg',
-			'.cognac .visual': '/assets/images/b/cognac.jpg',
-			'.food .visual': '/assets/images/b/food-2.jpg',
-			'.awards .visual': '/assets/images/b/awards.jpg',
-			'.rum .visual': '/assets/images/b/rum.jpg',
-			'.people .visual': '/assets/images/b/people.jpg',
-			'.bookings .visual': '/assets/images/b/bookings.jpg'
+			'.about-2 .visual': '/b/about-1.jpg',
+			'.cocktail-1 .visual': '/b/cocktails-2.jpg',
+			'.cocktail-2 .visual': '/b/cocktails-1.jpg',
+			'.white-wine .visual': '/b/wine-white.jpg',
+			'.red-wine .visual': '/b/wine-red.jpg',
+			'.beer-1 .visual': '/b/beer.jpg',
+			'.whiskey .visual': '/b/whiskey.jpg',
+			'.gin .visual': '/b/gin.jpg',
+			'.bitter .visual': '/b/bitter.jpg',
+			'.vodka .visual': '/b/vodka.jpg',
+			'.tequila .visual': '/b/tequila.jpg',
+			'.bourbon .visual': '/b/bourbon.jpg',
+			'.cognac .visual': '/b/cognac.jpg',
+			'.food .visual': '/b/food-2.jpg',
+			'.awards .visual': '/b/awards.jpg',
+			'.rum .visual': '/b/rum.jpg',
+			'.people .visual': '/b/people.jpg',
+			'.bookings .visual': '/b/bookings.jpg'
 		},
 		visuals_low_res: {
-			'.about-2 .visual': '/assets/images/b/low/about-1.jpg',
-			'.cocktail-1 .visual': '/assets/images/b/low/cocktails-2.jpg',
-			'.cocktail-2 .visual': '/assets/images/b/low/cocktails-1.jpg',
-			'.white-wine .visual': '/assets/images/b/low/wine-white.jpg',
-			'.red-wine .visual': '/assets/images/b/low/wine-red.jpg',
-			'.beer-1 .visual': '/assets/images/b/low/beer.jpg',
-			'.whiskey .visual': '/assets/images/b/low/whiskey.jpg',
-			'.gin .visual': '/assets/images/b/low/gin.jpg',
-			'.bitter .visual': '/assets/images/b/low/bitter.jpg',
-			'.vodka .visual': '/assets/images/b/low/vodka.jpg',
-			'.tequila .visual': '/assets/images/b/low/tequila.jpg',
-			'.bourbon .visual': '/assets/images/b/low/bourbon.jpg',
-			'.cognac .visual': '/assets/images/b/low/cognac.jpg',
-			'.food .visual': '/assets/images/b/low/food-2.jpg',
-			'.awards .visual': '/assets/images/b/low/awards.jpg',
-			'.rum .visual': '/assets/images/b/low/rum.jpg',
-			'.people .visual': '/assets/images/b/low/people.jpg',
-			'.bookings .visual': '/assets/images/b/low/bookings.jpg'
+			'.about-2 .visual': '/b/low/about-1.jpg',
+			'.cocktail-1 .visual': '/b/low/cocktails-2.jpg',
+			'.cocktail-2 .visual': '/b/low/cocktails-1.jpg',
+			'.white-wine .visual': '/b/low/wine-white.jpg',
+			'.red-wine .visual': '/b/low/wine-red.jpg',
+			'.beer-1 .visual': '/b/low/beer.jpg',
+			'.whiskey .visual': '/b/low/whiskey.jpg',
+			'.gin .visual': '/b/low/gin.jpg',
+			'.bitter .visual': '/b/low/bitter.jpg',
+			'.vodka .visual': '/b/low/vodka.jpg',
+			'.tequila .visual': '/b/low/tequila.jpg',
+			'.bourbon .visual': '/b/low/bourbon.jpg',
+			'.cognac .visual': '/b/low/cognac.jpg',
+			'.food .visual': '/b/low/food-2.jpg',
+			'.awards .visual': '/b/low/awards.jpg',
+			'.rum .visual': '/b/low/rum.jpg',
+			'.people .visual': '/b/low/people.jpg',
+			'.bookings .visual': '/b/low/bookings.jpg'
 		}
 	}
 	this.loadGroup = function(group, complete_callback, item_callback){
 		log("Loading group " + group);
+		image_group = _this.image_groups[group];
+		$.each(image_group,function(k,v){
+			image_group[k] = asset_path + v;
+		});
 		var cache_size = 4, complete = 0;
 		var queue = function(selector, source, cache){
 			img = cache;
@@ -67,8 +73,8 @@ var ImageLoader = function(){
 				}else{
 					complete++;
 					if(complete == cache_size){
-						log("Group loaded")
-						if(complete_callback) complete_callback(image_groups[group]);
+						log("Group loaded " + group)
+						if(complete_callback) complete_callback(image_group);
 					}
 				}
 			}
@@ -76,13 +82,10 @@ var ImageLoader = function(){
 		}
 		selectors = [];
 		sources = [];
-		$.each(image_groups[group], function(k,v){
+		$.each(_this.image_groups[group], function(k,v){
 			selectors.push(k)
 			sources.push(v);
 		});
-		console.log(image_groups[group]);
-		console.log(selectors);
-		console.log(sources);
 		for(i=0; i<cache_size;i++){
 			queue(selectors.shift(), sources.shift(), new Image());
 		}
