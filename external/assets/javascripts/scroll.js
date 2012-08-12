@@ -105,6 +105,16 @@ function Scroll(app_instance){
 			else
 				_this.stories.push($(this));
 		});
+		minHeight = parseInt($('#main-menu').css('minHeight'));
+		maxHeight = parseInt($('#main-menu').css('maxHeight'));
+		if(_this.s.window_height > maxHeight){
+			targetMenuHeight = maxHeight;
+		}else if(_this.s.window_height < minHeight){
+			targetMenuHeight = minHeight;
+		}else{
+			targetMenuHeight = _this.s.window_height;
+		}
+		$('#main-menu').css({height: targetMenuHeight});
 	};
 	this.init_stories = function(){
 		$('.story').each(function(i){

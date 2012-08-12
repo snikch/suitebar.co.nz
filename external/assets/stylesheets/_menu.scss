@@ -7,8 +7,8 @@
 }
 #main-menu{
 	display: block;
-	max-height:800px;
-	min-height:700px;
+	max-height:900px;
+	min-height:500px;
 	background-size: initial;
 	background-position: bottom center;
 	background-attachment: initial;
@@ -65,7 +65,7 @@
 	.menu-spirits{
 		width:300px;
 		height: 335px;
-		top: 329px;
+		bottom: 36px;
 		left: 50%;
 		margin-left:-608px;
 		h2{
@@ -74,7 +74,7 @@
 	.menu-cocktails{
 		width: 203px;
 		height:330px;
-		top: 325px;
+		bottom: 44px;
 		left: 50%;
 		margin-left:-354px;
 		z-index:74;
@@ -84,7 +84,7 @@
 	.menu-food{
 		width: 378px;
 		height:118px;
-		top: 562px;
+		bottom: 20px;
 		left: 50%;
 		margin-left:-228px;
 		h2{
@@ -94,7 +94,7 @@
 	.menu-beer{
 		width: 324px;
 		height:355px;
-		top: 293px;
+		bottom: 53px;
 		left: 50%;
 		margin-left:133px;
 		h2{
@@ -104,7 +104,7 @@
 	.menu-wine{
 		width: 181px;
 		height:315px;
-		top: 332px;
+		bottom: 52px;
 		left: 50%;
 		margin-left:416px;
 		h2{
@@ -125,7 +125,7 @@
 	.menu-awards{
 		width: 154px;
 		height:133px;
-		top: 283px;
+		bottom: 283px;
 		left: 50%;
 		margin-left:-81px;
 		h2{
@@ -135,7 +135,7 @@
 	.menu-people{
 		width: 111px;
 		height:140px;
-		top: 275px;
+		bottom: 286px;
 		left: 50%;
 		margin-left:129px;
 		h2{
