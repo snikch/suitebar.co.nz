@@ -2,18 +2,6 @@
 	header h1{
 		background-image: url(#{$asset_path}/images/suite-header-logo.png);
 	}
-	#booking_form{
-	   .guests_counter{
-			display:none;
-		}
-		.guests{
-			background: none;
-			input{
-				margin-left: 5px;
-			}
-		}
-
-	}
 	.kalendae{
 		display:block;
 		width: 150px;

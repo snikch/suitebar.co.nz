@@ -306,6 +306,9 @@ function Scroll(app_instance){
 		$('header a[href=#' + ui.replace('#','') + ']').parent('li').addClass('active');
 	};
 	this.prepareContact = function(){
+		if(!Modernizr.inputtypes.range){
+			$('body').addClass('no-input-range');
+		}
 		_this.booking = new Booking;
 		_this.booking.init();
 	}

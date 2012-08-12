@@ -86,11 +86,19 @@
 		}
 	}
 
-	#booking_date_picker{
-		clear: left;
-	}
 
-	#booking_form input{
-		width: 230px;
+}
+.no-input-range{
+	#booking_form{
+	   .guests_counter{
+			display:none;
+		}
+		.guests{
+			background: none;
+			input{
+				margin-left: 5px;
+			}
+		}
+
 	}
 }

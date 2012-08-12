@@ -10,6 +10,7 @@ var SuiteEnv = {
 		return window.location.href.match('0.0.0.0') != null ? 'development' : 'production';
 	},
 	dev: function(){
+		return true;
 		return this.env() == 'development';
 	}
 }
